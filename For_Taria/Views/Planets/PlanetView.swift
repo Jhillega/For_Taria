@@ -30,9 +30,10 @@ struct PlanetView: View {
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(colorOfPlanet)
+                .padding()
             VStack {
                 Text(planet.name)
-                    .font(.title)
+                    .font(.title2)
                     .bold()
                     .padding()
                 Text("Climate: " + planet.climate)
@@ -42,6 +43,8 @@ struct PlanetView: View {
                 Text("Gravity: " + planet.gravity)
                     .font(.body)
             }
+            Spacer()
+            Spacer()
         }
         .frame(height: 150.00)
     }
