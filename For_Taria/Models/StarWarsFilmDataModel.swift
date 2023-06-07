@@ -55,7 +55,7 @@ class StarWarsFilmDataModel: ObservableObject {
             return filmsToReturn
         }
         catch {
-            print("Error: \(error)")
+            print("Error: \(error.localizedDescription)")
             return nil
         }
     }

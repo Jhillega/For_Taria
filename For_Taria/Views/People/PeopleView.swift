@@ -8,7 +8,17 @@
 import SwiftUI
 
 struct PeopleView: View {
-    @State private var results = [Person]()
+    @StateObject var peopleVM = StarWarsPersonDataModel()
+    var results: [Person]? {
+        get {
+            return peopleVM.currentModels
+        }
+        set(newValue) {
+            if let value = newValue {
+                self.results = value
+            }
+        }
+    }
     
     var body: some View {
         VStack {
@@ -17,13 +27,13 @@ struct PeopleView: View {
                 .bold()
                 .padding()
             List {
-                ForEach(results, id: \.id) { person in
+                ForEach(results ?? [], id: \.id) { person in
                     PersonView(person: person)
                 }
             }
             .onAppear() {
-                StarWarsPersonDataModel().fetchPeopleFromAGalaxyFarFarAway { results in
-                    self.results = results
+                Task {
+                    await peopleVM.searchPeopleFromAGalaxyFarFarAway()
                 }
             }
         }

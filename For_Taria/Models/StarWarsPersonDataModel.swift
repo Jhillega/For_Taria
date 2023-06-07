@@ -6,11 +6,34 @@
 //
 
 import Foundation
+import Combine
 
-class StarWarsPersonDataModel: ObservableObject {
+@MainActor class StarWarsPersonDataModel: ObservableObject {
     @Published var currentModels = [Person]()
     
     let basePeopleURL = "https://swapi.dev/api/people/"
+    
+    func searchPeopleFromAGalaxyFarFarAway() async {
+        guard let url = URL(string: basePeopleURL) else {
+            print("BAD URL!!!!")
+            return
+        }
+        
+        do {
+            let (data, response) = try await URLSession.shared.data(from: url)
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                print("error parsing")
+                return
+            }
+            if let people = self.parsePeopleJson(data) {
+                self.currentModels = people
+            }
+            
+        }
+        catch {
+            return
+        }
+    }
     
     func fetchPeopleFromAGalaxyFarFarAway(completion:@escaping ([Person]) -> ()) {
         guard let url = URL(string: basePeopleURL) else {
@@ -27,7 +50,6 @@ class StarWarsPersonDataModel: ObservableObject {
             }
 
             let people = try! JSONDecoder().decode(SwapiPeopleResults.self, from: data)
-            print(people.results)
             DispatchQueue.main.async {
                 completion(people.results)
             }
@@ -36,6 +58,19 @@ class StarWarsPersonDataModel: ObservableObject {
         .resume()
         
         
+    }
+    
+    func parsePeopleJson(_ peopleData: Data) -> [Person]? {
+        let decoder = JSONDecoder()
+        do {
+            let decodedPeople = try decoder.decode(SwapiPeopleResults.self, from: peopleData)
+            let peopleToReturn = decodedPeople.results
+            return peopleToReturn
+        }
+        catch {
+            print("Error: \(error.localizedDescription)")
+            return nil
+        }
     }
 
 }
