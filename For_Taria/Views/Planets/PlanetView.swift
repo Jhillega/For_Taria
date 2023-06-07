@@ -9,15 +9,41 @@ import SwiftUI
 
 struct PlanetView: View {
     let planet: Planet
+    var colorOfPlanet: SwiftUI.Color {
+        switch planet.climate {
+        case "arid":
+            return .yellow
+        case "temperate":
+            return .green
+        case "murky":
+            return .mint
+        case "frozen":
+            return .blue
+        default:
+            return .black
+        }
+    }
     
     var body: some View {
-        VStack {
-            Text(planet.name)
-                .padding()
-            Text("Climate: " + planet.climate)
-            Text("Orbital period: " + planet.orbitalPeriod)
-            Text("Gravity: " + planet.gravity)
+        HStack {
+            Image(systemName: "circle.fill")
+                .resizable()
+                .scaledToFit()
+                .foregroundColor(colorOfPlanet)
+            VStack {
+                Text(planet.name)
+                    .font(.title)
+                    .bold()
+                    .padding()
+                Text("Climate: " + planet.climate)
+                    .font(.body)
+                Text("Orbital period: " + planet.orbitalPeriod)
+                    .font(.body)
+                Text("Gravity: " + planet.gravity)
+                    .font(.body)
+            }
         }
+        .frame(height: 150.00)
     }
 }
 

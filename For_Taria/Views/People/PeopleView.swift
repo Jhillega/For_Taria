@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PeopleView: View {
+    @ObservedObject var peopleVM = StarWarsPersonDataModel()
     @State private var results = [Person]()
     
     var body: some View {
@@ -22,8 +23,8 @@ struct PeopleView: View {
                 }
             }
             .onAppear() {
-                StarWarsPersonDataModel().fetchPeopleFromAGalaxyFarFarAway { results in
-                    self.results = results
+                Task {
+                    results = await peopleVM.searchPeopleFromAGalaxyFarFarAway() ?? []
                 }
             }
         }

@@ -6,11 +6,35 @@
 //
 
 import Foundation
+import Combine
 
 class StarWarsPersonDataModel: ObservableObject {
     @Published var currentModels = [Person]()
     
     let basePeopleURL = "https://swapi.dev/api/people/"
+    
+    func searchPeopleFromAGalaxyFarFarAway() async -> [Person]? {
+        guard let url = URL(string: basePeopleURL) else {
+            print("BAD URL!!!!")
+            return nil
+        }
+        
+        do {
+            let (data, response) = try await URLSession.shared.data(from: url)
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                print("error parsing")
+                return []
+            }
+            if let people = self.parsePeopleJson(data) {
+                return people
+            }
+            
+        }
+        catch {
+            return []
+        }
+        return nil
+    }
     
     func fetchPeopleFromAGalaxyFarFarAway(completion:@escaping ([Person]) -> ()) {
         guard let url = URL(string: basePeopleURL) else {
@@ -27,7 +51,6 @@ class StarWarsPersonDataModel: ObservableObject {
             }
 
             let people = try! JSONDecoder().decode(SwapiPeopleResults.self, from: data)
-            print(people.results)
             DispatchQueue.main.async {
                 completion(people.results)
             }
@@ -36,6 +59,19 @@ class StarWarsPersonDataModel: ObservableObject {
         .resume()
         
         
+    }
+    
+    func parsePeopleJson(_ peopleData: Data) -> [Person]? {
+        let decoder = JSONDecoder()
+        do {
+            let decodedPeople = try decoder.decode(SwapiPeopleResults.self, from: peopleData)
+            let peopleToReturn = decodedPeople.results
+            return peopleToReturn
+        }
+        catch {
+            print("Error: \(error.localizedDescription)")
+            return nil
+        }
     }
 
 }
@@ -49,7 +85,7 @@ struct SwapiPeopleResults: Codable {
 }
 
 // MARK: - Result
-struct Person: Codable, Identifiable {
+struct Person: Codable, Identifiable, Cardable {
     let id = UUID()
     let name, height, mass, hairColor: String
     let skinColor, eyeColor, birthYear: String
@@ -66,6 +102,20 @@ struct Person: Codable, Identifiable {
         case eyeColor = "eye_color"
         case birthYear = "birth_year"
         case gender, homeworld, films, species, vehicles, starships, created, edited, url
+    }
+    
+    func returnAsCard<T>(using object: T) -> [CardLabels : Any] {
+        // build dictionary for card labels
+        var cardDict = [CardLabels : AnyObject]()
+        
+        // assign labels
+        cardDict[.cardType] = CardType.person as AnyObject
+        cardDict[.labelOne] = self.name as AnyObject
+        cardDict[.labelTwo] = self.homeworld as AnyObject
+        cardDict[.labelThree] = self.birthYear as AnyObject
+        
+        // sell it
+        return cardDict
     }
 }
 

@@ -9,18 +9,17 @@ import Foundation
 import SwiftUI
 
 class StarWarsPlanetsDataModel: ObservableObject {
-    @Published var currentFetchedPlanets = [Planet]()
+    @Published var currentFetchedPlanets: [Planet]?
     
     let basePlanetURL = "https://swapi.dev/api/planets/"
     
     @MainActor
-    func executePlanetCall() async -> [Planet] {
-        currentFetchedPlanets = await fetchPlanetsFromAGalaxyFarFarAway()
-        return currentFetchedPlanets
+    func executePlanetCall() async {
+        await fetchPlanetsFromAGalaxyFarFarAway()
     }
     
-    func fetchPlanetsFromAGalaxyFarFarAway() async -> [Planet] {
-        var planetsToReturn: [Planet] = []
+    @MainActor
+    func fetchPlanetsFromAGalaxyFarFarAway() async {
         guard let url = URL(string: basePlanetURL) else {
             fatalError("Missing URL")
         }
@@ -29,16 +28,15 @@ class StarWarsPlanetsDataModel: ObservableObject {
         do {
             let (data, response) = try await URLSession.shared.data(for: urlRequest)
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                return []
+                return
             }
             if let planets = self.parsePlanetJSON(data) {
-                planetsToReturn = planets
+                currentFetchedPlanets = planets
             }
         } catch {
-            return []
+            print("Error: \(error.localizedDescription)")
+            return
         }
-        
-        return planetsToReturn
     }
     
     func parsePlanetJSON(_ planetsData: Data) -> [Planet]? {

@@ -49,6 +49,7 @@ class StarWarsVehicleDataModel: ObservableObject {
             
         }
         catch {
+            print("Error: \(error.localizedDescription)")
             return nil
         }
     }

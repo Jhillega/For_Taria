@@ -11,15 +11,21 @@ struct PersonView: View {
     let person: Person
     
     var body: some View {
-        VStack {
-            Text(person.name)
-            Text("Birthday: " + person.birthYear)
+        HStack {
+            Image(systemName: "person.fill")
+                .resizable()
+                .scaledToFit()
+            VStack{
+                Text(person.name)
+                    .font(.title)
+                    .bold()
+                    .padding()
+                Text("Birthday: " + person.birthYear)}
         }
-        .background(Color.black, alignment: .leading)
-        .foregroundColor(.yellow)
-
+        .frame(height: 150.00)
     }
 }
+
 
 struct PersonView_Previews: PreviewProvider {
     static var previews: some View {
@@ -29,7 +35,7 @@ struct PersonView_Previews: PreviewProvider {
                                   hairColor: "",
                                   skinColor: "",
                                   eyeColor: "",
-                                  birthYear: "",
+                                  birthYear: "1998",
                                   gender: .male,
                                   homeworld: "",
                                   films: [],
