@@ -8,32 +8,31 @@
 import Foundation
 import Combine
 
-class StarWarsPersonDataModel: ObservableObject {
+@MainActor class StarWarsPersonDataModel: ObservableObject {
     @Published var currentModels = [Person]()
     
     let basePeopleURL = "https://swapi.dev/api/people/"
     
-    func searchPeopleFromAGalaxyFarFarAway() async -> [Person]? {
+    func searchPeopleFromAGalaxyFarFarAway() async {
         guard let url = URL(string: basePeopleURL) else {
             print("BAD URL!!!!")
-            return nil
+            return
         }
         
         do {
             let (data, response) = try await URLSession.shared.data(from: url)
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
                 print("error parsing")
-                return []
+                return
             }
             if let people = self.parsePeopleJson(data) {
-                return people
+                self.currentModels = people
             }
             
         }
         catch {
-            return []
+            return
         }
-        return nil
     }
     
     func fetchPeopleFromAGalaxyFarFarAway(completion:@escaping ([Person]) -> ()) {
@@ -85,7 +84,7 @@ struct SwapiPeopleResults: Codable {
 }
 
 // MARK: - Result
-struct Person: Codable, Identifiable, Cardable {
+struct Person: Codable, Identifiable {
     let id = UUID()
     let name, height, mass, hairColor: String
     let skinColor, eyeColor, birthYear: String
@@ -102,20 +101,6 @@ struct Person: Codable, Identifiable, Cardable {
         case eyeColor = "eye_color"
         case birthYear = "birth_year"
         case gender, homeworld, films, species, vehicles, starships, created, edited, url
-    }
-    
-    func returnAsCard<T>(using object: T) -> [CardLabels : Any] {
-        // build dictionary for card labels
-        var cardDict = [CardLabels : AnyObject]()
-        
-        // assign labels
-        cardDict[.cardType] = CardType.person as AnyObject
-        cardDict[.labelOne] = self.name as AnyObject
-        cardDict[.labelTwo] = self.homeworld as AnyObject
-        cardDict[.labelThree] = self.birthYear as AnyObject
-        
-        // sell it
-        return cardDict
     }
 }
 

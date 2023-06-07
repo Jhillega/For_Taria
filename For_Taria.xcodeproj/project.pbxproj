@@ -22,9 +22,6 @@
 		5441B3A32A29805600405481 /* PlanetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3A22A29805600405481 /* PlanetsView.swift */; };
 		5441B3A52A29806B00405481 /* PlanetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3A42A29806B00405481 /* PlanetView.swift */; };
 		5441B3A72A2A18DD00405481 /* StarWarsStarshipDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3A62A2A18DD00405481 /* StarWarsStarshipDataModel.swift */; };
-		54AFCA5A2A2F92F70085BC05 /* CardableProtocol+ModelStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AFCA592A2F92F70085BC05 /* CardableProtocol+ModelStructs.swift */; };
-		54AFCA5D2A2F9F180085BC05 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AFCA5C2A2F9F180085BC05 /* CardView.swift */; };
-		54AFCA5F2A2FD2F20085BC05 /* CardsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AFCA5E2A2FD2F20085BC05 /* CardsTableView.swift */; };
 		54E976E62A2A430500D2A1E2 /* StarshipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E976E52A2A430500D2A1E2 /* StarshipView.swift */; };
 		54E976E82A2A44A600D2A1E2 /* StarshipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E976E72A2A44A600D2A1E2 /* StarshipsView.swift */; };
 		54E976EF2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E976EE2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift */; };
@@ -55,9 +52,6 @@
 		5441B3A22A29805600405481 /* PlanetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsView.swift; sourceTree = "<group>"; };
 		5441B3A42A29806B00405481 /* PlanetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetView.swift; sourceTree = "<group>"; };
 		5441B3A62A2A18DD00405481 /* StarWarsStarshipDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsStarshipDataModel.swift; sourceTree = "<group>"; };
-		54AFCA592A2F92F70085BC05 /* CardableProtocol+ModelStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardableProtocol+ModelStructs.swift"; sourceTree = "<group>"; };
-		54AFCA5C2A2F9F180085BC05 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		54AFCA5E2A2FD2F20085BC05 /* CardsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableView.swift; sourceTree = "<group>"; };
 		54E976E52A2A430500D2A1E2 /* StarshipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipView.swift; sourceTree = "<group>"; };
 		54E976E72A2A44A600D2A1E2 /* StarshipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipsView.swift; sourceTree = "<group>"; };
 		54E976EE2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsFilmDataModel.swift; sourceTree = "<group>"; };
@@ -130,7 +124,6 @@
 				54E976EE2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift */,
 				54E976F52A2A879100D2A1E2 /* StarWarsSpeciesDataModel.swift */,
 				54E976FC2A2A94F400D2A1E2 /* StarWarsVehicleDataModel.swift */,
-				54AFCA592A2F92F70085BC05 /* CardableProtocol+ModelStructs.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -138,7 +131,6 @@
 		5441B3942A29207F00405481 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				54AFCA5B2A2F9EF70085BC05 /* Cards */,
 				54E976F72A2A8C4100D2A1E2 /* Species */,
 				54E976F02A2A7FD400D2A1E2 /* Films */,
 				54E976ED2A2A5A8F00D2A1E2 /* Vehicles */,
@@ -155,15 +147,6 @@
 			children = (
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		54AFCA5B2A2F9EF70085BC05 /* Cards */ = {
-			isa = PBXGroup;
-			children = (
-				54AFCA5C2A2F9F180085BC05 /* CardView.swift */,
-				54AFCA5E2A2FD2F20085BC05 /* CardsTableView.swift */,
-			);
-			path = Cards;
 			sourceTree = "<group>";
 		};
 		54E976E92A2A588500D2A1E2 /* People */ = {
@@ -320,10 +303,7 @@
 				5441B3812A29203500405481 /* For_TariaApp.swift in Sources */,
 				54E976F92A2A8C5800D2A1E2 /* SpeciesSoloView.swift in Sources */,
 				54E976FF2A2AC03A00D2A1E2 /* VehicleSoloView.swift in Sources */,
-				54AFCA5D2A2F9F180085BC05 /* CardView.swift in Sources */,
-				54AFCA5F2A2FD2F20085BC05 /* CardsTableView.swift in Sources */,
 				5441B3992A29230800405481 /* TitleView.swift in Sources */,
-				54AFCA5A2A2F92F70085BC05 /* CardableProtocol+ModelStructs.swift in Sources */,
 				5441B39B2A2957D700405481 /* StarWarsPersonDataModel.swift in Sources */,
 				54E976EF2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift in Sources */,
 				54E977012A2AC13700D2A1E2 /* VehicleListView.swift in Sources */,
