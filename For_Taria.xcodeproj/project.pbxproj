@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		540B61182A3125DE00DB1FBB /* SwapiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B61172A3125DE00DB1FBB /* SwapiEndpoints.swift */; };
+		540B611A2A312ADF00DB1FBB /* SWAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B61192A312ADF00DB1FBB /* SWAPIService.swift */; };
 		5441B3812A29203500405481 /* For_TariaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3802A29203500405481 /* For_TariaApp.swift */; };
 		5441B3832A29203500405481 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3822A29203500405481 /* ContentView.swift */; };
 		5441B3852A29203A00405481 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5441B3842A29203A00405481 /* Assets.xcassets */; };
@@ -33,9 +35,12 @@
 		54E976FD2A2A94F400D2A1E2 /* StarWarsVehicleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E976FC2A2A94F400D2A1E2 /* StarWarsVehicleDataModel.swift */; };
 		54E976FF2A2AC03A00D2A1E2 /* VehicleSoloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E976FE2A2AC03A00D2A1E2 /* VehicleSoloView.swift */; };
 		54E977012A2AC13700D2A1E2 /* VehicleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E977002A2AC13700D2A1E2 /* VehicleListView.swift */; };
+		54EEDBC72A3100E800B4C331 /* SwapiHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EEDBC62A3100E800B4C331 /* SwapiHTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		540B61172A3125DE00DB1FBB /* SwapiEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiEndpoints.swift; sourceTree = "<group>"; };
+		540B61192A312ADF00DB1FBB /* SWAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAPIService.swift; sourceTree = "<group>"; };
 		5441B37D2A29203500405481 /* For_Taria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = For_Taria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5441B3802A29203500405481 /* For_TariaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = For_TariaApp.swift; sourceTree = "<group>"; };
 		5441B3822A29203500405481 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +68,7 @@
 		54E976FC2A2A94F400D2A1E2 /* StarWarsVehicleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsVehicleDataModel.swift; sourceTree = "<group>"; };
 		54E976FE2A2AC03A00D2A1E2 /* VehicleSoloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleSoloView.swift; sourceTree = "<group>"; };
 		54E977002A2AC13700D2A1E2 /* VehicleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListView.swift; sourceTree = "<group>"; };
+		54EEDBC62A3100E800B4C331 /* SwapiHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiHTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,9 @@
 		5441B3972A29215D00405481 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				54EEDBC62A3100E800B4C331 /* SwapiHTTPClient.swift */,
+				540B61172A3125DE00DB1FBB /* SwapiEndpoints.swift */,
+				540B61192A312ADF00DB1FBB /* SWAPIService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -289,8 +298,11 @@
 				5441B3962A29212100405481 /* MenuView.swift in Sources */,
 				5441B39D2A296EEB00405481 /* PeopleView.swift in Sources */,
 				54E976F62A2A879100D2A1E2 /* StarWarsSpeciesDataModel.swift in Sources */,
+				54EEDBC72A3100E800B4C331 /* SwapiHTTPClient.swift in Sources */,
+				540B61182A3125DE00DB1FBB /* SwapiEndpoints.swift in Sources */,
 				5441B3A52A29806B00405481 /* PlanetView.swift in Sources */,
 				54E976FD2A2A94F400D2A1E2 /* StarWarsVehicleDataModel.swift in Sources */,
+				540B611A2A312ADF00DB1FBB /* SWAPIService.swift in Sources */,
 				5441B3A72A2A18DD00405481 /* StarWarsStarshipDataModel.swift in Sources */,
 				54E976F42A2A827000D2A1E2 /* FilmsListView.swift in Sources */,
 				5441B39F2A2971C700405481 /* StarWarsPlanetDataModel.swift in Sources */,

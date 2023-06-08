@@ -6,48 +6,6 @@
 //
 
 import Foundation
-
-class StarWarsStarshipDataModel: ObservableObject {
-    @Published var currentFetchedStarships = [Planet]()
-    
-    let baseStarshipURL = "https://swapi.dev/api/starships/"
-    
-    func fetchStarshipsFromAGalaxyFarFarAway() async -> [Starship] {
-        var starshipsToReturn: [Starship] = []
-        
-        guard let url = URL(string: baseStarshipURL) else {
-            fatalError("Missing URL")
-        }
-        
-        let urlRequest = URLRequest(url: url)
-        do {
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                return []
-            }
-            
-            if let starships = self.parseStarshipJson(data) {
-                starshipsToReturn = starships
-            }
-        } catch {
-            return []
-        }
-        return starshipsToReturn
-    }
-    
-    func parseStarshipJson(_ starshipsData: Data) -> [Starship]? {
-        let decoder = JSONDecoder()
-        do {
-            let decodedStarships = try decoder.decode(SwapiStarshipResults.self, from: starshipsData)
-            let starshipsToReturn = decodedStarships.results
-            return starshipsToReturn
-        } catch {
-            print("Error: \(error)")
-            return nil
-        }
-    }
-}
-
 // MARK: - SwapiStarshipResults
 struct SwapiStarshipResults: Codable {
     let count: Int

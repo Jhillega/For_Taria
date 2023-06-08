@@ -7,54 +7,6 @@
 
 import Foundation
 
-// MARK: - SwapiVehicleResults
-
-class StarWarsVehicleDataModel: ObservableObject {
-    @Published var currentFetchedVehicle = [Vehicle]()
-    
-    let baseVehicleURL = "https://swapi.dev/api/vehicles/"
-    
-    func fetchVehiclesFromAGalaxyFarFarAway() async -> [Vehicle]? {
-        var vehiclesToReturn = [Vehicle]()
-        
-        guard let url = URL(string: baseVehicleURL) else {
-            fatalError("URL problems")
-        }
-        
-        let urlrequest = URLRequest(url: url)
-        
-        do {
-            let (data, response) = try await URLSession.shared.data(for: urlrequest)
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                return nil
-            }
-            
-            if let vehicles = self.parseVehicleJSON(data) {
-                vehiclesToReturn = vehicles
-            }
-        }
-        catch {
-            return nil
-        }
-        
-        return vehiclesToReturn
-    }
-    
-    func parseVehicleJSON(_ vehicleData: Data) -> [Vehicle]? {
-        let decoder = JSONDecoder()
-        do {
-            let decodedVehicles = try decoder.decode(SwapiVehicleResults.self, from: vehicleData)
-            let vehicles = decodedVehicles.results
-            return vehicles
-            
-        }
-        catch {
-            print("Error: \(error.localizedDescription)")
-            return nil
-        }
-    }
-}
-
 // MARK: - Swapi Results
 struct SwapiVehicleResults: Codable {
     let count: Int

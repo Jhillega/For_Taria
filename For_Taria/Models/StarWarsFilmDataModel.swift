@@ -6,60 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
-
-
-class StarWarsFilmDataModel: ObservableObject {
-    // fetched films
-    @Published private var currentFetchedFilms = [Film]()
-    
-    let baseFilmURL = "https://swapi.dev/api/films/"
-    
-    func fetchFilmsAboutAGalaxyFarFarAway() async -> [Film]? {
-        //set return container for film objects
-        var filmsToReturn: [Film] = []
-        
-        // create and validate url
-        guard let url = URL(string: baseFilmURL) else {
-            fatalError("Bad URL")
-        }
-        
-        // build request
-        let urlRequest = URLRequest(url: url)
-        
-        // do and catch for tasks
-        do {
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
-            // verify response
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                return nil
-            }
-            // map data
-            if let films = self.parseFilmJson(data) {
-                filmsToReturn = films
-            }
-            
-        }
-        catch {
-            return nil
-        }
-        
-        return filmsToReturn
-    }
-    
-    func parseFilmJson(_ filmData: Data) -> [Film]? {
-        let decoder = JSONDecoder()
-        do {
-            let decodedFilms = try decoder.decode(SwapiFilmResults.self, from: filmData)
-            let filmsToReturn = decodedFilms.results
-            return filmsToReturn
-        }
-        catch {
-            print("Error: \(error.localizedDescription)")
-            return nil
-        }
-    }
-}
 
 // MARK: - SwapiFilmResults
 struct SwapiFilmResults: Codable {
