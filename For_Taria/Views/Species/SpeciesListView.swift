@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SpeciesListView: View {
-    @StateObject var speciesVM = StarWarsSpeciesDataModel()
     @State private var species = [Species]()
+    let service = SWAPIService()
     
     var body: some View {
         VStack{
@@ -26,7 +26,13 @@ struct SpeciesListView: View {
             }
             .onAppear {
                 Task {
-                    species = await speciesVM.fetchSpeciesFromAGalaxyFarFarAway() ?? []
+                    let result = await service.fetch_Species_FromAGalaxyFarFarAway()
+                    switch result {
+                    case .success(let speciesReturn):
+                        species = speciesReturn.results
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
                 }
             }
         }

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct VehicleListView: View {
-    @StateObject var vehicleVM = StarWarsVehicleDataModel()
     @State private var vehicles = [Vehicle]()
+    let service = SWAPIService()
     
     var body: some View {
         VStack {
@@ -24,7 +24,13 @@ struct VehicleListView: View {
             }
             .onAppear {
                 Task {
-                    vehicles = await vehicleVM.fetchVehiclesFromAGalaxyFarFarAway() ?? []
+                    let result = await service.fetch_Vehicles_FromAGalaxyFarFarAway()
+                    switch result {
+                    case .success(let vehicleReturn):
+                        vehicles = vehicleReturn.results
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
                 }
             }
         }

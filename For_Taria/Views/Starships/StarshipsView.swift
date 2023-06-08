@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct StarshipsView: View {
-    @StateObject var starshipVM = StarWarsStarshipDataModel()
-    
     @State private var starships = [Starship]()
+    let service = SWAPIService()
     
     var body: some View {
         VStack {
@@ -27,7 +26,15 @@ struct StarshipsView: View {
             }
             .onAppear {
                 Task {
-                    starships = await starshipVM.fetchStarshipsFromAGalaxyFarFarAway()
+                    let result = await service.fetch_Starships_FromAGalaxyFarFarAway()
+                    switch result {
+                    case .success(let returnedStarships):
+                        starships = returnedStarships.results.sorted { (lhs, rhs) in
+                            return lhs.name < rhs.name
+                        }
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
                 }
             }
         }

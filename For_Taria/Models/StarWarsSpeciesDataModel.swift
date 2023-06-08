@@ -7,54 +7,6 @@
 
 import Foundation
 
-// MARK: Publisher Object
-class StarWarsSpeciesDataModel: ObservableObject {
-    @Published private var currentFetchedSpecies = [Species]()
-    
-    let baseSpeciesURL = "https://swapi.dev/api/species/"
-    
-    func fetchSpeciesFromAGalaxyFarFarAway() async -> [Species]? {
-        var speciesToReturn = [Species]()
-        
-        // url
-        guard let url = URL(string: baseSpeciesURL) else {
-            fatalError("Bad URL Jack!!!")
-        }
-        
-        let urlRequest = URLRequest(url: url)
-        
-        do {
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                return nil
-            }
-            
-            if let species = self.parseSpeciesJson(data) {
-                speciesToReturn = species
-            }
-        }
-        catch {
-            return nil
-        }
-        
-        return speciesToReturn
-    }
-    
-    func parseSpeciesJson(_ filmData: Data) -> [Species]? {
-        let decoder = JSONDecoder()
-        do {
-            let decodedFilms = try decoder.decode(SwapiSpeciesResults.self, from: filmData)
-            let speciesToReturn = decodedFilms.results
-            return speciesToReturn
-        }
-        catch {
-            print("Error: \(error)")
-            return nil
-        }
-    }
-}
-
-
 // MARK: - SwapiSpeciesResults
 struct SwapiSpeciesResults: Codable {
     let count: Int

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct FilmsListView: View {
-    @StateObject var filmVM = StarWarsFilmDataModel()
     @State private var films = [Film]()
+    let service = SWAPIService()
     
     var body: some View {
         VStack {
@@ -24,7 +24,14 @@ struct FilmsListView: View {
             }
             .onAppear {
                 Task {
-                    films = await filmVM.fetchFilmsAboutAGalaxyFarFarAway() ?? []
+                    let result = await service.fetch_FilmsAbout_FromAGalaxyFarFarAway()
+                    switch result {
+                    case .success(let filmResponse):
+                        films = filmResponse.results
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        films = []
+                    }
                 }
             }
         }

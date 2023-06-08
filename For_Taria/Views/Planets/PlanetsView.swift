@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct PlanetsView: View {
-    @StateObject var vm = StarWarsPlanetsDataModel()
     @State private var planets: [Planet]? = nil
+    let service = SWAPIService()
     
     var body: some View {
         VStack {
@@ -25,11 +25,15 @@ struct PlanetsView: View {
             .listStyle(.insetGrouped)
             .onAppear {
                 Task {
-                    await vm.fetchPlanetsFromAGalaxyFarFarAway()
-                    let sortedPlanets = vm.currentFetchedPlanets?.sorted { (lhs, rhs) in
-                        return lhs.name < rhs.name
+                    let result = await service.fetch_Planets_FromAGalaxyFarFarAway()
+                    switch result {
+                    case .success(let planetsReturned):
+                        planets = planetsReturned.results.sorted { (lhs, rhs) in
+                            lhs.name < rhs.name
+                        }
+                    case .failure(let error):
+                        print(error.localizedDescription)
                     }
-                    self.planets = sortedPlanets
                 }
             }
         }

@@ -6,74 +6,6 @@
 //
 
 import Foundation
-import Combine
-
-@MainActor class StarWarsPersonDataModel: ObservableObject {
-    @Published var currentModels = [Person]()
-    
-    let basePeopleURL = "https://swapi.dev/api/people/"
-    
-    func searchPeopleFromAGalaxyFarFarAway() async {
-        guard let url = URL(string: basePeopleURL) else {
-            print("BAD URL!!!!")
-            return
-        }
-        
-        do {
-            let (data, response) = try await URLSession.shared.data(from: url)
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                print("error parsing")
-                return
-            }
-            if let people = self.parsePeopleJson(data) {
-                self.currentModels = people
-            }
-            
-        }
-        catch {
-            return
-        }
-    }
-    
-    func fetchPeopleFromAGalaxyFarFarAway(completion:@escaping ([Person]) -> ()) {
-        guard let url = URL(string: basePeopleURL) else {
-            print("Invalid url ... jack!")
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else {
-                if error != nil {
-                    print("Error: \(String(describing: error))")
-                }
-                return
-            }
-
-            let people = try! JSONDecoder().decode(SwapiPeopleResults.self, from: data)
-            DispatchQueue.main.async {
-                completion(people.results)
-            }
-            
-        }
-        .resume()
-        
-        
-    }
-    
-    func parsePeopleJson(_ peopleData: Data) -> [Person]? {
-        let decoder = JSONDecoder()
-        do {
-            let decodedPeople = try decoder.decode(SwapiPeopleResults.self, from: peopleData)
-            let peopleToReturn = decodedPeople.results
-            return peopleToReturn
-        }
-        catch {
-            print("Error: \(error.localizedDescription)")
-            return nil
-        }
-    }
-
-}
 
 // MARK: - SwapiResults
 struct SwapiPeopleResults: Codable {
@@ -109,6 +41,7 @@ enum Gender: String, Codable {
     case male = "male"
     case nA = "n/a"
 }
+
 
 // MARK: - Encode/decode helpers
 

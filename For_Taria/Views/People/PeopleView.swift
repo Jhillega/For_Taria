@@ -8,17 +8,8 @@
 import SwiftUI
 
 struct PeopleView: View {
-    @StateObject var peopleVM = StarWarsPersonDataModel()
-    var results: [Person]? {
-        get {
-            return peopleVM.currentModels
-        }
-        set(newValue) {
-            if let value = newValue {
-                self.results = value
-            }
-        }
-    }
+    @State var results: [Person]?
+    var service = SWAPIService()
     
     var body: some View {
         VStack {
@@ -33,7 +24,17 @@ struct PeopleView: View {
             }
             .onAppear() {
                 Task {
-                    await peopleVM.searchPeopleFromAGalaxyFarFarAway()
+                    let result = await service.fetch_People_FromAGalaxyFarFarAway()
+                    var people: [Person]
+                    switch result {
+                    case .success(let peopleResponse):
+                        people = peopleResponse.results
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        people = []
+                    }
+                    
+                    results = people
                 }
             }
         }
