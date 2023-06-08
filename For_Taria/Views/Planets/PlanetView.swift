@@ -56,7 +56,7 @@ struct PlanetView_Previews: PreviewProvider {
                                   rotationPeriod: "24 hours",
                                   orbitalPeriod: "365 Days",
                                   diameter: "",
-                                  climate: "Continental",
+                                  climate: "temperate",
                                   gravity: "-9.86",
                                   terrain: "Gaia",
                                   surfaceWater: "Awesome",
