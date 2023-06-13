@@ -52,19 +52,6 @@ struct PlanetView: View {
 
 struct PlanetView_Previews: PreviewProvider {
     static var previews: some View {
-        PlanetView(planet: Planet(name: "Earth",
-                                  rotationPeriod: "24 hours",
-                                  orbitalPeriod: "365 Days",
-                                  diameter: "",
-                                  climate: "temperate",
-                                  gravity: "-9.86",
-                                  terrain: "Gaia",
-                                  surfaceWater: "Awesome",
-                                  population: "9 billion",
-                                  residents: [],
-                                  films: [],
-                                  created: "",
-                                  edited: "",
-                                  url: ""))
+        PlanetView(planet: SwapiFormattingData.planet)
     }
 }

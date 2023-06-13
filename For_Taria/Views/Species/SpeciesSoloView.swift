@@ -42,20 +42,6 @@ struct SpeciesSoloView: View {
 
 struct SpeciesSoloView_Previews: PreviewProvider {
     static var previews: some View {
-        SpeciesSoloView(species: Species(name: "Kerek",
-                                         classification: "Biped",
-                                         designation: .reptilian,
-                                         averageHeight: "",
-                                         skinColors: "",
-                                         hairColors: "",
-                                         eyeColors: "",
-                                         averageLifespan: "",
-                                         homeworld: "None of your business",
-                                         language: "BO'stik",
-                                         people: [""],
-                                         films: [""],
-                                         created: "",
-                                         edited: "",
-                                         url: ""))
+        SpeciesSoloView(species: SwapiFormattingData.species)
     }
 }

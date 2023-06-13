@@ -29,21 +29,6 @@ struct PersonView: View {
 
 struct PersonView_Previews: PreviewProvider {
     static var previews: some View {
-        PersonView(person: Person(name: "Dash Rendar",
-                                  height: "66",
-                                  mass: "55",
-                                  hairColor: "",
-                                  skinColor: "",
-                                  eyeColor: "",
-                                  birthYear: "1998",
-                                  gender: .male,
-                                  homeworld: "",
-                                  films: [],
-                                  species: [],
-                                  vehicles: [],
-                                  starships: [],
-                                  created: "",
-                                  edited: "",
-                                  url: ""))
+        PersonView(person: SwapiFormattingData.person)
     }
 }
