@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct CategoryView: View {
-    @State private var isShowingTitleScreen = true
+    
+    init() {
+            //Use this if NavigationBarTitle is with displayMode = .inline
+            UINavigationBar.appearance().titleTextAttributes = [
+                .foregroundColor: UIColor.systemYellow,
+            ]
+        }
     
     var body: some View {
         NavigationView {
@@ -38,6 +44,7 @@ struct CategoryView: View {
                         }
                     }
                 }
+                .navigationBarTitle("Menu", displayMode: .inline)
                 .background(Color.black)
                 .foregroundColor(Color.yellow)
             }
