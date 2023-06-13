@@ -9,9 +9,15 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    @State private var isShowingTitle = true
     
     var body: some View {
-        MenuView()
+        VStack {
+            CategoryView()
+        }
+        .fullScreenCover(isPresented: $isShowingTitle, onDismiss: nil, content: {
+            TitleView()
+        })
     }
 }
 

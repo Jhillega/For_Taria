@@ -24,21 +24,6 @@ struct VehicleSoloView: View {
 
 struct VehicleSoloView_Previews: PreviewProvider {
     static var previews: some View {
-        VehicleSoloView(vehicle: Vehicle(name: "Test",
-                                         model: "Test",
-                                         manufacturer: "test",
-                                         costInCredits: "Test",
-                                         length: "",
-                                         maxAtmospheringSpeed: "",
-                                         crew: "",
-                                         passengers: "",
-                                         cargoCapacity: "",
-                                         consumables: "",
-                                         vehicleClass: "",
-                                         pilots: [""],
-                                         films: [""],
-                                         created: "",
-                                         edited: "",
-                                         url: ""))
+        VehicleSoloView(vehicle: SwapiFormattingData.vehicle)
     }
 }
