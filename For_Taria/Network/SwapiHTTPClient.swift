@@ -18,7 +18,7 @@ extension SWAPI_HTTPClient {
     func sendRequest<T: Decodable>(endpoint: SWAPI_Endpoint,
                                    responseModel: T.Type) async -> Result<T, RequestError> {
         
-        guard let url = URL(string: endpoint.fullURL) else {
+        guard let url = URL(string: endpoint.categoryfullURL) else {
             return .failure(.invalidURL)
         }
                 
