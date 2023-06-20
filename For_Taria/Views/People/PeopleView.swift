@@ -13,14 +13,12 @@ struct PeopleView: View {
     
     var body: some View {
         VStack {
-            Text("Rogues & Heroes")
+            Text(ResourceCategory.people.rawValue.localizedCapitalized)
                 .font(.largeTitle)
                 .bold()
                 .padding()
-            List {
-                ForEach(results ?? [], id: \.id) { person in
-                    PersonView(person: person)
-                }
+            List(results ?? []) { result in
+                    PersonView(person: result)
             }
             .onAppear() {
                 Task {
