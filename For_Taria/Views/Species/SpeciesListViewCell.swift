@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct SpeciesSoloView: View {
+struct SpeciesListViewCell: View {
     let species: Species
     var characterColor: Color {
         switch species.designation {
         case .reptilian:
             return Color.green
-        default:
-            return Color.black
+        case .sentient:
+            return Color.yellow
         }
     }
     
@@ -42,6 +42,6 @@ struct SpeciesSoloView: View {
 
 struct SpeciesSoloView_Previews: PreviewProvider {
     static var previews: some View {
-        SpeciesSoloView(species: SwapiFormattingData.species)
+        SpeciesListViewCell(species: SwapiFormattingData.species)
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PlanetsView: View {
+struct PlanetListView: View {
     @State private var planets: [Planet]? = nil
     let service = SWAPIService()
     
@@ -19,7 +19,8 @@ struct PlanetsView: View {
                 .padding()
             List {
                 ForEach(planets ?? [Planet](), id: \.id) { planet in
-                    PlanetView(planet: planet)
+                    PlanetListViewCell(planet: planet)
+                        .listRowBackground(Color.black)
                 }
             }
             .listStyle(.insetGrouped)
@@ -37,11 +38,13 @@ struct PlanetsView: View {
                 }
             }
         }
+        .foregroundColor(.yellow)
+        .background(Color.black)
     }
 }
 
 struct PlanetsView_Previews: PreviewProvider {
     static var previews: some View {
-        PlanetsView()
+        PlanetListView()
     }
 }

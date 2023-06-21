@@ -22,7 +22,7 @@ struct SearchView: View {
                 .padding()
                 .sheet(isPresented: $isShowingDetailView,
                        onDismiss: nil,
-                       content: {peopleSearchResultView(person: SwapiFormattingData.person)})
+                       content: {peopleDetailView(person: SwapiFormattingData.person)})
             }
         }
     }

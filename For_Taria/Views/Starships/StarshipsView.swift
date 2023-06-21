@@ -17,27 +17,26 @@ struct StarshipsView: View {
                 .font(.largeTitle)
                 .bold()
                 .padding()
-            List {
-                ForEach(starships, id: \.id) { starship in
-                    VStack {
-                        StarshipView(starship: starship)
-                    }
-                }
+            List(starships) { starship in
+                StarshipView(starship: starship)
+                    .listRowBackground(Color.black)
             }
-            .onAppear {
-                Task {
-                    let result = await service.fetch_Starships_FromAGalaxyFarFarAway()
-                    switch result {
-                    case .success(let returnedStarships):
-                        starships = returnedStarships.results.sorted { (lhs, rhs) in
-                            return lhs.name < rhs.name
-                        }
-                    case .failure(let error):
-                        print(error.localizedDescription)
+        }
+        .onAppear {
+            Task {
+                let result = await service.fetch_Starships_FromAGalaxyFarFarAway()
+                switch result {
+                case .success(let returnedStarships):
+                    starships = returnedStarships.results.sorted { (lhs, rhs) in
+                        return lhs.name < rhs.name
                     }
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
             }
         }
+        .foregroundColor(.yellow)
+        .background(Color.black)
     }
 }
 

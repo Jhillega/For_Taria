@@ -19,7 +19,8 @@ struct VehicleListView: View {
                 .padding()
             List {
                 ForEach(vehicles, content: { vehicle in
-                    VehicleSoloView(vehicle: vehicle)
+                    VehicleListViewCell(vehicle: vehicle)
+                        .listRowBackground(Color.black)
                 })
             }
             .onAppear {
@@ -36,6 +37,8 @@ struct VehicleListView: View {
                 }
             }
         }
+        .foregroundColor(.yellow)
+        .background(Color.black)
     }
 }
 
