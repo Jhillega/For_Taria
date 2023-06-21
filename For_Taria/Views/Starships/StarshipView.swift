@@ -18,6 +18,8 @@ struct StarshipView: View {
             Text(starship.model)
             Text(starship.starshipClass)
         }
+        .foregroundColor(.yellow)
+        .background(Color.black)
     }
 }
 

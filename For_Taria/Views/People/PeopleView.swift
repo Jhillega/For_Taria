@@ -11,6 +11,12 @@ struct PeopleView: View {
     @State var results: [Person]?
     var service = SWAPIService()
     
+    init() {
+            UINavigationBar.appearance().titleTextAttributes = [
+                .foregroundColor: UIColor.systemYellow
+            ]
+        }
+    
     var body: some View {
         VStack {
             Text(ResourceCategory.people.rawValue.localizedCapitalized)
@@ -19,6 +25,7 @@ struct PeopleView: View {
                 .padding()
             List(results ?? []) { result in
                     PeopleViewCell(person: result)
+                    .listRowBackground(Color.black)
             }
             .onAppear() {
                 Task {

@@ -20,6 +20,7 @@ struct FilmsListView: View {
                 List {
                     ForEach(films, content: { film in
                         FilmListViewCell(film: film)
+                            .listRowBackground(Color.black)
                     })
                 }
                 .onAppear {

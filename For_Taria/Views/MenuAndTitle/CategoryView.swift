@@ -26,7 +26,7 @@ struct CategoryView: View {
                             NavigationLink(destination: PeopleView(),
                                            label: { Text(resourceCategory.rawValue) })
                         case .planets:
-                            NavigationLink(destination: PlanetsView(),
+                            NavigationLink(destination: PlanetListView(),
                                            label: { Text(resourceCategory.rawValue) })
                         case .starships:
                             NavigationLink(destination: StarshipsView(),

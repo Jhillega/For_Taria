@@ -13,8 +13,8 @@ struct SpeciesListViewCell: View {
         switch species.designation {
         case .reptilian:
             return Color.green
-        default:
-            return Color.black
+        case .sentient:
+            return Color.yellow
         }
     }
     

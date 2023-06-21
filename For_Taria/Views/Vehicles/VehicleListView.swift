@@ -20,6 +20,7 @@ struct VehicleListView: View {
             List {
                 ForEach(vehicles, content: { vehicle in
                     VehicleListViewCell(vehicle: vehicle)
+                        .listRowBackground(Color.black)
                 })
             }
             .onAppear {
@@ -36,6 +37,8 @@ struct VehicleListView: View {
                 }
             }
         }
+        .foregroundColor(.yellow)
+        .background(Color.black)
     }
 }
 

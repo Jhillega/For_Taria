@@ -17,12 +17,9 @@ struct SpeciesListView: View {
                 .font(.largeTitle)
                 .bold()
                 .padding()
-            List {
-                ForEach(species, id: \.id) { speciesType in
-                    VStack {
-                        SpeciesListViewCell(species: speciesType)
-                    }
-                }
+            List(species) { speciesType in
+                SpeciesListViewCell(species: speciesType)
+                    .listRowBackground(Color.black)
             }
             .onAppear {
                 Task {
@@ -38,6 +35,8 @@ struct SpeciesListView: View {
                 }
             }
         }
+        .foregroundColor(.yellow)
+        .background(Color.black)
     }
 }
 

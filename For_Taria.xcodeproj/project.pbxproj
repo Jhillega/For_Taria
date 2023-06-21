@@ -23,8 +23,8 @@
 		5441B39D2A296EEB00405481 /* PeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B39C2A296EEB00405481 /* PeopleView.swift */; };
 		5441B39F2A2971C700405481 /* StarWarsPlanetDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B39E2A2971C700405481 /* StarWarsPlanetDataModel.swift */; };
 		5441B3A12A2975E500405481 /* PeopleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3A02A2975E500405481 /* PeopleViewCell.swift */; };
-		5441B3A32A29805600405481 /* PlanetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3A22A29805600405481 /* PlanetsView.swift */; };
-		5441B3A52A29806B00405481 /* PlanetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3A42A29806B00405481 /* PlanetView.swift */; };
+		5441B3A32A29805600405481 /* PlanetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3A22A29805600405481 /* PlanetListView.swift */; };
+		5441B3A52A29806B00405481 /* PlanetListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3A42A29806B00405481 /* PlanetListViewCell.swift */; };
 		5441B3A72A2A18DD00405481 /* StarWarsStarshipDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3A62A2A18DD00405481 /* StarWarsStarshipDataModel.swift */; };
 		549B62E12A3B8C90003B58DE /* peopleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B62E02A3B8C90003B58DE /* peopleDetailView.swift */; };
 		549B62E32A3B8D21003B58DE /* SpeciesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B62E22A3B8D21003B58DE /* SpeciesDetailView.swift */; };
@@ -60,8 +60,8 @@
 		5441B39C2A296EEB00405481 /* PeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleView.swift; sourceTree = "<group>"; };
 		5441B39E2A2971C700405481 /* StarWarsPlanetDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsPlanetDataModel.swift; sourceTree = "<group>"; };
 		5441B3A02A2975E500405481 /* PeopleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewCell.swift; sourceTree = "<group>"; };
-		5441B3A22A29805600405481 /* PlanetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsView.swift; sourceTree = "<group>"; };
-		5441B3A42A29806B00405481 /* PlanetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetView.swift; sourceTree = "<group>"; };
+		5441B3A22A29805600405481 /* PlanetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetListView.swift; sourceTree = "<group>"; };
+		5441B3A42A29806B00405481 /* PlanetListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetListViewCell.swift; sourceTree = "<group>"; };
 		5441B3A62A2A18DD00405481 /* StarWarsStarshipDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsStarshipDataModel.swift; sourceTree = "<group>"; };
 		549B62E02A3B8C90003B58DE /* peopleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = peopleDetailView.swift; sourceTree = "<group>"; };
 		549B62E22A3B8D21003B58DE /* SpeciesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailView.swift; sourceTree = "<group>"; };
@@ -197,8 +197,8 @@
 		54E976EA2A2A58A300D2A1E2 /* Planets */ = {
 			isa = PBXGroup;
 			children = (
-				5441B3A22A29805600405481 /* PlanetsView.swift */,
-				5441B3A42A29806B00405481 /* PlanetView.swift */,
+				5441B3A22A29805600405481 /* PlanetListView.swift */,
+				5441B3A42A29806B00405481 /* PlanetListViewCell.swift */,
 			);
 			path = Planets;
 			sourceTree = "<group>";
@@ -328,7 +328,7 @@
 				54E976F62A2A879100D2A1E2 /* StarWarsSpeciesDataModel.swift in Sources */,
 				54EEDBC72A3100E800B4C331 /* SwapiHTTPClient.swift in Sources */,
 				540B61182A3125DE00DB1FBB /* SwapiEndpoints.swift in Sources */,
-				5441B3A52A29806B00405481 /* PlanetView.swift in Sources */,
+				5441B3A52A29806B00405481 /* PlanetListViewCell.swift in Sources */,
 				54E976FD2A2A94F400D2A1E2 /* StarWarsVehicleDataModel.swift in Sources */,
 				540B611A2A312ADF00DB1FBB /* SWAPIService.swift in Sources */,
 				5441B3A72A2A18DD00405481 /* StarWarsStarshipDataModel.swift in Sources */,
@@ -337,7 +337,7 @@
 				5441B39F2A2971C700405481 /* StarWarsPlanetDataModel.swift in Sources */,
 				5441B38A2A29203A00405481 /* Persistence.swift in Sources */,
 				5441B38D2A29203A00405481 /* For_Taria.xcdatamodeld in Sources */,
-				5441B3A32A29805600405481 /* PlanetsView.swift in Sources */,
+				5441B3A32A29805600405481 /* PlanetListView.swift in Sources */,
 				54E976E62A2A430500D2A1E2 /* StarshipView.swift in Sources */,
 				5441B3A12A2975E500405481 /* PeopleViewCell.swift in Sources */,
 				5441B3832A29203500405481 /* ContentView.swift in Sources */,

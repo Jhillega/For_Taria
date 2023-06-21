@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PlanetView: View {
+struct PlanetListViewCell: View {
     let planet: Planet
     var colorOfPlanet: SwiftUI.Color {
         switch planet.climate {
@@ -20,7 +20,7 @@ struct PlanetView: View {
         case "frozen":
             return .blue
         default:
-            return .black
+            return .white
         }
     }
     
@@ -46,12 +46,14 @@ struct PlanetView: View {
             Spacer()
             Spacer()
         }
+        .foregroundColor(.yellow)
+        .background(Color.black)
         .frame(height: 150.00)
     }
 }
 
 struct PlanetView_Previews: PreviewProvider {
     static var previews: some View {
-        PlanetView(planet: SwapiFormattingData.planet)
+        PlanetListViewCell(planet: SwapiFormattingData.planet)
     }
 }
