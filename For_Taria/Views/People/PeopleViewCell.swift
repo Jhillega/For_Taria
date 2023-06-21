@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PersonView: View {
+struct PeopleViewCell: View {
     let person: Person
     
     var body: some View {
@@ -15,20 +15,19 @@ struct PersonView: View {
             Image(systemName: "person.fill")
                 .resizable()
                 .scaledToFit()
-            VStack{
-                Text(person.name)
-                    .font(.title)
-                    .bold()
-                    .padding()
-                Text("Birthday: " + person.birthYear)}
+            Text(person.name)
+                .font(.title)
+                .bold()
         }
-        .frame(height: 150.00)
+        .background(.black)
+        .foregroundColor(.yellow)
+        .frame(height: 100.00)
     }
 }
 
 
 struct PersonView_Previews: PreviewProvider {
     static var previews: some View {
-        PersonView(person: SwapiFormattingData.person)
+        PeopleViewCell(person: SwapiFormattingData.person)
     }
 }

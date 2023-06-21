@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct VehicleSoloView: View {
+struct VehicleListViewCell: View {
     let vehicle: Vehicle
     
     var body: some View {
@@ -24,6 +24,6 @@ struct VehicleSoloView: View {
 
 struct VehicleSoloView_Previews: PreviewProvider {
     static var previews: some View {
-        VehicleSoloView(vehicle: SwapiFormattingData.vehicle)
+        VehicleListViewCell(vehicle: SwapiFormattingData.vehicle)
     }
 }

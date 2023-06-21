@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SpeciesSoloView: View {
+struct SpeciesListViewCell: View {
     let species: Species
     var characterColor: Color {
         switch species.designation {
@@ -42,6 +42,6 @@ struct SpeciesSoloView: View {
 
 struct SpeciesSoloView_Previews: PreviewProvider {
     static var previews: some View {
-        SpeciesSoloView(species: SwapiFormattingData.species)
+        SpeciesListViewCell(species: SwapiFormattingData.species)
     }
 }

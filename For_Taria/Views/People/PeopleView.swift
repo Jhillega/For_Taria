@@ -18,7 +18,7 @@ struct PeopleView: View {
                 .bold()
                 .padding()
             List(results ?? []) { result in
-                    PersonView(person: result)
+                    PeopleViewCell(person: result)
             }
             .onAppear() {
                 Task {
@@ -38,6 +38,8 @@ struct PeopleView: View {
                 }
             }
         }
+        .foregroundColor(.yellow)
+        .background(Color.black)
     }
 }
 

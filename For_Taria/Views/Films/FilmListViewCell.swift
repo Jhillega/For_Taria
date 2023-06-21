@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FilmSoloView: View {
+struct FilmListViewCell: View {
     let film: Film
     
     var body: some View {
@@ -29,6 +29,8 @@ struct FilmSoloView: View {
             }
         }
         .frame(height: 100.00)
+        .foregroundColor(.yellow)
+        .background(Color.black)
     }
     
     
@@ -70,6 +72,6 @@ struct FilmSoloView: View {
 
 struct FilmSoloView_Previews: PreviewProvider {
     static var previews: some View {
-        FilmSoloView(film: SwapiFormattingData.film)
+        FilmListViewCell(film: SwapiFormattingData.film)
     }
 }

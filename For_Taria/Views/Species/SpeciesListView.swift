@@ -20,7 +20,7 @@ struct SpeciesListView: View {
             List {
                 ForEach(species, id: \.id) { speciesType in
                     VStack {
-                        SpeciesSoloView(species: speciesType)
+                        SpeciesListViewCell(species: speciesType)
                     }
                 }
             }

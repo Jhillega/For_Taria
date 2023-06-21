@@ -10,7 +10,6 @@ import SwiftUI
 struct CategoryView: View {
     
     init() {
-            //Use this if NavigationBarTitle is with displayMode = .inline
             UINavigationBar.appearance().titleTextAttributes = [
                 .foregroundColor: UIColor.systemYellow,
             ]

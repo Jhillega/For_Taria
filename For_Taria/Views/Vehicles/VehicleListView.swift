@@ -19,7 +19,7 @@ struct VehicleListView: View {
                 .padding()
             List {
                 ForEach(vehicles, content: { vehicle in
-                    VehicleSoloView(vehicle: vehicle)
+                    VehicleListViewCell(vehicle: vehicle)
                 })
             }
             .onAppear {
