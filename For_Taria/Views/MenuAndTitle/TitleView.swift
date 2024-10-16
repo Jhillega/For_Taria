@@ -18,7 +18,7 @@ struct TitleView: View {
                 .resizable()
                 .scaledToFit()
                 .padding()
-            Text("My Gift for Taria \nStar Wars Reference.")
+            Text("My Gift for Taria \nA Star Wars Reference.")
                 .font(.largeTitle)
                 .bold()
                 .multilineTextAlignment(.center)
@@ -27,14 +27,17 @@ struct TitleView: View {
                 .italic()
                 .opacity(0.66)
             Spacer()
-            Button("Continue") {
-                print("Start Button Tapped!")
+            Button(action: {
                 dismiss()
-                
-            }
+            }, label: {
+                Text("Continue")
+                    .padding()
+                    .foregroundStyle(.black)
+                    .background(
+                        RoundedRectangle(cornerSize: CGSize(width: 50, height: 30), style: .continuous)
+                    )
+            })
             .padding()
-            .buttonBorderShape(.roundedRectangle)
-            .background(.orange)
             Spacer()
             Spacer()
             Spacer()

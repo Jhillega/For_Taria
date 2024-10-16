@@ -25,6 +25,7 @@ struct SearchView: View {
                        content: {peopleDetailView(person: SwapiFormattingData.person)})
             }
         }
+        
     }
 }
 

@@ -21,6 +21,7 @@ struct StarshipsView: View {
                 StarshipView(starship: starship)
                     .listRowBackground(Color.black)
             }
+            .listStyle(.plain)
         }
         .onAppear {
             Task {

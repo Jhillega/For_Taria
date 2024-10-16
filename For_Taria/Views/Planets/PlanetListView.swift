@@ -23,7 +23,7 @@ struct PlanetListView: View {
                         .listRowBackground(Color.black)
                 }
             }
-            .listStyle(.insetGrouped)
+            .listStyle(.plain)
             .onAppear {
                 Task {
                     let result = await service.fetch_Planets_FromAGalaxyFarFarAway()

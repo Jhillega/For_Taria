@@ -23,6 +23,7 @@ struct VehicleListView: View {
                         .listRowBackground(Color.black)
                 })
             }
+            .listStyle(.plain)
             .onAppear {
                 Task {
                     let result = await service.fetch_Vehicles_FromAGalaxyFarFarAway()

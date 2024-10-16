@@ -21,6 +21,7 @@ struct SpeciesListView: View {
                 SpeciesListViewCell(species: speciesType)
                     .listRowBackground(Color.black)
             }
+            .listStyle(.plain)
             .onAppear {
                 Task {
                     let result = await service.fetch_Species_FromAGalaxyFarFarAway()

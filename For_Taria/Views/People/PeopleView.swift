@@ -27,6 +27,7 @@ struct PeopleView: View {
                     PeopleViewCell(person: result)
                     .listRowBackground(Color.black)
             }
+            .listStyle(.plain)
             .onAppear() {
                 Task {
                     let result = await service.fetch_People_FromAGalaxyFarFarAway()
@@ -44,6 +45,7 @@ struct PeopleView: View {
                     results = people
                 }
             }
+            .background(Color.black)
         }
         .foregroundColor(.yellow)
         .background(Color.black)
