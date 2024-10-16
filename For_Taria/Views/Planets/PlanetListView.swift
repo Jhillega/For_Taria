@@ -1,35 +1,35 @@
 //
-//  VehicleListView.swift
+//  PlanetsView.swift
 //  For_Taria
 //
-//  Created by Jason Hillegass on 6/2/23.
+//  Created by Jason Hillegass on 6/1/23.
 //
 
 import SwiftUI
 
-struct VehicleListView: View {
-    @State private var vehicles = [Vehicle]()
+struct PlanetListView: View {
+    @State private var planets: [Planet]? = nil
     let service = SWAPIService()
     
     var body: some View {
         VStack {
-            Text(ResourceCategory.vehicles.rawValue.localizedCapitalized)
+            Text("Planets")
                 .font(.largeTitle)
                 .bold()
                 .padding()
             List {
-                ForEach(vehicles, content: { vehicle in
-                    VehicleListViewCell(vehicle: vehicle)
+                ForEach(planets ?? [Planet](), id: \.id) { planet in
+                    PlanetListViewCell(planet: planet)
                         .listRowBackground(Color.black)
-                })
+                }
             }
             .listStyle(.plain)
             .onAppear {
                 Task {
-                    let result = await service.fetch_Vehicles_FromAGalaxyFarFarAway()
+                    let result = await service.fetch_Planets_FromAGalaxyFarFarAway()
                     switch result {
-                    case .success(let vehicleReturn):
-                        vehicles = vehicleReturn.results.sorted { (lhs, rhs) in
+                    case .success(let planetsReturned):
+                        planets = planetsReturned.results.sorted { (lhs, rhs) in
                             lhs.name < rhs.name
                         }
                     case .failure(let error):
@@ -43,8 +43,8 @@ struct VehicleListView: View {
     }
 }
 
-struct VehicleListView_Previews: PreviewProvider {
+struct PlanetsView_Previews: PreviewProvider {
     static var previews: some View {
-        VehicleListView()
+        PlanetListView()
     }
 }

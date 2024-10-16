@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SpeciesListView: View {
-    @StateObject var speciesVM = StarWarsSpeciesDataModel()
     @State private var species = [Species]()
+    let service = SWAPIService()
     
     var body: some View {
         VStack{
@@ -17,19 +17,27 @@ struct SpeciesListView: View {
                 .font(.largeTitle)
                 .bold()
                 .padding()
-            List {
-                ForEach(species, id: \.id) { speciesType in
-                    VStack {
-                        SpeciesSoloView(species: speciesType)
+            List(species) { speciesType in
+                SpeciesListViewCell(species: speciesType)
+                    .listRowBackground(Color.black)
+            }
+            .listStyle(.plain)
+            .onAppear {
+                Task {
+                    let result = await service.fetch_Species_FromAGalaxyFarFarAway()
+                    switch result {
+                    case .success(let speciesReturn):
+                        species = speciesReturn.results.sorted { (lhs, rhs) in
+                            lhs.name < rhs.name
+                        }
+                    case .failure(let error):
+                        print(error.localizedDescription)
                     }
                 }
             }
-            .onAppear {
-                Task {
-                    species = await speciesVM.fetchSpeciesFromAGalaxyFarFarAway() ?? []
-                }
-            }
         }
+        .foregroundColor(.yellow)
+        .background(Color.black)
     }
 }
 

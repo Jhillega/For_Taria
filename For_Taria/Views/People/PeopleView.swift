@@ -8,35 +8,47 @@
 import SwiftUI
 
 struct PeopleView: View {
-    @StateObject var peopleVM = StarWarsPersonDataModel()
-    var results: [Person]? {
-        get {
-            return peopleVM.currentModels
+    @State var results: [Person]?
+    var service = SWAPIService()
+    
+    init() {
+            UINavigationBar.appearance().titleTextAttributes = [
+                .foregroundColor: UIColor.systemYellow
+            ]
         }
-        set(newValue) {
-            if let value = newValue {
-                self.results = value
-            }
-        }
-    }
     
     var body: some View {
         VStack {
-            Text("Rogues & Heroes")
+            Text(ResourceCategory.people.rawValue.localizedCapitalized)
                 .font(.largeTitle)
                 .bold()
                 .padding()
-            List {
-                ForEach(results ?? [], id: \.id) { person in
-                    PersonView(person: person)
-                }
+            List(results ?? []) { result in
+                    PeopleViewCell(person: result)
+                    .listRowBackground(Color.black)
             }
+            .listStyle(.plain)
             .onAppear() {
                 Task {
-                    await peopleVM.searchPeopleFromAGalaxyFarFarAway()
+                    let result = await service.fetch_People_FromAGalaxyFarFarAway()
+                    var people: [Person]
+                    switch result {
+                    case .success(let peopleResponse):
+                        people = peopleResponse.results.sorted { (lhs, rhs) in
+                            lhs.name < rhs.name
+                        }
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        people = []
+                    }
+                    
+                    results = people
                 }
             }
+            .background(Color.black)
         }
+        .foregroundColor(.yellow)
+        .background(Color.black)
     }
 }
 

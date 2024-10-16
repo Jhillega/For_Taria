@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PlanetView: View {
+struct PlanetListViewCell: View {
     let planet: Planet
     var colorOfPlanet: SwiftUI.Color {
         switch planet.climate {
@@ -20,7 +20,7 @@ struct PlanetView: View {
         case "frozen":
             return .blue
         default:
-            return .black
+            return .white
         }
     }
     
@@ -46,25 +46,14 @@ struct PlanetView: View {
             Spacer()
             Spacer()
         }
+        .foregroundColor(.yellow)
+        .background(Color.black)
         .frame(height: 150.00)
     }
 }
 
 struct PlanetView_Previews: PreviewProvider {
     static var previews: some View {
-        PlanetView(planet: Planet(name: "Earth",
-                                  rotationPeriod: "24 hours",
-                                  orbitalPeriod: "365 Days",
-                                  diameter: "",
-                                  climate: "Continental",
-                                  gravity: "-9.86",
-                                  terrain: "Gaia",
-                                  surfaceWater: "Awesome",
-                                  population: "9 billion",
-                                  residents: [],
-                                  films: [],
-                                  created: "",
-                                  edited: "",
-                                  url: ""))
+        PlanetListViewCell(planet: SwapiFormattingData.planet)
     }
 }
