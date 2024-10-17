@@ -17,19 +17,18 @@ struct For_TariaApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            For_TariaMainView()
         }
     }
     
     private func loadRocketSimConnect() {
-//        #if DEBUG
+        #if DEBUG
         guard (Bundle(path: "/Applications/RocketSim.app/Contents/Frameworks/RocketSimConnectLinker.nocache.framework")?.load() == true) else {
             print("Failed to load linker framework")
             return
         }
         print("RocketSim Connect successfully linked")
-//        #endif
+        #endif
     }
 }
 

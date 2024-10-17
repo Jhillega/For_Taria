@@ -12,32 +12,33 @@ struct SpeciesListView: View {
     let service = SWAPIService()
     
     var body: some View {
-        VStack{
-            Text(ResourceCategory.species.rawValue.localizedCapitalized)
-                .font(.largeTitle)
-                .bold()
-                .padding()
-            List(species) { speciesType in
-                SpeciesListViewCell(species: speciesType)
-                    .listRowBackground(Color.black)
-            }
-            .listStyle(.plain)
-            .onAppear {
-                Task {
-                    let result = await service.fetch_Species_FromAGalaxyFarFarAway()
-                    switch result {
-                    case .success(let speciesReturn):
-                        species = speciesReturn.results.sorted { (lhs, rhs) in
-                            lhs.name < rhs.name
+        NavigationView {
+            ZStack {
+                VStack{
+                    List(species) { speciesType in
+                        SpeciesListViewCell(species: speciesType)
+                            .listRowBackground(Color.black)
+                    }
+                    .listStyle(.plain)
+                    .onAppear {
+                        Task {
+                            let result = await service.fetch_Species_FromAGalaxyFarFarAway()
+                            switch result {
+                            case .success(let speciesReturn):
+                                species = speciesReturn.results.sorted { (lhs, rhs) in
+                                    lhs.name < rhs.name
+                                }
+                            case .failure(let error):
+                                print(error.localizedDescription)
+                            }
                         }
-                    case .failure(let error):
-                        print(error.localizedDescription)
                     }
                 }
+                .navigationBarTitle(ResourceCategory.species.rawValue.localizedCapitalized, displayMode: .inline)
+                .foregroundColor(.yellow)
+                .background(Color.black)
             }
         }
-        .foregroundColor(.yellow)
-        .background(Color.black)
     }
 }
 

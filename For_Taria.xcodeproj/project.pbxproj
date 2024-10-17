@@ -26,6 +26,7 @@
 		5441B3A32A29805600405481 /* PlanetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3A22A29805600405481 /* PlanetListView.swift */; };
 		5441B3A52A29806B00405481 /* PlanetListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3A42A29806B00405481 /* PlanetListViewCell.swift */; };
 		5441B3A72A2A18DD00405481 /* StarWarsStarshipDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3A62A2A18DD00405481 /* StarWarsStarshipDataModel.swift */; };
+		547D9CB92CC0AA9900F5CD13 /* For_TariaMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547D9CB82CC0AA9900F5CD13 /* For_TariaMainView.swift */; };
 		549B62E12A3B8C90003B58DE /* peopleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B62E02A3B8C90003B58DE /* peopleDetailView.swift */; };
 		549B62E32A3B8D21003B58DE /* SpeciesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B62E22A3B8D21003B58DE /* SpeciesDetailView.swift */; };
 		54E976E62A2A430500D2A1E2 /* StarshipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E976E52A2A430500D2A1E2 /* StarshipView.swift */; };
@@ -63,6 +64,7 @@
 		5441B3A22A29805600405481 /* PlanetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetListView.swift; sourceTree = "<group>"; };
 		5441B3A42A29806B00405481 /* PlanetListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetListViewCell.swift; sourceTree = "<group>"; };
 		5441B3A62A2A18DD00405481 /* StarWarsStarshipDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsStarshipDataModel.swift; sourceTree = "<group>"; };
+		547D9CB82CC0AA9900F5CD13 /* For_TariaMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = For_TariaMainView.swift; sourceTree = "<group>"; };
 		549B62E02A3B8C90003B58DE /* peopleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = peopleDetailView.swift; sourceTree = "<group>"; };
 		549B62E22A3B8D21003B58DE /* SpeciesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailView.swift; sourceTree = "<group>"; };
 		54E976E52A2A430500D2A1E2 /* StarshipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipView.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				5441B3822A29203500405481 /* ContentView.swift */,
 				5441B3982A29230800405481 /* TitleView.swift */,
 				54085AB42A38B55E00BCC682 /* CategoryView.swift */,
+				547D9CB82CC0AA9900F5CD13 /* For_TariaMainView.swift */,
 			);
 			path = MenuAndTitle;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				54E976F42A2A827000D2A1E2 /* FilmsListView.swift in Sources */,
 				5441B39F2A2971C700405481 /* StarWarsPlanetDataModel.swift in Sources */,
 				5441B38A2A29203A00405481 /* Persistence.swift in Sources */,
+				547D9CB92CC0AA9900F5CD13 /* For_TariaMainView.swift in Sources */,
 				5441B38D2A29203A00405481 /* For_Taria.xcdatamodeld in Sources */,
 				5441B3A32A29805600405481 /* PlanetListView.swift in Sources */,
 				54E976E62A2A430500D2A1E2 /* StarshipView.swift in Sources */,
