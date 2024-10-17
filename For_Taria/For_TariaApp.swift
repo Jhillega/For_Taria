@@ -10,6 +10,10 @@ import SwiftUI
 @main
 struct For_TariaApp: App {
     let persistenceController = PersistenceController.shared
+    
+    init() {
+        loadRocketSimConnect()
+    }
 
     var body: some Scene {
         WindowGroup {
@@ -17,4 +21,16 @@ struct For_TariaApp: App {
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
+    
+    private func loadRocketSimConnect() {
+//        #if DEBUG
+        guard (Bundle(path: "/Applications/RocketSim.app/Contents/Frameworks/RocketSimConnectLinker.nocache.framework")?.load() == true) else {
+            print("Failed to load linker framework")
+            return
+        }
+        print("RocketSim Connect successfully linked")
+//        #endif
+    }
 }
+
+
