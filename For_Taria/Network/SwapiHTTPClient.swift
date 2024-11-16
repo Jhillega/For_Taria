@@ -11,14 +11,23 @@ import SwiftUI
 //MARK: SWAPI Client protocol and extension
 
 protocol SWAPI_HTTPClient {
-    func sendRequest<T: Decodable>(endpoint: SWAPI_Endpoint, responseModel: T.Type) async -> Result<T, RequestError>
+    func sendRequest<T: Decodable>(endpoint: SWAPI_Endpoint, responseModel: T.Type, searchTerm: String?) async -> Result<T, RequestError>
 }
 
 extension SWAPI_HTTPClient {
     func sendRequest<T: Decodable>(endpoint: SWAPI_Endpoint,
-                                   responseModel: T.Type) async -> Result<T, RequestError> {
+                                   responseModel: T.Type,
+                                   searchTerm: String? = nil) async -> Result<T, RequestError> {
         
-        guard let url = URL(string: endpoint.categoryfullURL) else {
+        var urlString = ""
+        
+        if let term = searchTerm {
+            urlString = endpoint.createSearchURLString(with: term)
+        } else {
+            urlString = endpoint.categoryfullURL
+        }
+        
+        guard let url = URL(string: urlString) else {
             return .failure(.invalidURL)
         }
                 

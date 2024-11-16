@@ -15,7 +15,7 @@ struct SwapiStarshipResults: Codable {
 }
 
 // MARK: - Starship
-struct Starship: Codable, Identifiable {
+struct Starship: Codable, Identifiable, SWAPISearchResultPresentable {
     var id = UUID()
     let name, model, manufacturer, costInCredits: String
     let length, maxAtmospheringSpeed, crew, passengers: String

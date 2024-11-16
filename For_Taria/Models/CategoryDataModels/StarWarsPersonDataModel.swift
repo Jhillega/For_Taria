@@ -7,6 +7,13 @@
 
 import Foundation
 
+// MARK: - Search Result Protocol
+protocol SWAPISearchResultPresentable {
+    var id: UUID { get }
+    var name: String { get }
+    var url: String { get }
+}
+
 // MARK: - SwapiResults
 struct SwapiPeopleResults: Codable {
     let count: Int
@@ -16,7 +23,7 @@ struct SwapiPeopleResults: Codable {
 }
 
 // MARK: - Result
-struct Person: Codable, Identifiable {
+struct Person: Codable, Identifiable, SWAPISearchResultPresentable {
     let id = UUID()
     let name, height, mass, hairColor: String
     let skinColor, eyeColor, birthYear: String

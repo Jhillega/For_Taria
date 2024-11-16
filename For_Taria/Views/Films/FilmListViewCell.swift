@@ -17,7 +17,7 @@ struct FilmListViewCell: View {
                 .resizable()
                 .scaledToFit()
             VStack {
-                Text(film.title)
+                Text(film.name)
                     .font(.title3)
                 Group {
                     Text("Episode: \(film.episodeID)")

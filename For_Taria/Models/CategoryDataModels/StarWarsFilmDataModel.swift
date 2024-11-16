@@ -16,9 +16,9 @@ struct SwapiFilmResults: Codable {
 }
 
 // MARK: - Film
-struct Film: Codable, Identifiable {
+struct Film: Codable, Identifiable, SWAPISearchResultPresentable {
     let id = UUID()
-    let title: String
+    let name: String
     let episodeID: Int
     let openingCrawl, director, producer, releaseDate: String
     let characters, planets, starships, vehicles: [String]
@@ -27,7 +27,7 @@ struct Film: Codable, Identifiable {
     let url: String
 
     enum CodingKeys: String, CodingKey {
-        case title
+        case name = "title"
         case episodeID = "episode_id"
         case openingCrawl = "opening_crawl"
         case director, producer

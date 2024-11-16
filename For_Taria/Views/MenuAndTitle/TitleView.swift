@@ -10,7 +10,6 @@ import SwiftUI
 struct TitleView: View {
     @Environment(\.dismiss) var dismiss
     
-    
     var body: some View {
         VStack {
             Spacer()

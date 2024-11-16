@@ -16,7 +16,7 @@ struct SwapiPlanetResults: Codable {
 }
 
 // MARK: - Planet
-struct Planet: Codable, Identifiable {
+struct Planet: Codable, Identifiable, SWAPISearchResultPresentable {
     let id = UUID()
     let name, rotationPeriod, orbitalPeriod, diameter: String
     let climate, gravity, terrain, surfaceWater: String

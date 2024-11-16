@@ -7,8 +7,8 @@
 
 import Foundation
 //MARK: Swapi endpoint enums
-enum SwapiCategoryEndpoints {
-    case people
+enum SwapiCategoryEndpoints: Int, CaseIterable {
+    case people = 0
     case planets
     case vehicles
     case starships
@@ -22,7 +22,7 @@ protocol SWAPI_Endpoint {
     var path: String { get }
     var categoryfullURL: String { get }
     
-    func createSearchURL(with searchTerm: String, for categoryEndpoint: SWAPI_Endpoint) -> URL?
+    func createSearchURLString(with searchTerm: String) -> String
 }
 
 //MARK: SwapiEndpoint default implementation
@@ -57,12 +57,7 @@ extension SwapiCategoryEndpoints: SWAPI_Endpoint {
         return baseURL + path
     }
     
-    func createSearchURL(with searchTerm: String, for categoryEndpoint: SWAPI_Endpoint) -> URL? {
-        guard let url = URL(string: categoryEndpoint.categoryfullURL + "?search=" + searchTerm) else {
-            print("Bad url for individual search")
-            return nil
-        }
-        
-        return url
+    func createSearchURLString(with searchTerm: String) -> String {
+        return self.categoryfullURL + "?search=" + searchTerm
     }
 }
