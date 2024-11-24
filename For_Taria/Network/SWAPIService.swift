@@ -15,81 +15,25 @@ protocol SWAPIServicable {
     func fetch_Vehicles_FromAGalaxyFarFarAway() async -> Result<SwapiVehicleResults, RequestError>
     func fetch_Species_FromAGalaxyFarFarAway() async -> Result<SwapiSpeciesResults, RequestError>
     func fetch_Films_About_FromAGalaxyFarFarAway() async -> Result<SwapiFilmResults, RequestError>
-    func searchAGalaxyFarFarAway(query: String) async -> [SWAPISearchResultPresentable]?
+    func searchAGalaxyFarFarAway(for query: String, in category: SwapiCategoryEndpoints) async -> [SWAPISearchResultPresentable]?
 }
 
 struct SWAPIService: SWAPI_HTTPClient, SWAPIServicable {
     // MARK: - Search function
-    func searchAGalaxyFarFarAway(query: String) async -> [SWAPISearchResultPresentable]? {
+    func searchAGalaxyFarFarAway(for query: String, in category: SwapiCategoryEndpoints) async -> [SWAPISearchResultPresentable]? {
         guard !query.isEmpty else {
             return nil
         }
         
         var searchResults: [SWAPISearchResultPresentable] = []
         
-        for swapiEndpoint in SwapiCategoryEndpoints.allCases {
-            
-            switch swapiEndpoint {
-            case .people:
-                let results = await sendRequest(endpoint: SwapiCategoryEndpoints.people, responseModel: SwapiPeopleResults.self, searchTerm: query)
-                
-                switch results {
-                case .success(let success):
-                    searchResults += success.results
-                case .failure(let failure):
-                    print(failure.localizedDescription)
-                }
-                
-            case .planets:
-                let results = await sendRequest(endpoint: SwapiCategoryEndpoints.planets, responseModel: SwapiPlanetResults.self, searchTerm: query)
-                
-                switch results {
-                case .success(let success):
-                    searchResults += success.results
-                case .failure(let failure):
-                    print(failure.localizedDescription)
-                }
-                
-            case .vehicles:
-                let results = await sendRequest(endpoint: SwapiCategoryEndpoints.vehicles, responseModel: SwapiVehicleResults.self, searchTerm: query)
-                
-                switch results {
-                case .success(let success):
-                    searchResults += success.results
-                case .failure(let failure):
-                    print(failure.localizedDescription)
-                }
-                
-            case .starships:
-                let results = await sendRequest(endpoint: SwapiCategoryEndpoints.starships, responseModel: SwapiStarshipResults.self, searchTerm: query)
-                
-                switch results {
-                case .success(let success):
-                    searchResults += success.results
-                case .failure(let failure):
-                    print(failure.localizedDescription)
-                }
-                
-            case .films:
-                let results = await sendRequest(endpoint: SwapiCategoryEndpoints.films, responseModel: SwapiFilmResults.self, searchTerm: query)
-                
-                switch results {
-                case .success(let success):
-                    searchResults += success.results
-                case .failure(let failure):
-                    print(failure.localizedDescription)
-                }
-                
-            case .species:
-                let results = await sendRequest(endpoint: SwapiCategoryEndpoints.species, responseModel: SwapiSpeciesResults.self, searchTerm: query)
-                
-                switch results {
-                case .success(let success):
-                    searchResults += success.results
-                case .failure(let failure):
-                    print(failure.localizedDescription)
-                }
-            }
+        let results = await sendRequest(endpoint: SwapiCategoryEndpoints.people, responseModel: SwapiPeopleResults.self, searchTerm: query)
+        
+        switch results {
+        case .success(let success):
+            searchResults += success.results ?? []
+        case .failure(let failure):
+            print(failure.localizedDescription)
         }
         
         return searchResults

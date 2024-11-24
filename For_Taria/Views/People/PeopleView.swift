@@ -34,9 +34,9 @@ struct PeopleView: View {
                     var people: [Person]
                     switch result {
                     case .success(let peopleResponse):
-                        people = peopleResponse.results.sorted { (lhs, rhs) in
+                        people = peopleResponse.results?.sorted { (lhs, rhs) in
                             lhs.name < rhs.name
-                        }
+                        } ?? []
                     case .failure(let error):
                         print(error.localizedDescription)
                         people = []

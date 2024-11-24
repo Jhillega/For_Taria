@@ -16,10 +16,10 @@ protocol SWAPISearchResultPresentable {
 
 // MARK: - SwapiResults
 struct SwapiPeopleResults: Codable {
-    let count: Int
-    let next: String
+    let count: Int?
+    let next: String?
     let previous: JSONNull?
-    let results: [Person]
+    let results: [Person]?
 }
 
 // MARK: - Result
