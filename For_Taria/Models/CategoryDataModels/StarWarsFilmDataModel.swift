@@ -12,7 +12,7 @@ import UIKit
 struct SwapiFilmResults: Codable {
     let count: Int
     let next, previous: JSONNull?
-    let results: [Film]
+    let results: [Film]?
 }
 
 // MARK: - Film

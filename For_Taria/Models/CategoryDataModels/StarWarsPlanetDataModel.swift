@@ -10,9 +10,9 @@ import Foundation
 // MARK: - SwapiPlanetResults
 struct SwapiPlanetResults: Codable {
     let count: Int
-    let next: String
+    let next: String?
     let previous: JSONNull?
-    let results: [Planet]
+    let results: [Planet]?
 }
 
 // MARK: - Planet

@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchView: View {
     @State var searchTerm: String = ""
     @State private var result: [SWAPISearchResultPresentable] = []
-    @State private var resultType: SwapiCategoryEndpoints?
+    @State private var resultType: SwapiCategoryEndpoints = .people
     @State private var isSearching: Bool = false
     @State var isShowingDetailView = false
     let service = SWAPIService()
@@ -71,7 +71,7 @@ struct SearchView: View {
             return
         }
         
-        result = await service.searchAGalaxyFarFarAway(query: searchQuery) ?? SwapiFormattingData.results
+        result = await service.searchAGalaxyFarFarAway(for: searchQuery, in: resultType) ?? SwapiFormattingData.results
         isSearching.toggle()
         isShowingDetailView = true
     }

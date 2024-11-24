@@ -25,9 +25,9 @@ struct SpeciesListView: View {
                             let result = await service.fetch_Species_FromAGalaxyFarFarAway()
                             switch result {
                             case .success(let speciesReturn):
-                                species = speciesReturn.results.sorted { (lhs, rhs) in
+                                species = speciesReturn.results?.sorted { (lhs, rhs) in
                                     lhs.name < rhs.name
-                                }
+                                } ?? []
                             case .failure(let error):
                                 print(error.localizedDescription)
                             }

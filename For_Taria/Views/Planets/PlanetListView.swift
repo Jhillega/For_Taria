@@ -29,7 +29,7 @@ struct PlanetListView: View {
                     let result = await service.fetch_Planets_FromAGalaxyFarFarAway()
                     switch result {
                     case .success(let planetsReturned):
-                        planets = planetsReturned.results.sorted { (lhs, rhs) in
+                        planets = planetsReturned.results?.sorted { (lhs, rhs) in
                             lhs.name < rhs.name
                         }
                     case .failure(let error):

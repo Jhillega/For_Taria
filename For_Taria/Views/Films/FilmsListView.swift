@@ -29,9 +29,9 @@ struct FilmsListView: View {
                         let result = await service.fetch_Films_About_FromAGalaxyFarFarAway()
                         switch result {
                         case .success(let filmResponse):
-                            films = filmResponse.results.sorted { (lhs, rhs) in
+                            films = filmResponse.results?.sorted { (lhs, rhs) in
                                 lhs.episodeID < rhs.episodeID
-                            }
+                            } ?? []
                         case .failure(let error):
                             print(error.localizedDescription)
                         }

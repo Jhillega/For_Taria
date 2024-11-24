@@ -28,9 +28,9 @@ struct StarshipsView: View {
                 let result = await service.fetch_Starships_FromAGalaxyFarFarAway()
                 switch result {
                 case .success(let returnedStarships):
-                    starships = returnedStarships.results.sorted { (lhs, rhs) in
+                    starships = returnedStarships.results?.sorted { (lhs, rhs) in
                         return lhs.name < rhs.name
-                    }
+                    } ?? []
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

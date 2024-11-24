@@ -29,9 +29,9 @@ struct VehicleListView: View {
                     let result = await service.fetch_Vehicles_FromAGalaxyFarFarAway()
                     switch result {
                     case .success(let vehicleReturn):
-                        vehicles = vehicleReturn.results.sorted { (lhs, rhs) in
+                        vehicles = vehicleReturn.results?.sorted { (lhs, rhs) in
                             lhs.name < rhs.name
-                        }
+                        } ?? []
                     case .failure(let error):
                         print(error.localizedDescription)
                     }

@@ -10,9 +10,9 @@ import Foundation
 // MARK: - Swapi Results
 struct SwapiVehicleResults: Codable {
     let count: Int
-    let next: String
+    let next: String?
     let previous: JSONNull?
-    let results: [Vehicle]
+    let results: [Vehicle]?
 }
 
 // MARK: - Vehicle
