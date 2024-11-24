@@ -13,12 +13,19 @@ struct SearchResultsView: View {
     var body: some View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
-            VStack {
-                List(0 ..< results.count, id: \.self) { item in
-                    Text(results[item].name)
+            if results.isEmpty {
+                Text("Unable to find what you where looking for.....")
+                    .foregroundStyle(.yellow)
+            } else {
+                VStack {
+                    ForEach(0 ..< results.count, id: \.self) { item in
+                        Text(results[item].name)
+                    }
+                    .listStyle(.plain)
                 }
+                .foregroundStyle(.yellow)
+                .listRowInsets(.none)
             }
-            .foregroundStyle(.yellow)
         }
     }
 }

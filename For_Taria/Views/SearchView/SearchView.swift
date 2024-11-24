@@ -54,10 +54,9 @@ struct SearchView: View {
                 }
                 .padding()
                 .foregroundStyle(.yellow)
-                .sheet(isPresented: $isShowingDetailView,
-                       onDismiss: nil,
-                       content: {
-                    SearchResultsView(results: result) })
+                
+                SearchResultsView(results: result)
+                    .frame(height: 200.0)
             }
         }
     }
