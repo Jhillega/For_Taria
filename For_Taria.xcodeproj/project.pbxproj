@@ -26,6 +26,7 @@
 		5441B3A32A29805600405481 /* PlanetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3A22A29805600405481 /* PlanetListView.swift */; };
 		5441B3A52A29806B00405481 /* PlanetListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3A42A29806B00405481 /* PlanetListViewCell.swift */; };
 		5441B3A72A2A18DD00405481 /* StarWarsStarshipDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3A62A2A18DD00405481 /* StarWarsStarshipDataModel.swift */; };
+		5464B54A2CF4148900FE375D /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5464B5492CF4148000FE375D /* CacheManager.swift */; };
 		547D9CB92CC0AA9900F5CD13 /* For_TariaMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547D9CB82CC0AA9900F5CD13 /* For_TariaMainView.swift */; };
 		549B62E12A3B8C90003B58DE /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B62E02A3B8C90003B58DE /* SearchResultsView.swift */; };
 		549B62E32A3B8D21003B58DE /* SpeciesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B62E22A3B8D21003B58DE /* SpeciesDetailView.swift */; };
@@ -64,6 +65,7 @@
 		5441B3A22A29805600405481 /* PlanetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetListView.swift; sourceTree = "<group>"; };
 		5441B3A42A29806B00405481 /* PlanetListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetListViewCell.swift; sourceTree = "<group>"; };
 		5441B3A62A2A18DD00405481 /* StarWarsStarshipDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsStarshipDataModel.swift; sourceTree = "<group>"; };
+		5464B5492CF4148000FE375D /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		547D9CB82CC0AA9900F5CD13 /* For_TariaMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = For_TariaMainView.swift; sourceTree = "<group>"; };
 		549B62E02A3B8C90003B58DE /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
 		549B62E22A3B8D21003B58DE /* SpeciesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailView.swift; sourceTree = "<group>"; };
@@ -132,7 +134,7 @@
 		5441B37F2A29203500405481 /* For_Taria */ = {
 			isa = PBXGroup;
 			children = (
-				5441B3972A29215D00405481 /* Network */,
+				5464B5472CF4143B00FE375D /* Managers */,
 				5441B3942A29207F00405481 /* Views */,
 				5441B3932A29207300405481 /* Models */,
 				5441B3802A29203500405481 /* For_TariaApp.swift */,
@@ -184,6 +186,23 @@
 				540B61192A312ADF00DB1FBB /* SWAPIService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		5464B5472CF4143B00FE375D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				5464B5482CF4147500FE375D /* Caching */,
+				5441B3972A29215D00405481 /* Network */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		5464B5482CF4147500FE375D /* Caching */ = {
+			isa = PBXGroup;
+			children = (
+				5464B5492CF4148000FE375D /* CacheManager.swift */,
+			);
+			path = Caching;
 			sourceTree = "<group>";
 		};
 		54E976E92A2A588500D2A1E2 /* People */ = {
@@ -351,6 +370,7 @@
 				54E976FF2A2AC03A00D2A1E2 /* VehicleListViewCell.swift in Sources */,
 				5441B3992A29230800405481 /* TitleView.swift in Sources */,
 				54085AB02A37BF1A00BCC682 /* UIFormattingData.swift in Sources */,
+				5464B54A2CF4148900FE375D /* CacheManager.swift in Sources */,
 				5441B39B2A2957D700405481 /* StarWarsPersonDataModel.swift in Sources */,
 				54E976EF2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift in Sources */,
 				549B62E12A3B8C90003B58DE /* SearchResultsView.swift in Sources */,

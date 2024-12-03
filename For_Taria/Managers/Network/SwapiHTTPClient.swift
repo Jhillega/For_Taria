@@ -30,6 +30,8 @@ extension SWAPI_HTTPClient {
         guard let url = URL(string: urlString) else {
             return .failure(.invalidURL)
         }
+        
+        
                 
         do {
             let (data, response) = try await URLSession.shared.data(from: url, delegate: nil)
