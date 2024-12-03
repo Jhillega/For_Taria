@@ -160,3 +160,4 @@ extension SwapiCache: Codable where Key: Codable, Value: Codable {
         try data.write(to: fileURL)
     }
 }
+

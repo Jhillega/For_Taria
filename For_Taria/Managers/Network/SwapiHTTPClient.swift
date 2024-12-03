@@ -39,6 +39,8 @@ extension SWAPI_HTTPClient {
                 return .failure(.noResponse)
             }
             
+            URLCacheManager.shared.store(request: URLRequest(url: url), response: response, data: data)
+            
             switch response.statusCode {
             case 200...299:
                 guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else {

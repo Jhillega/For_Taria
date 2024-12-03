@@ -10,6 +10,7 @@ import SwiftUI
 struct PeopleView: View {
     @State var results: [Person]?
     var service = SWAPIService()
+    var peopleRepo = SWAPIPeopleRepository()
     
     init() {
             UINavigationBar.appearance().titleTextAttributes = [
@@ -30,19 +31,7 @@ struct PeopleView: View {
             .listStyle(.plain)
             .onAppear() {
                 Task {
-                    let result = await service.fetch_People_FromAGalaxyFarFarAway()
-                    var people: [Person]
-                    switch result {
-                    case .success(let peopleResponse):
-                        people = peopleResponse.results?.sorted { (lhs, rhs) in
-                            lhs.name < rhs.name
-                        } ?? []
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                        people = []
-                    }
-                    
-                    results = people
+                    results = try await peopleRepo.fetch()
                 }
             }
             .background(Color.black)

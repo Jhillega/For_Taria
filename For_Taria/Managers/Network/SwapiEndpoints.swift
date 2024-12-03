@@ -57,6 +57,23 @@ extension SwapiCategoryEndpoints: SWAPI_Endpoint {
         return baseURL + path
     }
     
+    var cacheTime: TimeInterval {
+        switch self {
+        case .people:
+            60 * 5
+        case .planets:
+            60 * 5
+        case .vehicles:
+            60 * 5
+        case .starships:
+            60 * 5
+        case .films:
+            60 * 5
+        case .species:
+            60 * 5
+        }
+    }
+    
     func createSearchURLString(with searchTerm: String) -> String {
         return self.categoryfullURL + "?search=" + searchTerm
     }
