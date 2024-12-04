@@ -1,5 +1,5 @@
 //
-//  SWAPIPeopleRepository.swift
+//  SwapiStarshipRepository.swift
 //  For_Taria
 //
 //  Created by Jason Hillegass on 12/3/24.
@@ -7,16 +7,16 @@
 
 import Foundation
 
-class SWAPIPeopleRepository {
-    static let shared = SWAPIPeopleRepository()
-    private var cacheReloadInterval: TimeInterval = SwapiCategoryEndpoints.people.cacheTime
+class SwapiStarshipRepository {
+    static let shared = SwapiStarshipRepository()
+    private var cacheReloadInterval: TimeInterval = SwapiCategoryEndpoints.starships.cacheTime
     var service = SWAPIService()
-    let cache = SwapiCache<URLRequest, [Person]>()
+    var cache = SwapiCache<URLRequest, [Starship]>()
     
-    func fetch(bypassCache: Bool = false) async throws -> [Person] {
+    func fetch(bypassCache: Bool = false) async throws -> [Starship] {
         
-        guard let url = URL(string: SwapiCategoryEndpoints.people.path) else {
-            throw AppError.DataFetch(type: .invalidURL, errorString: "Unable to form URL for \(SwapiCategoryEndpoints.people.path)")
+        guard let url = URL(string: SwapiCategoryEndpoints.starships.path) else {
+            throw AppError.DataFetch(type: .invalidURL, errorString: "Unable to form URL for \(SwapiCategoryEndpoints.starships.path)")
         }
         
         let request = URLRequest(url: url)
@@ -33,9 +33,9 @@ class SWAPIPeopleRepository {
         }
     }
     
-    private func networkFetch(_ request: URLRequest) async -> [Person] {
+    private func networkFetch(_ request: URLRequest) async -> [Starship] {
         
-        let items = await service.fetch_People_FromAGalaxyFarFarAway()
+        let items = await service.fetch_Starships_FromAGalaxyFarFarAway()
         
         switch items {
         case .success(let success):

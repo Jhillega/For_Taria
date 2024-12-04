@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StarshipsView: View {
     @State private var starships = [Starship]()
-    let service = SWAPIService()
+    let starshipRepo = SwapiStarshipRepository()
     
     var body: some View {
         VStack {
@@ -25,15 +25,7 @@ struct StarshipsView: View {
         }
         .onAppear {
             Task {
-                let result = await service.fetch_Starships_FromAGalaxyFarFarAway()
-                switch result {
-                case .success(let returnedStarships):
-                    starships = returnedStarships.results?.sorted { (lhs, rhs) in
-                        return lhs.name < rhs.name
-                    } ?? []
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
+                starships = try await starshipRepo.fetch()
             }
         }
         .foregroundColor(.yellow)

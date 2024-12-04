@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PlanetListView: View {
     @State private var planets: [Planet]? = nil
-    let service = SWAPIService()
+    let planetRepo = SwapiPlanetRepository()
     
     var body: some View {
         VStack {
@@ -26,15 +26,7 @@ struct PlanetListView: View {
             .listStyle(.plain)
             .onAppear {
                 Task {
-                    let result = await service.fetch_Planets_FromAGalaxyFarFarAway()
-                    switch result {
-                    case .success(let planetsReturned):
-                        planets = planetsReturned.results?.sorted { (lhs, rhs) in
-                            lhs.name < rhs.name
-                        }
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                    }
+                    planets = try await planetRepo.fetch()
                 }
             }
         }

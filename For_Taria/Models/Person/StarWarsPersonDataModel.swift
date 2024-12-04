@@ -23,7 +23,7 @@ struct SwapiPeopleResults: Codable {
 }
 
 // MARK: - Result
-struct Person: Codable, Identifiable, SWAPISearchResultPresentable {
+struct Person: Codable, Identifiable, Hashable, SWAPISearchResultPresentable {
     let id = UUID()
     let name, height, mass, hairColor: String
     let skinColor, eyeColor, birthYear: String
