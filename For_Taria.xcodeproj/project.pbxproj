@@ -271,7 +271,6 @@
 			children = (
 				5441B39C2A296EEB00405481 /* PeopleView.swift */,
 				5441B3A02A2975E500405481 /* PeopleViewCell.swift */,
-				549B62E02A3B8C90003B58DE /* SearchResultsView.swift */,
 			);
 			path = People;
 			sourceTree = "<group>";
@@ -301,6 +300,7 @@
 				5441B3982A29230800405481 /* TitleView.swift */,
 				54085AB42A38B55E00BCC682 /* CategoryView.swift */,
 				547D9CB82CC0AA9900F5CD13 /* For_TariaMainView.swift */,
+				549B62E02A3B8C90003B58DE /* SearchResultsView.swift */,
 			);
 			path = MenuAndTitle;
 			sourceTree = "<group>";

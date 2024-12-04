@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct For_TariaMainView: View {
+    
+    init() {
+        UITabBar.appearance().barTintColor = .black
+    }
+    
     var body: some View {
+        
         TabView {
             ContentView()
                 .tabItem {
