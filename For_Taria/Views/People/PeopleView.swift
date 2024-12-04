@@ -9,8 +9,7 @@ import SwiftUI
 
 struct PeopleView: View {
     @State var results: [Person]?
-    var service = SWAPIService()
-    var peopleRepo = SWAPIPeopleRepository()
+    let peopleRepo = SWAPIPeopleRepository()
     
     init() {
             UINavigationBar.appearance().titleTextAttributes = [

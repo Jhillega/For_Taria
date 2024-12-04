@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FilmsListView: View {
     @State private var films = [Film]()
-    let service = SWAPIService()
+    let filmRepo = SwapiFilmRepository()
     
     var body: some View {
             VStack {
@@ -26,15 +26,7 @@ struct FilmsListView: View {
                 .listStyle(.plain)
                 .onAppear {
                     Task {
-                        let result = await service.fetch_Films_About_FromAGalaxyFarFarAway()
-                        switch result {
-                        case .success(let filmResponse):
-                            films = filmResponse.results?.sorted { (lhs, rhs) in
-                                lhs.episodeID < rhs.episodeID
-                            } ?? []
-                        case .failure(let error):
-                            print(error.localizedDescription)
-                        }
+                        films = try await filmRepo.fetch()
                     }
                 }
             }

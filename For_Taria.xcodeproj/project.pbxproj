@@ -11,6 +11,8 @@
 		54085AB52A38B55E00BCC682 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54085AB42A38B55E00BCC682 /* CategoryView.swift */; };
 		540B61182A3125DE00DB1FBB /* SwapiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B61172A3125DE00DB1FBB /* SwapiEndpoints.swift */; };
 		540B611A2A312ADF00DB1FBB /* SWAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B61192A312ADF00DB1FBB /* SWAPIService.swift */; };
+		541749DE2D00C1FD008E3B51 /* SwapiSpeciesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541749DD2D00C1EE008E3B51 /* SwapiSpeciesRepository.swift */; };
+		541749E02D00CC91008E3B51 /* SwapiVehicleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541749DF2D00CC85008E3B51 /* SwapiVehicleRepository.swift */; };
 		543FA2CC2A391BDA00A69482 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543FA2CB2A391BDA00A69482 /* SearchView.swift */; };
 		5441B3812A29203500405481 /* For_TariaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3802A29203500405481 /* For_TariaApp.swift */; };
 		5441B3832A29203500405481 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3822A29203500405481 /* ContentView.swift */; };
@@ -46,6 +48,7 @@
 		54F0C2E92CFFEB2F004E2890 /* SwapiPlanetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F0C2E82CFFEB24004E2890 /* SwapiPlanetRepository.swift */; };
 		54F0C2EB2CFFEC7E004E2890 /* SwapiStarshipRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F0C2EA2CFFEC6D004E2890 /* SwapiStarshipRepository.swift */; };
 		54F0C2ED2CFFEDD2004E2890 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F0C2EC2CFFEDD2004E2890 /* AppError.swift */; };
+		54F0C2EF2CFFF716004E2890 /* SwapiFilmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F0C2EE2CFFF706004E2890 /* SwapiFilmRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,8 @@
 		54085AB42A38B55E00BCC682 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		540B61172A3125DE00DB1FBB /* SwapiEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiEndpoints.swift; sourceTree = "<group>"; };
 		540B61192A312ADF00DB1FBB /* SWAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAPIService.swift; sourceTree = "<group>"; };
+		541749DD2D00C1EE008E3B51 /* SwapiSpeciesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiSpeciesRepository.swift; sourceTree = "<group>"; };
+		541749DF2D00CC85008E3B51 /* SwapiVehicleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiVehicleRepository.swift; sourceTree = "<group>"; };
 		543FA2CB2A391BDA00A69482 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		5441B37D2A29203500405481 /* For_Taria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = For_Taria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5441B3802A29203500405481 /* For_TariaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = For_TariaApp.swift; sourceTree = "<group>"; };
@@ -89,6 +94,7 @@
 		54F0C2E82CFFEB24004E2890 /* SwapiPlanetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiPlanetRepository.swift; sourceTree = "<group>"; };
 		54F0C2EA2CFFEC6D004E2890 /* SwapiStarshipRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiStarshipRepository.swift; sourceTree = "<group>"; };
 		54F0C2EC2CFFEDD2004E2890 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		54F0C2EE2CFFF706004E2890 /* SwapiFilmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiFilmRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,7 @@
 		54085AB32A37C88F00BCC682 /* Vehicle */ = {
 			isa = PBXGroup;
 			children = (
+				541749DF2D00CC85008E3B51 /* SwapiVehicleRepository.swift */,
 				54E976FC2A2A94F400D2A1E2 /* StarWarsVehicleDataModel.swift */,
 			);
 			path = Vehicle;
@@ -244,6 +251,7 @@
 		54670A3F2CFFA1AD002FBC85 /* Film */ = {
 			isa = PBXGroup;
 			children = (
+				54F0C2EE2CFFF706004E2890 /* SwapiFilmRepository.swift */,
 				54E976EE2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift */,
 			);
 			path = Film;
@@ -252,6 +260,7 @@
 		54670A402CFFA1BB002FBC85 /* Species */ = {
 			isa = PBXGroup;
 			children = (
+				541749DD2D00C1EE008E3B51 /* SwapiSpeciesRepository.swift */,
 				54E976F52A2A879100D2A1E2 /* StarWarsSpeciesDataModel.swift */,
 			);
 			path = Species;
@@ -400,9 +409,12 @@
 				543FA2CC2A391BDA00A69482 /* SearchView.swift in Sources */,
 				5441B39D2A296EEB00405481 /* PeopleView.swift in Sources */,
 				54E976F62A2A879100D2A1E2 /* StarWarsSpeciesDataModel.swift in Sources */,
+				54F0C2EF2CFFF716004E2890 /* SwapiFilmRepository.swift in Sources */,
 				54EEDBC72A3100E800B4C331 /* SwapiHTTPClient.swift in Sources */,
 				540B61182A3125DE00DB1FBB /* SwapiEndpoints.swift in Sources */,
+				541749DE2D00C1FD008E3B51 /* SwapiSpeciesRepository.swift in Sources */,
 				5441B3A52A29806B00405481 /* PlanetListViewCell.swift in Sources */,
+				541749E02D00CC91008E3B51 /* SwapiVehicleRepository.swift in Sources */,
 				54E976FD2A2A94F400D2A1E2 /* StarWarsVehicleDataModel.swift in Sources */,
 				540B611A2A312ADF00DB1FBB /* SWAPIService.swift in Sources */,
 				5441B3A72A2A18DD00405481 /* StarWarsStarshipDataModel.swift in Sources */,

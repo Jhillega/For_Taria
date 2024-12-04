@@ -10,6 +10,7 @@ import SwiftUI
 struct VehicleListView: View {
     @State private var vehicles = [Vehicle]()
     let service = SWAPIService()
+    let vehicleRepo = SwapiVehicleRepository()
     
     var body: some View {
         VStack {
@@ -26,15 +27,7 @@ struct VehicleListView: View {
             .listStyle(.plain)
             .onAppear {
                 Task {
-                    let result = await service.fetch_Vehicles_FromAGalaxyFarFarAway()
-                    switch result {
-                    case .success(let vehicleReturn):
-                        vehicles = vehicleReturn.results?.sorted { (lhs, rhs) in
-                            lhs.name < rhs.name
-                        } ?? []
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                    }
+                    vehicles = try await vehicleRepo.fetch()
                 }
             }
         }

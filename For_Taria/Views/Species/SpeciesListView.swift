@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SpeciesListView: View {
     @State private var species = [Species]()
-    let service = SWAPIService()
+    let speciesRepo = SwapiSpeciesRepository()
     
     var body: some View {
         NavigationView {
@@ -22,15 +22,7 @@ struct SpeciesListView: View {
                     .listStyle(.plain)
                     .onAppear {
                         Task {
-                            let result = await service.fetch_Species_FromAGalaxyFarFarAway()
-                            switch result {
-                            case .success(let speciesReturn):
-                                species = speciesReturn.results?.sorted { (lhs, rhs) in
-                                    lhs.name < rhs.name
-                                } ?? []
-                            case .failure(let error):
-                                print(error.localizedDescription)
-                            }
+                            species = try await speciesRepo.fetch()
                         }
                     }
                 }
