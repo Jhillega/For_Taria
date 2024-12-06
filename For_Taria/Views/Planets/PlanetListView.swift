@@ -13,10 +13,6 @@ struct PlanetListView: View {
     
     var body: some View {
         VStack {
-            Text("Planets")
-                .font(.largeTitle)
-                .bold()
-                .padding()
             List {
                 ForEach(planets ?? [Planet](), id: \.id) { planet in
                     PlanetListViewCell(planet: planet)
@@ -30,6 +26,7 @@ struct PlanetListView: View {
                 }
             }
         }
+        .navigationBarTitle(ResourceCategory.planets.rawValue.localizedCapitalized, displayMode: .inline)
         .foregroundColor(.yellow)
         .background(Color.black)
     }

@@ -14,10 +14,6 @@ struct VehicleListView: View {
     
     var body: some View {
         VStack {
-            Text(ResourceCategory.vehicles.rawValue.localizedCapitalized)
-                .font(.largeTitle)
-                .bold()
-                .padding()
             List {
                 ForEach(vehicles, content: { vehicle in
                     VehicleListViewCell(vehicle: vehicle)
@@ -31,6 +27,7 @@ struct VehicleListView: View {
                 }
             }
         }
+        .navigationBarTitle(ResourceCategory.vehicles.rawValue.localizedCapitalized, displayMode: .inline)
         .foregroundColor(.yellow)
         .background(Color.black)
     }

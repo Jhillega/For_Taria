@@ -13,10 +13,6 @@ struct FilmsListView: View {
     
     var body: some View {
             VStack {
-                Text("Episodes")
-                    .font(.largeTitle)
-                    .bold()
-                    .padding()
                 List {
                     ForEach(films, content: { film in
                         FilmListViewCell(film: film)
@@ -30,6 +26,7 @@ struct FilmsListView: View {
                     }
                 }
             }
+            .navigationBarTitle(ResourceCategory.films.rawValue.localizedCapitalized, displayMode: .inline)
             .foregroundColor(Color.yellow)
             .background(Color.black.ignoresSafeArea(.all))
     }

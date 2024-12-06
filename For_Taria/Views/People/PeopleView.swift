@@ -19,10 +19,6 @@ struct PeopleView: View {
     
     var body: some View {
         VStack {
-            Text(ResourceCategory.people.rawValue.localizedCapitalized)
-                .font(.largeTitle)
-                .bold()
-                .padding()
             List(results ?? []) { result in
                     PeopleViewCell(person: result)
                     .listRowBackground(Color.black)
@@ -35,6 +31,7 @@ struct PeopleView: View {
             }
             .background(Color.black)
         }
+        .navigationBarTitle(ResourceCategory.people.rawValue.localizedCapitalized, displayMode: .inline)
         .foregroundColor(.yellow)
         .background(Color.black)
     }

@@ -13,10 +13,6 @@ struct StarshipsView: View {
     
     var body: some View {
         VStack {
-            Text("Starships")
-                .font(.largeTitle)
-                .bold()
-                .padding()
             List(starships) { starship in
                 StarshipView(starship: starship)
                     .listRowBackground(Color.black)
@@ -28,6 +24,7 @@ struct StarshipsView: View {
                 starships = try await starshipRepo.fetch()
             }
         }
+        .navigationBarTitle(ResourceCategory.starships.rawValue.localizedCapitalized, displayMode: .inline)
         .foregroundColor(.yellow)
         .background(Color.black)
     }

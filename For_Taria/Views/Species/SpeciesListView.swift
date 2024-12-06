@@ -12,25 +12,21 @@ struct SpeciesListView: View {
     let speciesRepo = SwapiSpeciesRepository()
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                VStack{
-                    List(species) { speciesType in
-                        SpeciesListViewCell(species: speciesType)
-                            .listRowBackground(Color.black)
-                    }
-                    .listStyle(.plain)
-                    .onAppear {
-                        Task {
-                            species = try await speciesRepo.fetch()
-                        }
-                    }
+        VStack{
+            List(species) { speciesType in
+                SpeciesListViewCell(species: speciesType)
+                    .listRowBackground(Color.black)
+            }
+            .listStyle(.plain)
+            .onAppear {
+                Task {
+                    species = try await speciesRepo.fetch()
                 }
-                .navigationBarTitle(ResourceCategory.species.rawValue.localizedCapitalized, displayMode: .inline)
-                .foregroundColor(.yellow)
-                .background(Color.black)
             }
         }
+        .navigationBarTitle(ResourceCategory.species.rawValue.localizedCapitalized, displayMode: .inline)
+        .foregroundColor(.yellow)
+        .background(Color.black)
     }
 }
 
