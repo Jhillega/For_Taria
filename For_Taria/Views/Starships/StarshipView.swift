@@ -11,10 +11,10 @@ struct StarshipView: View {
     let starship: Starship
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text(starship.name)
                 .bold()
-                .padding()
+                .padding(.vertical)
             Text(starship.model)
             Text(starship.starshipClass)
         }

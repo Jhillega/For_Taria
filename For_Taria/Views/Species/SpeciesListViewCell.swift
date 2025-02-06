@@ -26,11 +26,11 @@ struct SpeciesListViewCell: View {
                 .foregroundColor(characterColor)
                 .padding()
             
-            VStack {
+            VStack(alignment: .leading) {
                 Text(species.name)
                     .font(.title)
                     .bold()
-                    .padding()
+                    .padding(.vertical)
                 Text(species.language)
                 Text(species.classification)
             }

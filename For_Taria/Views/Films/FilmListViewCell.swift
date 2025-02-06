@@ -16,7 +16,7 @@ struct FilmListViewCell: View {
             Image(imageString)
                 .resizable()
                 .scaledToFit()
-            VStack {
+            VStack(alignment: .leading) {
                 Text(film.name)
                     .font(.title3)
                 Group {
@@ -25,8 +25,8 @@ struct FilmListViewCell: View {
                     Text("released: \(film.releaseDate)")
                 }
                 .font(.subheadline)
-                .multilineTextAlignment(.leading)
             }
+            Spacer()
         }
         .frame(height: 100.00)
         .foregroundColor(.yellow)

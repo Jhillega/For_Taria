@@ -31,11 +31,11 @@ struct PlanetListViewCell: View {
                 .scaledToFit()
                 .foregroundColor(colorOfPlanet)
                 .padding()
-            VStack {
+            VStack(alignment: .leading) {
                 Text(planet.name)
                     .font(.title2)
                     .bold()
-                    .padding()
+                    .padding(.vertical)
                 Text("Climate: " + planet.climate)
                     .font(.body)
                 Text("Orbital period: " + planet.orbitalPeriod)

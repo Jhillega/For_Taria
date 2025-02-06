@@ -9,16 +9,25 @@ import SwiftUI
 
 struct VehicleListViewCell: View {
     let vehicle: Vehicle
+    var imageHeight: CGFloat = 100
+    var imageWidth: CGFloat = 100
     
     var body: some View {
-        VStack {
-            Text(vehicle.name)
-                .font(.title2)
-                .bold()
-                .padding()
-            Text(vehicle.model)
-            Text(vehicle.manufacturer)
+        HStack {
+            Image(systemName: "gear")
+                .resizable()
+                .scaledToFit()
+            VStack(alignment: .leading) {
+                Text(vehicle.name)
+                    .font(.title2)
+                    .bold()
+                    .padding(.vertical)
+                Text(vehicle.model)
+                Text(vehicle.manufacturer)
+            }
+            .multilineTextAlignment(.leading)
         }
+        .frame(height: imageHeight)
     }
 }
 
