@@ -13,6 +13,15 @@
 		540B611A2A312ADF00DB1FBB /* SWAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B61192A312ADF00DB1FBB /* SWAPIService.swift */; };
 		541749DE2D00C1FD008E3B51 /* SwapiSpeciesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541749DD2D00C1EE008E3B51 /* SwapiSpeciesRepository.swift */; };
 		541749E02D00CC91008E3B51 /* SwapiVehicleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541749DF2D00CC85008E3B51 /* SwapiVehicleRepository.swift */; };
+		54384F172D91EF660025F636 /* ShinyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54384F162D91EF660025F636 /* ShinyButtonView.swift */; };
+		54384F1A2D91F94A0025F636 /* Comparable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54384F192D91F9400025F636 /* Comparable+Extensions.swift */; };
+		54384F1D2D91F9EF0025F636 /* ProgressiveGlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54384F1C2D91F9E90025F636 /* ProgressiveGlow.swift */; };
+		54384F202D91FB930025F636 /* ButtonShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 54384F1F2D91FB930025F636 /* ButtonShader.metal */; };
+		54384F222D9204730025F636 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54384F212D92046A0025F636 /* View+Extensions.swift */; };
+		54384F242D92096D0025F636 /* RippleEffect.metal in Sources */ = {isa = PBXBuildFile; fileRef = 54384F232D92096D0025F636 /* RippleEffect.metal */; };
+		54384F262D9209DE0025F636 /* RippleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54384F252D9209D50025F636 /* RippleModifier.swift */; };
+		54384F282D92200B0025F636 /* ParticleCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54384F272D9220010025F636 /* ParticleCloud.swift */; };
+		54384F2A2D92234A0025F636 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54384F292D9223310025F636 /* Renderer.swift */; };
 		543FA2CC2A391BDA00A69482 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543FA2CB2A391BDA00A69482 /* SearchView.swift */; };
 		5441B3812A29203500405481 /* For_TariaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3802A29203500405481 /* For_TariaApp.swift */; };
 		5441B3832A29203500405481 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441B3822A29203500405481 /* ContentView.swift */; };
@@ -57,6 +66,15 @@
 		540B61192A312ADF00DB1FBB /* SWAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAPIService.swift; sourceTree = "<group>"; };
 		541749DD2D00C1EE008E3B51 /* SwapiSpeciesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiSpeciesRepository.swift; sourceTree = "<group>"; };
 		541749DF2D00CC85008E3B51 /* SwapiVehicleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiVehicleRepository.swift; sourceTree = "<group>"; };
+		54384F162D91EF660025F636 /* ShinyButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShinyButtonView.swift; sourceTree = "<group>"; };
+		54384F192D91F9400025F636 /* Comparable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comparable+Extensions.swift"; sourceTree = "<group>"; };
+		54384F1C2D91F9E90025F636 /* ProgressiveGlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressiveGlow.swift; sourceTree = "<group>"; };
+		54384F1F2D91FB930025F636 /* ButtonShader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ButtonShader.metal; sourceTree = "<group>"; };
+		54384F212D92046A0025F636 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		54384F232D92096D0025F636 /* RippleEffect.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = RippleEffect.metal; sourceTree = "<group>"; };
+		54384F252D9209D50025F636 /* RippleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleModifier.swift; sourceTree = "<group>"; };
+		54384F272D9220010025F636 /* ParticleCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleCloud.swift; sourceTree = "<group>"; };
+		54384F292D9223310025F636 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		543FA2CB2A391BDA00A69482 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		5441B37D2A29203500405481 /* For_Taria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = For_Taria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5441B3802A29203500405481 /* For_TariaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = For_TariaApp.swift; sourceTree = "<group>"; };
@@ -115,6 +133,45 @@
 			path = Vehicle;
 			sourceTree = "<group>";
 		};
+		54384F152D91EF500025F636 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				54384F1E2D91FB670025F636 /* Metal */,
+				54384F1B2D91F9E30025F636 /* SFX */,
+				54384F162D91EF660025F636 /* ShinyButtonView.swift */,
+			);
+			path = Effects;
+			sourceTree = "<group>";
+		};
+		54384F182D91F9370025F636 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				54384F212D92046A0025F636 /* View+Extensions.swift */,
+				54384F192D91F9400025F636 /* Comparable+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		54384F1B2D91F9E30025F636 /* SFX */ = {
+			isa = PBXGroup;
+			children = (
+				54384F292D9223310025F636 /* Renderer.swift */,
+				54384F272D9220010025F636 /* ParticleCloud.swift */,
+				54384F252D9209D50025F636 /* RippleModifier.swift */,
+				54384F1C2D91F9E90025F636 /* ProgressiveGlow.swift */,
+			);
+			path = SFX;
+			sourceTree = "<group>";
+		};
+		54384F1E2D91FB670025F636 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				54384F1F2D91FB930025F636 /* ButtonShader.metal */,
+				54384F232D92096D0025F636 /* RippleEffect.metal */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
 		543FA2CA2A391BB800A69482 /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +199,7 @@
 		5441B37F2A29203500405481 /* For_Taria */ = {
 			isa = PBXGroup;
 			children = (
+				54384F182D91F9370025F636 /* Extensions */,
 				5464B5472CF4143B00FE375D /* Managers */,
 				5441B3942A29207F00405481 /* Views */,
 				5441B3932A29207300405481 /* Models */,
@@ -179,6 +237,7 @@
 		5441B3942A29207F00405481 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				54384F152D91EF500025F636 /* Effects */,
 				543FA2CA2A391BB800A69482 /* SearchView */,
 				54E976F72A2A8C4100D2A1E2 /* Species */,
 				54E976F02A2A7FD400D2A1E2 /* Films */,
@@ -402,17 +461,21 @@
 			files = (
 				54E976FB2A2A8DA100D2A1E2 /* SpeciesListView.swift in Sources */,
 				54E976F22A2A7FF700D2A1E2 /* FilmListViewCell.swift in Sources */,
+				54384F222D9204730025F636 /* View+Extensions.swift in Sources */,
 				54E976E82A2A44A600D2A1E2 /* StarshipsView.swift in Sources */,
+				54384F242D92096D0025F636 /* RippleEffect.metal in Sources */,
 				543FA2CC2A391BDA00A69482 /* SearchView.swift in Sources */,
 				5441B39D2A296EEB00405481 /* PeopleView.swift in Sources */,
 				54E976F62A2A879100D2A1E2 /* StarWarsSpeciesDataModel.swift in Sources */,
 				54F0C2EF2CFFF716004E2890 /* SwapiFilmRepository.swift in Sources */,
 				54EEDBC72A3100E800B4C331 /* SwapiHTTPClient.swift in Sources */,
+				54384F262D9209DE0025F636 /* RippleModifier.swift in Sources */,
 				540B61182A3125DE00DB1FBB /* SwapiEndpoints.swift in Sources */,
 				541749DE2D00C1FD008E3B51 /* SwapiSpeciesRepository.swift in Sources */,
 				5441B3A52A29806B00405481 /* PlanetListViewCell.swift in Sources */,
 				541749E02D00CC91008E3B51 /* SwapiVehicleRepository.swift in Sources */,
 				54E976FD2A2A94F400D2A1E2 /* StarWarsVehicleDataModel.swift in Sources */,
+				54384F2A2D92234A0025F636 /* Renderer.swift in Sources */,
 				540B611A2A312ADF00DB1FBB /* SWAPIService.swift in Sources */,
 				5441B3A72A2A18DD00405481 /* StarWarsStarshipDataModel.swift in Sources */,
 				54E976F42A2A827000D2A1E2 /* FilmsListView.swift in Sources */,
@@ -420,24 +483,29 @@
 				5441B38A2A29203A00405481 /* Persistence.swift in Sources */,
 				547D9CB92CC0AA9900F5CD13 /* For_TariaMainView.swift in Sources */,
 				5441B38D2A29203A00405481 /* For_Taria.xcdatamodeld in Sources */,
+				54384F1D2D91F9EF0025F636 /* ProgressiveGlow.swift in Sources */,
 				5441B3A32A29805600405481 /* PlanetListView.swift in Sources */,
 				54E976E62A2A430500D2A1E2 /* StarshipView.swift in Sources */,
 				5441B3A12A2975E500405481 /* PeopleViewCell.swift in Sources */,
 				5441B3832A29203500405481 /* ContentView.swift in Sources */,
 				5441B3812A29203500405481 /* For_TariaApp.swift in Sources */,
 				54E976F92A2A8C5800D2A1E2 /* SpeciesListViewCell.swift in Sources */,
+				54384F202D91FB930025F636 /* ButtonShader.metal in Sources */,
 				54085AB52A38B55E00BCC682 /* CategoryView.swift in Sources */,
 				54E976FF2A2AC03A00D2A1E2 /* VehicleListViewCell.swift in Sources */,
+				54384F1A2D91F94A0025F636 /* Comparable+Extensions.swift in Sources */,
 				5441B3992A29230800405481 /* TitleView.swift in Sources */,
 				54F0C2E92CFFEB2F004E2890 /* SwapiPlanetRepository.swift in Sources */,
 				54F0C2EB2CFFEC7E004E2890 /* SwapiStarshipRepository.swift in Sources */,
 				54085AB02A37BF1A00BCC682 /* UIFormattingData.swift in Sources */,
 				5464B54A2CF4148900FE375D /* CacheManager.swift in Sources */,
 				5441B39B2A2957D700405481 /* StarWarsPersonDataModel.swift in Sources */,
+				54384F172D91EF660025F636 /* ShinyButtonView.swift in Sources */,
 				54E976EF2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift in Sources */,
 				549B62E12A3B8C90003B58DE /* SearchResultsView.swift in Sources */,
 				54E977012A2AC13700D2A1E2 /* VehicleListView.swift in Sources */,
 				54670A422CFFA1FC002FBC85 /* SWAPIPeopleRepository.swift in Sources */,
+				54384F282D92200B0025F636 /* ParticleCloud.swift in Sources */,
 				54F0C2ED2CFFEDD2004E2890 /* AppError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,7 +564,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -551,7 +619,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -577,7 +645,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -607,7 +675,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
