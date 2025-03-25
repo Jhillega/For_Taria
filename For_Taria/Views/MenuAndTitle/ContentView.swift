@@ -16,7 +16,7 @@ struct ContentView: View {
             CategoryView()
         }
         .fullScreenCover(isPresented: $isShowingTitle, onDismiss: nil, content: {
-            TitleView()
+            TitleView(launched: $isShowingTitle)
         })
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TitleView: View {
-    @Environment(\.dismiss) var dismiss
+    @Binding var launched: Bool
     
     var body: some View {
         VStack {
@@ -26,17 +26,13 @@ struct TitleView: View {
                 .italic()
                 .opacity(0.66)
             Spacer()
-            Button(action: {
-                dismiss()
-            }, label: {
-                Text("Continue")
-                    .padding()
-                    .foregroundStyle(.yellow)
-                    .background(
-                        ShinyButtonView()
-                    )
-            })
-            .padding()
+            Text("Continue")
+                .padding()
+                .foregroundStyle(.yellow)
+                .background(
+                    ShinyButtonView(actionComplete: $launched)
+                )
+                .padding()
             Spacer()
             Spacer()
             Spacer()
@@ -46,8 +42,7 @@ struct TitleView: View {
     }
 }
 
-struct TitleView_Previews: PreviewProvider {
-    static var previews: some View {
-        TitleView()
-    }
+#Preview {
+    @Previewable @State var launched: Bool = false
+    TitleView(launched: $launched)
 }

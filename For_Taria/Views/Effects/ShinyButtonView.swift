@@ -22,6 +22,8 @@ struct ShinyButtonView: View {
     @State private var rippleAnimationID: UUID?
     @State private var rippleLocation: CGPoint?
     
+    @Binding var actionComplete: Bool
+    
     var body: some View {
         GeometryReader { proxy in
             ZStack {
@@ -109,6 +111,8 @@ struct ShinyButtonView: View {
                     }
                   ).onEnded { _ in
                       glowAnimationID = nil
+                      actionComplete = false
+                      debugPrint(actionComplete)
                   }
                 )
         }
@@ -116,9 +120,10 @@ struct ShinyButtonView: View {
 }
 
 #Preview {
+    @Previewable @State var isPressed = false
     ZStack {
         Color.black.ignoresSafeArea()
-        ShinyButtonView()
+        ShinyButtonView(actionComplete: $isPressed)
             .frame(
                 width: 240, height: 100.0
             )
