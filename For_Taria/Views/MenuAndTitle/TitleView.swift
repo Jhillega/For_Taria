@@ -31,9 +31,9 @@ struct TitleView: View {
             }, label: {
                 Text("Continue")
                     .padding()
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.yellow)
                     .background(
-                        RoundedRectangle(cornerSize: CGSize(width: 50, height: 30), style: .continuous)
+                        ShinyButtonView()
                     )
             })
             .padding()

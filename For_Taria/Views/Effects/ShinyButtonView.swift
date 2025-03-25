@@ -30,7 +30,7 @@ struct ShinyButtonView: View {
                     .keyframeAnimator(
                         initialValue: 0,
                         trigger: rippleAnimationID,
-                        content: { view, elapsedTime in
+                        content: { [rippleLocation] view, elapsedTime in
                             view.modifier(RippleModifier(
                                 origin: rippleLocation ?? .zero,
                                 elapsedTime: elapsedTime,
@@ -51,28 +51,6 @@ struct ShinyButtonView: View {
                         .impact,
                         trigger: rippleAnimationID
                     )
-                KeyframeAnimator(
-                    initialValue: 0.0,
-                    trigger: glowAnimationID
-                ) { value in
-                    ParticleCloud(center: dragLocation,
-                                  progress: Float(value)
-                    )
-                    .clipShape(Capsule())
-                } keyframes: { _ in
-                    if glowAnimationID != nil {
-                        MoveKeyframe(.zero)
-                        LinearKeyframe(
-                            1.0,
-                            duration: 0.4
-                        )
-                    } else {
-                        LinearKeyframe(
-                            .zero,
-                            duration: 0.4
-                        )
-                    }
-                }
                 Capsule()
                     .strokeBorder(
                         Color.white,
@@ -83,7 +61,7 @@ struct ShinyButtonView: View {
                     .keyframeAnimator(
                         initialValue: .zero,
                         trigger: glowAnimationID,
-                        content: { view, elapsedTime in
+                        content: { [dragLocation] view, elapsedTime in
                             view.modifier(
                                 ProgressiveGlow(
                                     origin: dragLocation ?? .zero,

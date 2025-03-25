@@ -111,7 +111,7 @@ extension Renderer: MTKViewDelegate {
         let w = cleanState.threadExecutionWidth
         let h = cleanState.maxTotalThreadsPerThreadgroup / w
         
-        commandEncoder?.dispatchThreads(
+        commandEncoder?.dispatchThreadgroups(
             MTLSize(
                 width: texture.width,
                 height: texture.height,
@@ -144,8 +144,8 @@ extension Renderer: MTKViewDelegate {
             index: 1
         )
         
-        commandEncoder?.dispatchThreads(
-            MTLSize(width: particleCount, height: 1, depth: 1),
+        commandEncoder?.dispatchThreadgroups(
+            MTLSize(width: (particleCount + w - 1), height: 1, depth: 1),
             threadsPerThreadgroup: MTLSize(width: drawState.threadExecutionWidth, height: 1, depth: 1)
         )
         
