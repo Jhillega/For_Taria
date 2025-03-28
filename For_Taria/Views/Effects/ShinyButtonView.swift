@@ -111,8 +111,9 @@ struct ShinyButtonView: View {
                     }
                   ).onEnded { _ in
                       glowAnimationID = nil
-                      actionComplete = false
-                      debugPrint(actionComplete)
+                      withAnimation {
+                          actionComplete.toggle()
+                      }
                   }
                 )
         }

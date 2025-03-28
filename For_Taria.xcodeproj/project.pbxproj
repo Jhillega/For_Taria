@@ -41,6 +41,10 @@
 		54670A422CFFA1FC002FBC85 /* SWAPIPeopleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54670A412CFFA1EB002FBC85 /* SWAPIPeopleRepository.swift */; };
 		547D9CB92CC0AA9900F5CD13 /* For_TariaMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547D9CB82CC0AA9900F5CD13 /* For_TariaMainView.swift */; };
 		549B62E12A3B8C90003B58DE /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B62E02A3B8C90003B58DE /* SearchResultsView.swift */; };
+		54ADE75B2D9349CB0018273D /* WalkingManView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ADE75A2D9349CB0018273D /* WalkingManView.swift */; };
+		54ADE75D2D934A700018273D /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 54ADE75C2D934A700018273D /* Shaders.metal */; };
+		54ADE7612D9491A60018273D /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ADE7602D9491970018273D /* Transitions.swift */; };
+		54ADE7632D94921A0018273D /* AnyTransition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ADE7622D94920C0018273D /* AnyTransition+Extension.swift */; };
 		54E976E62A2A430500D2A1E2 /* StarshipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E976E52A2A430500D2A1E2 /* StarshipView.swift */; };
 		54E976E82A2A44A600D2A1E2 /* StarshipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E976E72A2A44A600D2A1E2 /* StarshipsView.swift */; };
 		54E976EF2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E976EE2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift */; };
@@ -95,6 +99,11 @@
 		54670A412CFFA1EB002FBC85 /* SWAPIPeopleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAPIPeopleRepository.swift; sourceTree = "<group>"; };
 		547D9CB82CC0AA9900F5CD13 /* For_TariaMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = For_TariaMainView.swift; sourceTree = "<group>"; };
 		549B62E02A3B8C90003B58DE /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
+		54ADE75A2D9349CB0018273D /* WalkingManView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingManView.swift; sourceTree = "<group>"; };
+		54ADE75C2D934A700018273D /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		54ADE7602D9491970018273D /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
+		54ADE7622D94920C0018273D /* AnyTransition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyTransition+Extension.swift"; sourceTree = "<group>"; };
+		54ADE7642D95FF700018273D /* For-Taria-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "For-Taria-Info.plist"; sourceTree = SOURCE_ROOT; };
 		54E976E52A2A430500D2A1E2 /* StarshipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipView.swift; sourceTree = "<group>"; };
 		54E976E72A2A44A600D2A1E2 /* StarshipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipsView.swift; sourceTree = "<group>"; };
 		54E976EE2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsFilmDataModel.swift; sourceTree = "<group>"; };
@@ -139,6 +148,7 @@
 				54384F1E2D91FB670025F636 /* Metal */,
 				54384F1B2D91F9E30025F636 /* SFX */,
 				54384F162D91EF660025F636 /* ShinyButtonView.swift */,
+				54ADE75A2D9349CB0018273D /* WalkingManView.swift */,
 			);
 			path = Effects;
 			sourceTree = "<group>";
@@ -155,10 +165,8 @@
 		54384F1B2D91F9E30025F636 /* SFX */ = {
 			isa = PBXGroup;
 			children = (
-				54384F292D9223310025F636 /* Renderer.swift */,
-				54384F272D9220010025F636 /* ParticleCloud.swift */,
-				54384F252D9209D50025F636 /* RippleModifier.swift */,
-				54384F1C2D91F9E90025F636 /* ProgressiveGlow.swift */,
+				54ADE75F2D9491830018273D /* Transitions */,
+				54ADE75E2D94916A0018273D /* PixelEffects */,
 			);
 			path = SFX;
 			sourceTree = "<group>";
@@ -166,6 +174,7 @@
 		54384F1E2D91FB670025F636 /* Metal */ = {
 			isa = PBXGroup;
 			children = (
+				54ADE7592D93496E0018273D /* Shaders */,
 				54384F1F2D91FB930025F636 /* ButtonShader.metal */,
 				54384F232D92096D0025F636 /* RippleEffect.metal */,
 			);
@@ -199,6 +208,7 @@
 		5441B37F2A29203500405481 /* For_Taria */ = {
 			isa = PBXGroup;
 			children = (
+				54ADE7642D95FF700018273D /* For-Taria-Info.plist */,
 				54384F182D91F9370025F636 /* Extensions */,
 				5464B5472CF4143B00FE375D /* Managers */,
 				5441B3942A29207F00405481 /* Views */,
@@ -321,6 +331,34 @@
 				54E976F52A2A879100D2A1E2 /* StarWarsSpeciesDataModel.swift */,
 			);
 			path = Species;
+			sourceTree = "<group>";
+		};
+		54ADE7592D93496E0018273D /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				54ADE75C2D934A700018273D /* Shaders.metal */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		54ADE75E2D94916A0018273D /* PixelEffects */ = {
+			isa = PBXGroup;
+			children = (
+				54384F292D9223310025F636 /* Renderer.swift */,
+				54384F272D9220010025F636 /* ParticleCloud.swift */,
+				54384F252D9209D50025F636 /* RippleModifier.swift */,
+				54384F1C2D91F9E90025F636 /* ProgressiveGlow.swift */,
+			);
+			path = PixelEffects;
+			sourceTree = "<group>";
+		};
+		54ADE75F2D9491830018273D /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				54ADE7622D94920C0018273D /* AnyTransition+Extension.swift */,
+				54ADE7602D9491970018273D /* Transitions.swift */,
+			);
+			path = Transitions;
 			sourceTree = "<group>";
 		};
 		54E976E92A2A588500D2A1E2 /* People */ = {
@@ -483,8 +521,10 @@
 				5441B38A2A29203A00405481 /* Persistence.swift in Sources */,
 				547D9CB92CC0AA9900F5CD13 /* For_TariaMainView.swift in Sources */,
 				5441B38D2A29203A00405481 /* For_Taria.xcdatamodeld in Sources */,
+				54ADE75D2D934A700018273D /* Shaders.metal in Sources */,
 				54384F1D2D91F9EF0025F636 /* ProgressiveGlow.swift in Sources */,
 				5441B3A32A29805600405481 /* PlanetListView.swift in Sources */,
+				54ADE7612D9491A60018273D /* Transitions.swift in Sources */,
 				54E976E62A2A430500D2A1E2 /* StarshipView.swift in Sources */,
 				5441B3A12A2975E500405481 /* PeopleViewCell.swift in Sources */,
 				5441B3832A29203500405481 /* ContentView.swift in Sources */,
@@ -492,6 +532,7 @@
 				54E976F92A2A8C5800D2A1E2 /* SpeciesListViewCell.swift in Sources */,
 				54384F202D91FB930025F636 /* ButtonShader.metal in Sources */,
 				54085AB52A38B55E00BCC682 /* CategoryView.swift in Sources */,
+				54ADE75B2D9349CB0018273D /* WalkingManView.swift in Sources */,
 				54E976FF2A2AC03A00D2A1E2 /* VehicleListViewCell.swift in Sources */,
 				54384F1A2D91F94A0025F636 /* Comparable+Extensions.swift in Sources */,
 				5441B3992A29230800405481 /* TitleView.swift in Sources */,
@@ -503,6 +544,7 @@
 				54384F172D91EF660025F636 /* ShinyButtonView.swift in Sources */,
 				54E976EF2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift in Sources */,
 				549B62E12A3B8C90003B58DE /* SearchResultsView.swift in Sources */,
+				54ADE7632D94921A0018273D /* AnyTransition+Extension.swift in Sources */,
 				54E977012A2AC13700D2A1E2 /* VehicleListView.swift in Sources */,
 				54670A422CFFA1FC002FBC85 /* SWAPIPeopleRepository.swift in Sources */,
 				54384F282D92200B0025F636 /* ParticleCloud.swift in Sources */,
@@ -640,9 +682,9 @@
 				DEVELOPMENT_TEAM = HHBGC2J5CX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "For-Taria-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
@@ -670,9 +712,9 @@
 				DEVELOPMENT_TEAM = HHBGC2J5CX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "For-Taria-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;

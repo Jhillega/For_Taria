@@ -24,24 +24,25 @@ struct CategoryView: View {
                         switch resourceCategory {
                         case .people:
                             NavigationLink(destination: PeopleView(),
-                                           label: { Text(resourceCategory.rawValue) })
+                                           label: { Text(resourceCategory.rawValue.localizedCapitalized) })
                         case .planets:
                             NavigationLink(destination: PlanetListView(),
-                                           label: { Text(resourceCategory.rawValue) })
+                                           label: { Text(resourceCategory.rawValue.localizedCapitalized) })
                         case .starships:
                             NavigationLink(destination: StarshipsView(),
-                                           label: { Text(resourceCategory.rawValue) })
+                                           label: { Text(resourceCategory.rawValue.localizedCapitalized) })
                         case .films:
                             NavigationLink(destination: FilmsListView(),
-                                           label: { Text(resourceCategory.rawValue) })
+                                           label: { Text(resourceCategory.rawValue.localizedCapitalized) })
                         case .species:
                             NavigationLink(destination: SpeciesListView(),
-                                           label: { Text(resourceCategory.rawValue) })
+                                           label: { Text(resourceCategory.rawValue.localizedCapitalized) })
                         case .vehicles:
                             NavigationLink(destination: VehicleListView(),
-                                           label: { Text(resourceCategory.rawValue) })
+                                           label: { Text(resourceCategory.rawValue.localizedCapitalized) })
                         }
                     }
+                    .padding(.vertical, 10)
                 }
                 .navigationBarTitle("Menu", displayMode: .inline)
                 .background(Color.black)

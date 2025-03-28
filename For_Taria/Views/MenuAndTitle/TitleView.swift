@@ -27,6 +27,7 @@ struct TitleView: View {
                 .opacity(0.66)
             Spacer()
             Text("Continue")
+                .frame(width: 200, height: 50)
                 .padding()
                 .foregroundStyle(.yellow)
                 .background(

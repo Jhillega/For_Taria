@@ -17,6 +17,7 @@ struct ContentView: View {
         }
         .fullScreenCover(isPresented: $isShowingTitle, onDismiss: nil, content: {
             TitleView(launched: $isShowingTitle)
+                .transition(.modifier(active: BlurTransition(progress: 100.0), identity: BlurTransition(progress: 0)))
         })
     }
 }

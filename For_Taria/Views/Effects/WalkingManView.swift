@@ -1,0 +1,39 @@
+//
+//  WalkingManView.swift
+//  For_Taria
+//
+//  Created by Jason Hillegass on 3/25/25.
+//
+
+import SwiftUI
+
+struct WalkingManView: View {
+    
+    @State private var start = Date.now
+    @State private var touchPoint = CGPoint.zero
+    
+    var body: some View {
+        TimelineView(.animation) { tl in
+            let time = start.distance(to: tl.date)
+            
+            Image(systemName: "figure.walk.circle")
+                .font(.system(size: 300))
+                .foregroundStyle(.blue)
+                .visualEffect { [touchPoint] content, proxy in
+                    content
+                        .layerEffect(ShaderLibrary.loupe(
+                            .float2(proxy.size),
+                            .float2(touchPoint)
+                        ), maxSampleOffset: .zero)
+                }
+                .gesture(
+                    DragGesture(minimumDistance: 0)
+                        .onChanged({ touchPoint = $0.location })
+                )
+        }
+    }
+}
+
+#Preview {
+    WalkingManView()
+}
