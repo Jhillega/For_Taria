@@ -41,10 +41,12 @@
 		54670A422CFFA1FC002FBC85 /* SWAPIPeopleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54670A412CFFA1EB002FBC85 /* SWAPIPeopleRepository.swift */; };
 		547D9CB92CC0AA9900F5CD13 /* For_TariaMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547D9CB82CC0AA9900F5CD13 /* For_TariaMainView.swift */; };
 		549B62E12A3B8C90003B58DE /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B62E02A3B8C90003B58DE /* SearchResultsView.swift */; };
+		54ACB66B2D9C9F8600B7D262 /* DissolveRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ACB66A2D9C9F7E00B7D262 /* DissolveRenderer.swift */; };
 		54ADE75B2D9349CB0018273D /* WalkingManView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ADE75A2D9349CB0018273D /* WalkingManView.swift */; };
 		54ADE75D2D934A700018273D /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 54ADE75C2D934A700018273D /* Shaders.metal */; };
 		54ADE7612D9491A60018273D /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ADE7602D9491970018273D /* Transitions.swift */; };
 		54ADE7632D94921A0018273D /* AnyTransition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ADE7622D94920C0018273D /* AnyTransition+Extension.swift */; };
+		54AFEDB42D9745140099C35A /* PlanetFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AFEDB32D9744F70099C35A /* PlanetFocusView.swift */; };
 		54E976E62A2A430500D2A1E2 /* StarshipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E976E52A2A430500D2A1E2 /* StarshipView.swift */; };
 		54E976E82A2A44A600D2A1E2 /* StarshipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E976E72A2A44A600D2A1E2 /* StarshipsView.swift */; };
 		54E976EF2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E976EE2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift */; };
@@ -99,11 +101,13 @@
 		54670A412CFFA1EB002FBC85 /* SWAPIPeopleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAPIPeopleRepository.swift; sourceTree = "<group>"; };
 		547D9CB82CC0AA9900F5CD13 /* For_TariaMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = For_TariaMainView.swift; sourceTree = "<group>"; };
 		549B62E02A3B8C90003B58DE /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
+		54ACB66A2D9C9F7E00B7D262 /* DissolveRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DissolveRenderer.swift; sourceTree = "<group>"; };
 		54ADE75A2D9349CB0018273D /* WalkingManView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingManView.swift; sourceTree = "<group>"; };
 		54ADE75C2D934A700018273D /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		54ADE7602D9491970018273D /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
 		54ADE7622D94920C0018273D /* AnyTransition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyTransition+Extension.swift"; sourceTree = "<group>"; };
 		54ADE7642D95FF700018273D /* For-Taria-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "For-Taria-Info.plist"; sourceTree = SOURCE_ROOT; };
+		54AFEDB32D9744F70099C35A /* PlanetFocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetFocusView.swift; sourceTree = "<group>"; };
 		54E976E52A2A430500D2A1E2 /* StarshipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipView.swift; sourceTree = "<group>"; };
 		54E976E72A2A44A600D2A1E2 /* StarshipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipsView.swift; sourceTree = "<group>"; };
 		54E976EE2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsFilmDataModel.swift; sourceTree = "<group>"; };
@@ -344,6 +348,7 @@
 		54ADE75E2D94916A0018273D /* PixelEffects */ = {
 			isa = PBXGroup;
 			children = (
+				54ACB66A2D9C9F7E00B7D262 /* DissolveRenderer.swift */,
 				54384F292D9223310025F636 /* Renderer.swift */,
 				54384F272D9220010025F636 /* ParticleCloud.swift */,
 				54384F252D9209D50025F636 /* RippleModifier.swift */,
@@ -373,6 +378,7 @@
 		54E976EA2A2A58A300D2A1E2 /* Planets */ = {
 			isa = PBXGroup;
 			children = (
+				54AFEDB32D9744F70099C35A /* PlanetFocusView.swift */,
 				5441B3A22A29805600405481 /* PlanetListView.swift */,
 				5441B3A42A29806B00405481 /* PlanetListViewCell.swift */,
 			);
@@ -500,10 +506,12 @@
 				54E976FB2A2A8DA100D2A1E2 /* SpeciesListView.swift in Sources */,
 				54E976F22A2A7FF700D2A1E2 /* FilmListViewCell.swift in Sources */,
 				54384F222D9204730025F636 /* View+Extensions.swift in Sources */,
+				54ACB66B2D9C9F8600B7D262 /* DissolveRenderer.swift in Sources */,
 				54E976E82A2A44A600D2A1E2 /* StarshipsView.swift in Sources */,
 				54384F242D92096D0025F636 /* RippleEffect.metal in Sources */,
 				543FA2CC2A391BDA00A69482 /* SearchView.swift in Sources */,
 				5441B39D2A296EEB00405481 /* PeopleView.swift in Sources */,
+				54AFEDB42D9745140099C35A /* PlanetFocusView.swift in Sources */,
 				54E976F62A2A879100D2A1E2 /* StarWarsSpeciesDataModel.swift in Sources */,
 				54F0C2EF2CFFF716004E2890 /* SwapiFilmRepository.swift in Sources */,
 				54EEDBC72A3100E800B4C331 /* SwapiHTTPClient.swift in Sources */,
@@ -683,6 +691,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "For-Taria-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "For Taria";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -713,6 +722,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "For-Taria-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "For Taria";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
