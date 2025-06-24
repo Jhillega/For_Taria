@@ -114,7 +114,7 @@
 		54ADE75C2D934A700018273D /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		54ADE7602D9491970018273D /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
 		54ADE7622D94920C0018273D /* AnyTransition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyTransition+Extension.swift"; sourceTree = "<group>"; };
-		54ADE7642D95FF700018273D /* For-Taria-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "For-Taria-Info.plist"; sourceTree = SOURCE_ROOT; };
+		54ADE7642D95FF700018273D /* For-Taria-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "For-Taria-Info.plist"; sourceTree = SOURCE_ROOT; };
 		54AFEDB32D9744F70099C35A /* PlanetFocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetFocusView.swift; sourceTree = "<group>"; };
 		54E976E52A2A430500D2A1E2 /* StarshipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipView.swift; sourceTree = "<group>"; };
 		54E976E72A2A44A600D2A1E2 /* StarshipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipsView.swift; sourceTree = "<group>"; };
@@ -218,12 +218,12 @@
 		5441B37F2A29203500405481 /* For_Taria */ = {
 			isa = PBXGroup;
 			children = (
-				54ADE7642D95FF700018273D /* For-Taria-Info.plist */,
 				54384F182D91F9370025F636 /* Extensions */,
 				5464B5472CF4143B00FE375D /* Managers */,
 				5441B3942A29207F00405481 /* Views */,
 				5441B3932A29207300405481 /* Models */,
 				5441B3802A29203500405481 /* For_TariaApp.swift */,
+				54ADE7642D95FF700018273D /* For-Taria-Info.plist */,
 				5441B3842A29203A00405481 /* Assets.xcassets */,
 				5441B3892A29203A00405481 /* Persistence.swift */,
 				5441B38B2A29203A00405481 /* For_Taria.xcdatamodeld */,
