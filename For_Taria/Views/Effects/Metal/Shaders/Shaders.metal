@@ -94,3 +94,19 @@ half4 circles(
                       return 0;
                   }
               }
+
+[[ stitchable ]]
+float2 distortion(float2 position) {
+    return float2(position.x + 100, position.y);
+}
+
+[[ stitchable ]]
+half4 pixellate(
+                float2 position,
+                SwiftUI::Layer layer,
+                float size
+                ) {
+    float sample_x = size * round(position.x / size);
+    float sample_y = size * round(position.y / size);
+    return layer.sample(float2(sample_x, sample_y));
+}

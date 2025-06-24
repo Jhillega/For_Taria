@@ -10,7 +10,7 @@ import SwiftUI
 struct PlanetListView: View {
     @State private var planets: [Planet]? = nil
     @State private var planetInFocus: Bool = false
-    @State private var selectedPlanet: Planet?
+    @State private var selectedPlanet: Planet? = nil
     let planetRepo = SwapiPlanetRepository()
     
     var body: some View {
@@ -36,7 +36,7 @@ struct PlanetListView: View {
 
             
             if planetInFocus {
-                PlanetFocusView(planet: selectedPlanet)
+                PlanetFocusView(planet: selectedPlanet ?? MockService.testPlanet)
                     .frame(width: 400, height: 800, alignment: .center)
                     .foregroundStyle(.yellow)
                     .background(.black)

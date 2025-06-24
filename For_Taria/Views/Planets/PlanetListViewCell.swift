@@ -26,11 +26,11 @@ struct PlanetListViewCell: View {
     
     var body: some View {
         HStack {
-            Image(systemName: "circle.fill")
+            Image(systemName: "globe")
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(colorOfPlanet)
-                .padding()
+                .pixellationShader()
             VStack(alignment: .leading) {
                 Text(planet.name)
                     .font(.title2)
