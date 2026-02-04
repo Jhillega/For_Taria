@@ -11,12 +11,18 @@ struct StarshipView: View {
     let starship: Starship
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(starship.name)
-                .bold()
-                .padding(.vertical)
-            Text(starship.model)
-            Text(starship.starshipClass)
+        HStack {
+            Image(systemName: "gear")
+                .resizable()
+                .frame(height: 100)
+                .frame(width: 100)
+            VStack(alignment: .leading) {
+                Text(starship.name)
+                    .bold()
+                    .padding(.vertical)
+                Text(starship.model)
+                Text(starship.starshipClass)
+            }
         }
         .foregroundColor(.yellow)
         .background(Color.black)

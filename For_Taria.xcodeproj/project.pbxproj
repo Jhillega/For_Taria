@@ -44,6 +44,7 @@
 		54659F392E0B34CF0013782C /* MockServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54659F382E0B34CA0013782C /* MockServiceManager.swift */; };
 		54670A422CFFA1FC002FBC85 /* SWAPIPeopleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54670A412CFFA1EB002FBC85 /* SWAPIPeopleRepository.swift */; };
 		547D9CB92CC0AA9900F5CD13 /* For_TariaMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547D9CB82CC0AA9900F5CD13 /* For_TariaMainView.swift */; };
+		54842FFB2E0CC1AE00C7F38D /* SagaTextScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54842FFA2E0CC1AE00C7F38D /* SagaTextScrollView.swift */; };
 		549B62E12A3B8C90003B58DE /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B62E02A3B8C90003B58DE /* SearchResultsView.swift */; };
 		54ACB66B2D9C9F8600B7D262 /* DissolveRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ACB66A2D9C9F7E00B7D262 /* DissolveRenderer.swift */; };
 		54ADE75B2D9349CB0018273D /* WalkingManView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ADE75A2D9349CB0018273D /* WalkingManView.swift */; };
@@ -108,6 +109,7 @@
 		54659F382E0B34CA0013782C /* MockServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceManager.swift; sourceTree = "<group>"; };
 		54670A412CFFA1EB002FBC85 /* SWAPIPeopleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAPIPeopleRepository.swift; sourceTree = "<group>"; };
 		547D9CB82CC0AA9900F5CD13 /* For_TariaMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = For_TariaMainView.swift; sourceTree = "<group>"; };
+		54842FFA2E0CC1AE00C7F38D /* SagaTextScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SagaTextScrollView.swift; sourceTree = "<group>"; };
 		549B62E02A3B8C90003B58DE /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
 		54ACB66A2D9C9F7E00B7D262 /* DissolveRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DissolveRenderer.swift; sourceTree = "<group>"; };
 		54ADE75A2D9349CB0018273D /* WalkingManView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingManView.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 		5441B3942A29207F00405481 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				54842FF72E0CC17C00C7F38D /* UIComponents */,
 				54384F152D91EF500025F636 /* Effects */,
 				543FA2CA2A391BB800A69482 /* SearchView */,
 				54E976F72A2A8C4100D2A1E2 /* Species */,
@@ -351,6 +354,14 @@
 				54E976F52A2A879100D2A1E2 /* StarWarsSpeciesDataModel.swift */,
 			);
 			path = Species;
+			sourceTree = "<group>";
+		};
+		54842FF72E0CC17C00C7F38D /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				54842FFA2E0CC1AE00C7F38D /* SagaTextScrollView.swift */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		54ADE7592D93496E0018273D /* Shaders */ = {
@@ -558,6 +569,7 @@
 				54E976E62A2A430500D2A1E2 /* StarshipView.swift in Sources */,
 				5441B3A12A2975E500405481 /* PeopleViewCell.swift in Sources */,
 				5441B3832A29203500405481 /* ContentView.swift in Sources */,
+				54842FFB2E0CC1AE00C7F38D /* SagaTextScrollView.swift in Sources */,
 				5441B3812A29203500405481 /* For_TariaApp.swift in Sources */,
 				54E976F92A2A8C5800D2A1E2 /* SpeciesListViewCell.swift in Sources */,
 				54384F202D91FB930025F636 /* ButtonShader.metal in Sources */,
@@ -638,7 +650,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -693,7 +705,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

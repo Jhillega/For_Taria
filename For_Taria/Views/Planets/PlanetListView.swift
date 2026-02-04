@@ -36,16 +36,18 @@ struct PlanetListView: View {
 
             
             if planetInFocus {
-                PlanetFocusView(planet: selectedPlanet ?? MockService.testPlanet)
-                    .frame(width: 400, height: 800, alignment: .center)
-                    .foregroundStyle(.yellow)
-                    .background(.black)
-                    .onTapGesture(perform: {
-                        withAnimation() {
-                            planetInFocus.toggle()
-                        }
-                    })
-                    .transition(.blurReplace)
+                ScrollView {
+                    PlanetFocusView(isPresented: $planetInFocus, planet: selectedPlanet ?? MockService.testPlanet)
+                        .frame(width: 400, height: 800, alignment: .center)
+                        .foregroundStyle(.yellow)
+                        .background(.black)
+                        .onTapGesture(perform: {
+                            withAnimation() {
+                                planetInFocus.toggle()
+                            }
+                        })
+                }
+                .transition(.blurReplace)
             }
         }
         .navigationBarTitle(ResourceCategory.planets.rawValue.localizedCapitalized, displayMode: .inline)

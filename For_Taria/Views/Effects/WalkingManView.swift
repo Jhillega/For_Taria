@@ -13,9 +13,7 @@ struct WalkingManView: View {
     @State private var touchPoint = CGPoint.zero
     
     var body: some View {
-        TimelineView(.animation) { tl in
-            let time = start.distance(to: tl.date)
-            
+        TimelineView(.animation) { tl in            
             Image(systemName: "figure.walk.circle")
                 .font(.system(size: 300))
                 .foregroundStyle(.blue)
