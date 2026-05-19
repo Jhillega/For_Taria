@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -70,6 +70,16 @@
 		54F0C2EF2CFFF716004E2890 /* SwapiFilmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F0C2EE2CFFF706004E2890 /* SwapiFilmRepository.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5460AAEE2FBCCB53003FD2B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5441B3752A29203500405481 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5441B37C2A29203500405481;
+			remoteInfo = For_Taria;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		54085AAF2A37BF1A00BCC682 /* UIFormattingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFormattingData.swift; sourceTree = "<group>"; };
 		54085AB42A38B55E00BCC682 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
@@ -102,6 +112,7 @@
 		5441B3A22A29805600405481 /* PlanetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetListView.swift; sourceTree = "<group>"; };
 		5441B3A42A29806B00405481 /* PlanetListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetListViewCell.swift; sourceTree = "<group>"; };
 		5441B3A62A2A18DD00405481 /* StarWarsStarshipDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsStarshipDataModel.swift; sourceTree = "<group>"; };
+		5460AAEA2FBCCB53003FD2B5 /* For_TariaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = For_TariaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5464B5492CF4148000FE375D /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		54659F302E0A0CC90013782C /* DistortionEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistortionEffect.swift; sourceTree = "<group>"; };
 		54659F332E0A0F100013782C /* PixellationEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixellationEffect.swift; sourceTree = "<group>"; };
@@ -136,8 +147,19 @@
 		54F0C2EE2CFFF706004E2890 /* SwapiFilmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiFilmRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		5460AAEB2FBCCB53003FD2B5 /* For_TariaTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = For_TariaTests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		5441B37A2A29203500405481 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5460AAE72FBCCB53003FD2B5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -205,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				5441B37F2A29203500405481 /* For_Taria */,
+				5460AAEB2FBCCB53003FD2B5 /* For_TariaTests */,
 				5441B37E2A29203500405481 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -213,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				5441B37D2A29203500405481 /* For_Taria.app */,
+				5460AAEA2FBCCB53003FD2B5 /* For_TariaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -484,6 +508,29 @@
 			productReference = 5441B37D2A29203500405481 /* For_Taria.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5460AAE92FBCCB53003FD2B5 /* For_TariaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5460AAF22FBCCB53003FD2B5 /* Build configuration list for PBXNativeTarget "For_TariaTests" */;
+			buildPhases = (
+				5460AAE62FBCCB53003FD2B5 /* Sources */,
+				5460AAE72FBCCB53003FD2B5 /* Frameworks */,
+				5460AAE82FBCCB53003FD2B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5460AAEF2FBCCB53003FD2B5 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5460AAEB2FBCCB53003FD2B5 /* For_TariaTests */,
+			);
+			name = For_TariaTests;
+			packageProductDependencies = (
+			);
+			productName = For_TariaTests;
+			productReference = 5460AAEA2FBCCB53003FD2B5 /* For_TariaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -491,11 +538,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 2650;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					5441B37C2A29203500405481 = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					5460AAE92FBCCB53003FD2B5 = {
+						CreatedOnToolsVersion = 26.5;
+						TestTargetID = 5441B37C2A29203500405481;
 					};
 				};
 			};
@@ -513,6 +564,7 @@
 			projectRoot = "";
 			targets = (
 				5441B37C2A29203500405481 /* For_Taria */,
+				5460AAE92FBCCB53003FD2B5 /* For_TariaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -524,6 +576,13 @@
 			files = (
 				5441B3882A29203A00405481 /* Preview Assets.xcassets in Resources */,
 				5441B3852A29203A00405481 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5460AAE82FBCCB53003FD2B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,7 +655,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5460AAE62FBCCB53003FD2B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5460AAEF2FBCCB53003FD2B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5441B37C2A29203500405481 /* For_Taria */;
+			targetProxy = 5460AAEE2FBCCB53003FD2B5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5441B38E2A29203A00405481 /* Debug */ = {
@@ -777,6 +851,61 @@
 			};
 			name = Release;
 		};
+		5460AAF02FBCCB53003FD2B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HHBGC2J5CX;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MigrantToyFleet.For-TariaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/For_Taria.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/For_Taria";
+			};
+			name = Debug;
+		};
+		5460AAF12FBCCB53003FD2B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HHBGC2J5CX;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MigrantToyFleet.For-TariaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/For_Taria.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/For_Taria";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -794,6 +923,15 @@
 			buildConfigurations = (
 				5441B3912A29203A00405481 /* Debug */,
 				5441B3922A29203A00405481 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5460AAF22FBCCB53003FD2B5 /* Build configuration list for PBXNativeTarget "For_TariaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5460AAF02FBCCB53003FD2B5 /* Debug */,
+				5460AAF12FBCCB53003FD2B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
