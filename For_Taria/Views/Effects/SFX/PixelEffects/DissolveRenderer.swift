@@ -7,6 +7,8 @@
 import MetalKit
 import SwiftUI
 
+// Placeholder Metal renderer for a future dissolve effect.
+// MTKViewDelegate methods are not yet implemented.
 final class DissolveRenderer: NSObject {
     init?(metalView: MTKView) {
         

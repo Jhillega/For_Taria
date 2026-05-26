@@ -27,6 +27,7 @@ struct Film: Codable, Identifiable, SWAPISearchResultPresentable {
     let url: String
 
     enum CodingKeys: String, CodingKey {
+        // SWAPI returns "title" but the app uses "name" to match SWAPISearchResultPresentable.
         case name = "title"
         case episodeID = "episode_id"
         case openingCrawl = "opening_crawl"

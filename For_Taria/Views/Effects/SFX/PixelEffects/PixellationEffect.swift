@@ -19,6 +19,8 @@ struct PixellationShader: ViewModifier {
     let startDate = Date()
     
     func body(content: Content) -> some View {
+        // TimelineView drives continuous redraws; required for layer shaders
+        // that need to re-sample on every frame.
         TimelineView(.animation) { _ in
             content
                 .layerEffect(

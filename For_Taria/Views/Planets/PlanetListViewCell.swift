@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PlanetListViewCell: View {
     let planet: Planet
+    // Maps climate string to a row color for quick visual variety in the list.
+    // Unrecognized climates fall back to white.
     var colorOfPlanet: SwiftUI.Color {
         switch planet.climate {
         case "arid":

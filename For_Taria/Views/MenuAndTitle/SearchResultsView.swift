@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// Displays the name of every item returned by the ad-hoc search.
+// Accepts the protocol type so it can show mixed-category results in a single list.
 struct SearchResultsView: View {
     let results: [SWAPISearchResultPresentable]
     

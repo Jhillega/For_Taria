@@ -34,6 +34,7 @@ struct Starship: Codable, Identifiable, SWAPISearchResultPresentable {
         case cargoCapacity = "cargo_capacity"
         case consumables
         case hyperdriveRating = "hyperdrive_rating"
+        // SWAPI returns "MGLT" in all-caps; the property stays lowercase by convention.
         case mglt = "MGLT"
         case starshipClass = "starship_class"
         case pilots, films, created, edited, url

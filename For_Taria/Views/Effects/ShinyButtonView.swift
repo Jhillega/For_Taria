@@ -92,6 +92,8 @@ struct ShinyButtonView: View {
                   DragGesture(
                     minimumDistance: .zero
                   )
+                  // .updating fires on every drag event; the .inactive → .dragging guard
+                  // ensures the ripple and glow are triggered only once per touch.
                   .updating(
                     $dragState,
                     body: { gesture, state, _ in
@@ -106,10 +108,12 @@ struct ShinyButtonView: View {
                             let location = gesture.location
                             let size = proxy.size
                             
+                            // Clamp so the glow origin never escapes the capsule bounds.
                             dragLocation = CGPoint(x: location.x.clamp(min: .zero, max: size.width), y: location.y.clamp(min: .zero, max: size.height))
                         }
                     }
                   ).onEnded { _ in
+                      // Setting glowAnimationID to nil reverses the keyframe animation back to zero.
                       glowAnimationID = nil
                       withAnimation {
                           actionComplete.toggle()

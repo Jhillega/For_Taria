@@ -7,9 +7,21 @@
 
 import SwiftUI
 
+// All six SWAPI data categories the app can browse.
+enum ResourceCategory: String, CaseIterable {
+    case people = "people"
+    case films = "films"
+    case starships = "starships"
+    case vehicles = "vehicles"
+    case species = "species"
+    case planets = "planets"
+}
+
+// Root menu listing every SWAPI category as a navigation link.
 struct CategoryView: View {
     
     init() {
+            // Tint the navigation bar title yellow to match the Star Wars theme.
             UINavigationBar.appearance().titleTextAttributes = [
                 .foregroundColor: UIColor.systemYellow,
             ]
@@ -20,6 +32,8 @@ struct CategoryView: View {
             ZStack {
                 Color.black.edgesIgnoringSafeArea(.all)
                 VStack {
+                    // One navigation link per category, driven by the enum so
+                    // new categories only need a case added here.
                     ForEach(ResourceCategory.allCases, id: \.rawValue) { resourceCategory in
                         switch resourceCategory {
                         case .people:
@@ -56,13 +70,4 @@ struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
         CategoryView()
     }
-}
-
-enum ResourceCategory: String, CaseIterable {
-    case people = "people"
-    case films = "films"
-    case starships = "starships"
-    case vehicles = "vehicles"
-    case species = "species"
-    case planets = "planets"
 }

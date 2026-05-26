@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// progress=0 is fully visible; progress=1 is fully blurred and transparent.
+// Used as the active/identity pair in AnyTransition+Extension.
 struct BlurTransition: ViewModifier {
     var progress = 0.0
     

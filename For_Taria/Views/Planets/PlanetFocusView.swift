@@ -13,6 +13,7 @@ public struct PlanetFocusView: View {
     var scrollViewContent: String?
     public var body: some View {
         VStack {
+            // pixellationShader() is decorative here — gives the globe a retro bitmap look.
             Image(systemName: "globe")
                 .resizable()
                 .frame(width: 300, height: 300, alignment: .center)

@@ -21,6 +21,8 @@ struct For_TariaApp: App {
         }
     }
     
+    // Loads the RocketSim Xcode companion framework at runtime.
+    // Guarded by #if DEBUG so it never ships in release builds.
     private func loadRocketSimConnect() {
         #if DEBUG
         guard (Bundle(path: "/Applications/RocketSim.app/Contents/Frameworks/RocketSimConnectLinker.nocache.framework")?.load() == true) else {

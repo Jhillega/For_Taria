@@ -12,6 +12,7 @@ struct PeopleView: View {
     let peopleRepo = SWAPIPeopleRepository()
     
     init() {
+            // Tint the nav bar title yellow to match the Star Wars theme.
             UINavigationBar.appearance().titleTextAttributes = [
                 .foregroundColor: UIColor.systemYellow
             ]

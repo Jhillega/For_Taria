@@ -70,6 +70,7 @@ struct SearchView: View {
             return
         }
         
+        // Falls back to SwapiFormattingData.results on nil so the results view is never empty.
         result = await service.searchAGalaxyFarFarAway(for: searchQuery, in: resultType) ?? SwapiFormattingData.results
         isSearching.toggle()
         isShowingDetailView = true

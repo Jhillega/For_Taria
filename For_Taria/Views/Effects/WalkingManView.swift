@@ -17,6 +17,7 @@ struct WalkingManView: View {
             Image(systemName: "figure.walk.circle")
                 .font(.system(size: 300))
                 .foregroundStyle(.blue)
+                // loupe shader magnifies pixels in a circular region around the touch point.
                 .visualEffect { [touchPoint] content, proxy in
                     content
                         .layerEffect(ShaderLibrary.loupe(

@@ -8,6 +8,8 @@
 import SwiftUI
 
 extension View where Self: Shape {
+  // Draws a thin inner stroke plus two blurred outer strokes to fake a neon glow.
+  // Two blur passes at different radii produce more convincing bloom than one.
   func glow(
     fill: some ShapeStyle,
     lineWidth: Double,
@@ -32,6 +34,7 @@ extension View where Self: Shape {
   }
 }
 
+// Full-spectrum angular gradient used as the fill for ShinyButtonView's glow border.
 extension ShapeStyle where Self == AngularGradient {
   static var palette: some ShapeStyle {
     .angularGradient(
