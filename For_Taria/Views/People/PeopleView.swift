@@ -25,9 +25,11 @@ struct PeopleView: View {
                     .listRowBackground(Color.black)
             }
             .listStyle(.plain)
-            .onAppear() {
-                Task {
+            .task {
+                do {
                     results = try await peopleRepo.fetch()
+                } catch {
+                    print("Failed to fetch people: \(error)")
                 }
             }
             .background(Color.black)

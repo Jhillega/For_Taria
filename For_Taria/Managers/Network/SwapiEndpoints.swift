@@ -74,6 +74,23 @@ extension SwapiCategoryEndpoints: SWAPI_Endpoint {
         }
     }
     
+    var totalNumberOfEntries: Int {
+        switch self {
+        case .people:
+            return 83
+        case .planets:
+            return 60
+        case .vehicles:
+            return 76
+        case .starships:
+            return 75
+        case .films:
+            return 6
+        case .species:
+            return 37
+        }
+    }
+    
     func createSearchURLString(with searchTerm: String) -> String {
         return self.categoryfullURL + "?search=" + searchTerm
     }

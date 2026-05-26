@@ -16,7 +16,7 @@ struct SwapiFilmResults: Codable {
 }
 
 // MARK: - Film
-struct Film: Codable, Identifiable, SWAPISearchResultPresentable {
+struct Film: Codable, Identifiable, Sendable {
     let id = UUID()
     let name: String
     let episodeID: Int
