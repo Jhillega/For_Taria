@@ -38,6 +38,8 @@ struct RippleModifier: ViewModifier {
             view.layerEffect(
                 shader,
                 maxSampleOffset: maxSampleOffset,
+                // Disables the shader once the animation finishes so the view
+                // stops paying the shader cost every frame.
                 isEnabled: 0...duration ~= elapsedTime
             )
         }

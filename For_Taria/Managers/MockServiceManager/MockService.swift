@@ -5,6 +5,7 @@
 //  Created by Jason Hillegass on 6/24/25.
 //
 
+// Hard-coded data for SwiftUI previews and PlanetFocusView's fallback planet.
 struct MockService {
     static let shared = MockService()
     

@@ -32,6 +32,8 @@ struct FilmsListView: View {
     }
     
     init() {
+        // UIAppearance must be set before the view appears; required for pre-iOS 16
+        // list background and separator styling that SwiftUI modifiers don't reach.
         UITableView.appearance().separatorStyle = .none
         UITableViewCell.appearance().backgroundColor = .black
         UITableView.appearance().backgroundColor = .black

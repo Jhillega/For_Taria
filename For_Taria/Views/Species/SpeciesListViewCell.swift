@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SpeciesListViewCell: View {
     let species: Species
+    // Row accent color derived from species designation for quick visual differentiation.
     var characterColor: Color {
         switch species.designation {
         case .reptilian:

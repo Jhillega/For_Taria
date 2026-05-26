@@ -34,6 +34,7 @@ struct FilmListViewCell: View {
     }
     
     
+    // Maps SWAPI episode number to the corresponding asset catalog image name.
     func selectCorrectFilmImageString(for film: Int) -> String {
         var imageString = ""
         

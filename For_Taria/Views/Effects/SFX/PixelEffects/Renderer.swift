@@ -14,6 +14,8 @@ final class Renderer: NSObject {
     
     var progress: Float = 0.0 {
         didSet {
+            // Pause the render loop when no animation is running to avoid burning GPU
+            // when the particle cloud is idle.
             metalView?.isPaused = progress == .zero
         }
     }
@@ -105,7 +107,7 @@ extension Renderer: MTKViewDelegate {
         
         commandEncoder?.setTexture(texture, index: 0)
         
-        // set clean state
+        // Pass 1: clear the texture to transparent black.
         commandEncoder?.setComputePipelineState(cleanState)
         
         let w = cleanState.threadExecutionWidth
@@ -124,7 +126,7 @@ extension Renderer: MTKViewDelegate {
             )
         )
         
-        // set draw state
+        // Pass 2: scatter particles into the cleared texture.
         commandEncoder?.setComputePipelineState(drawState)
         
         commandEncoder?.setBuffer(

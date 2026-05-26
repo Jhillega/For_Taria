@@ -19,6 +19,7 @@ struct SagaTextScrollView: View {
                 .font(.title)
                 .lineSpacing(10)
                 .padding()
+                // 60° x-axis tilt replicates the Star Wars opening crawl perspective.
                 .rotation3DEffect(.degrees(60), axis: (x: 1, y: 0, z: 0))
                 .shadow(color: .yellow, radius: 2, x: 0, y: 15)
                 .frame(width: 300)

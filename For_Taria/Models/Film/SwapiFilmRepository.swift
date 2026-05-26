@@ -7,6 +7,8 @@
 
 import Foundation
 
+// Cache-then-network repository: returns cached results if present and non-empty,
+// otherwise fetches from SWAPI and populates the cache for subsequent calls.
 class SwapiFilmRepository {
     static let shared = SwapiFilmRepository()
     private var cacheReloadInterval: TimeInterval = SwapiCategoryEndpoints.films.cacheTime

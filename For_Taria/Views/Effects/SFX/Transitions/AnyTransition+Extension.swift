@@ -8,6 +8,8 @@
 import SwiftUI
 
 extension AnyTransition {
+    // Registers a named .blur transition backed by BlurTransition so call sites
+    // can write .transition(.blur) instead of spelling out the full modifier pair.
     static let blur: AnyTransition = .modifier(
         active: BlurTransition(progress: 1), identity: BlurTransition(progress: 0)
     )

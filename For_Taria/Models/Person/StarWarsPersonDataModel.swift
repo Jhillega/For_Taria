@@ -7,15 +7,8 @@
 
 import Foundation
 
-// MARK: - Search Result Protocol
-protocol SWAPISearchResultPresentable {
-    var id: UUID { get }
-    var name: String { get }
-    var url: String { get }
-}
-
 // MARK: - SwapiResults
-struct SwapiPeopleResults: Codable {
+struct SwapiPeopleResults: Codable, Sendable {
     let count: Int?
     let next: String?
     let previous: JSONNull?
@@ -23,7 +16,7 @@ struct SwapiPeopleResults: Codable {
 }
 
 // MARK: - Result
-struct Person: Codable, Identifiable, Hashable, SWAPISearchResultPresentable {
+struct Person: Codable, Identifiable, Hashable, Sendable {
     let id = UUID()
     let name, height, mass, hairColor: String
     let skinColor, eyeColor, birthYear: String
@@ -52,7 +45,7 @@ enum Gender: String, Codable {
 
 // MARK: - Encode/decode helpers
 
-class JSONNull: Codable, Hashable {
+final class JSONNull: Codable, Hashable, Sendable {
 
     public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
         return true

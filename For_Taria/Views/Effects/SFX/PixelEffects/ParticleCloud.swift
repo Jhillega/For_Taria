@@ -21,6 +21,7 @@ struct ParticleCloudInfo {
     let progress: Float
 }
 
+// UIViewRepresentable bridge that owns a single MTKView and uses Renderer as its Coordinator.
 struct ParticleCloud: UIViewRepresentable {
     let center: CGPoint?
     let progress: Float
@@ -40,6 +41,7 @@ struct ParticleCloud: UIViewRepresentable {
         
         let bounds = uiView.bounds
         
+        // Normalize touch coordinates to [0,1] so the Metal shader is resolution-independent.
         context.coordinator.center = CGPoint(
             x: center.x / bounds.width,
             y: center.y / bounds.height

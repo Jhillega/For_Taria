@@ -12,6 +12,7 @@ struct PeopleView: View {
     let peopleRepo = SWAPIPeopleRepository()
     
     init() {
+            // Tint the nav bar title yellow to match the Star Wars theme.
             UINavigationBar.appearance().titleTextAttributes = [
                 .foregroundColor: UIColor.systemYellow
             ]
@@ -24,9 +25,11 @@ struct PeopleView: View {
                     .listRowBackground(Color.black)
             }
             .listStyle(.plain)
-            .onAppear() {
-                Task {
+            .task {
+                do {
                     results = try await peopleRepo.fetch()
+                } catch {
+                    print("Failed to fetch people: \(error)")
                 }
             }
             .background(Color.black)

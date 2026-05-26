@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// Splash/title screen shown on first launch. `launched` is bound to ContentView's
+// isShowingTitle; ShinyButtonView toggles it to true which dismisses this cover.
 struct TitleView: View {
     @Binding var launched: Bool
     

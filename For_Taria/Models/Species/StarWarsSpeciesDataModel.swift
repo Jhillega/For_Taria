@@ -16,7 +16,7 @@ struct SwapiSpeciesResults: Codable {
 }
 
 // MARK: - Species
-struct Species: Codable, Identifiable, SWAPISearchResultPresentable {
+struct Species: Codable, Identifiable, Sendable {
     let id = UUID()
     let name, classification: String
     let designation: Designation

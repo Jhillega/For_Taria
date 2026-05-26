@@ -15,6 +15,8 @@ protocol SWAPI_HTTPClient {
 }
 
 extension SWAPI_HTTPClient {
+    // Default implementation shared by all conforming types.
+    // Switches between search URL and full-category URL based on whether a search term is present.
     func sendRequest<T: Decodable>(endpoint: SWAPI_Endpoint,
                                    responseModel: T.Type,
                                    searchTerm: String? = nil) async -> Result<T, RequestError> {
@@ -76,6 +78,7 @@ enum RequestError: Error {
     case unexpectedStatusCode
     case unknown
     
+    // User-facing strings; only the most actionable errors have distinct messages.
     var customMessage: String {
         switch self {
         case .decode:

@@ -7,6 +7,8 @@
 
 import Foundation
 
+// Cache-then-network repository: returns cached results if present and non-empty,
+// otherwise fetches from SWAPI and populates the cache for subsequent calls.
 class SwapiStarshipRepository {
     static let shared = SwapiStarshipRepository()
     private var cacheReloadInterval: TimeInterval = SwapiCategoryEndpoints.starships.cacheTime

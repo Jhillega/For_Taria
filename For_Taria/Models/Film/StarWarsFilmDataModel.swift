@@ -16,7 +16,7 @@ struct SwapiFilmResults: Codable {
 }
 
 // MARK: - Film
-struct Film: Codable, Identifiable, SWAPISearchResultPresentable {
+struct Film: Codable, Identifiable, Sendable {
     let id = UUID()
     let name: String
     let episodeID: Int
@@ -27,6 +27,7 @@ struct Film: Codable, Identifiable, SWAPISearchResultPresentable {
     let url: String
 
     enum CodingKeys: String, CodingKey {
+        // SWAPI returns "title" but the app uses "name" to match SWAPISearchResultPresentable.
         case name = "title"
         case episodeID = "episode_id"
         case openingCrawl = "opening_crawl"

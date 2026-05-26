@@ -35,8 +35,11 @@ struct PlanetListView: View {
             }
 
             
+            // Overlay the detail view on top of the list rather than navigating away,
+            // so the blur-replace transition reads as an in-place reveal.
             if planetInFocus {
                 ScrollView {
+                    // Falls back to MockService.testPlanet if selectedPlanet is somehow nil.
                     PlanetFocusView(isPresented: $planetInFocus, planet: selectedPlanet ?? MockService.testPlanet)
                         .frame(width: 400, height: 800, alignment: .center)
                         .foregroundStyle(.yellow)

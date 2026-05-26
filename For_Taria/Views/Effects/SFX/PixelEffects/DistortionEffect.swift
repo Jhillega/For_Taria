@@ -18,6 +18,9 @@ struct DistortionEffect: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding(.horizontal, 10)
+            // drawingGroup() flattens the view hierarchy into a single texture before the
+            // distortion shader samples it; without this, child views render independently
+            // and the shader cannot displace pixels across view boundaries.
             .drawingGroup()
             .distortionEffect(
                 ShaderLibrary.distortion(),

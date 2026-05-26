@@ -16,7 +16,7 @@ struct SwapiVehicleResults: Codable {
 }
 
 // MARK: - Vehicle
-struct Vehicle: Codable, Identifiable, SWAPISearchResultPresentable {
+struct Vehicle: Codable, Identifiable, Sendable {
     let id = UUID()
     let name, model, manufacturer, costInCredits: String
     let length, maxAtmospheringSpeed, crew, passengers: String

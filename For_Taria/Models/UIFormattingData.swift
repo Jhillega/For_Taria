@@ -151,8 +151,4 @@ struct SwapiFormattingData {
                             edited: "",
                             url: "")
     
-    static let results: [SWAPISearchResultPresentable] = [
-        person, vehicle, species, starship, film, planet
-    ]
-    
 }
