@@ -1,6 +1,6 @@
 # For Taria
 
-A Star Wars encyclopedia app for iOS, built with SwiftUI. Browse characters, planets, starships, vehicles, films, and species from the [SWAPI](https://swapi.py4e.com) API — with visual effects and offline caching. Started as a fun project for my wife and became a pet portfolio project. Always open to suggestions.
+A Star Wars encyclopedia app for iOS, built with SwiftUI. Browse characters, planets, starships, vehicles, films, and species from the [SWAPI](https://swapi.py4e.com) API — with visual effects and offline caching.
 
 ## Features
 
