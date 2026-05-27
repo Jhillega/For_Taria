@@ -15,7 +15,7 @@ struct PeopleViewCell: View {
             Image(systemName: "person.fill")
                 .resizable()
                 .scaledToFit()
-            Text(person.name)
+            Text(person.name ?? "")
                 .font(.title)
                 .bold()
         }

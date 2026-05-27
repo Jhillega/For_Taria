@@ -23,6 +23,10 @@ struct SWAPIService: SWAPI_HTTPClient, SWAPIServicable {
         return await sendRequest(endpoint: SwapiCategoryEndpoints.people, responseModel: SwapiPeopleResults.self)
     }
     
+    func fetchPerson(id: Int) async -> Result<Person, RequestError> {
+        return await sendRequest(endpoint: SwapiCategoryEndpoints.people, responseModel: Person.self, searchTerm: id)
+    }
+    
     func fetch_Planets_FromAGalaxyFarFarAway() async -> Result<SwapiPlanetResults, RequestError> {
         return await sendRequest(endpoint: SwapiCategoryEndpoints.planets, responseModel: SwapiPlanetResults.self)
     }

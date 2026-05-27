@@ -27,7 +27,7 @@ struct PeopleView: View {
             .listStyle(.plain)
             .task {
                 do {
-                    results = try await peopleRepo.fetch()
+                    results = try await peopleRepo.fetch(individual: true)
                 } catch {
                     print("Failed to fetch people: \(error)")
                 }

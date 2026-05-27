@@ -18,13 +18,13 @@ struct SwapiPeopleResults: Codable, Sendable {
 // MARK: - Result
 struct Person: Codable, Identifiable, Hashable, Sendable {
     let id = UUID()
-    let name, height, mass, hairColor: String
-    let skinColor, eyeColor, birthYear: String
-    let gender: Gender
-    let homeworld: String
-    let films, species, vehicles, starships: [String]
-    let created, edited: String
-    let url: String
+    let name, height, mass, hairColor: String?
+    let skinColor, eyeColor, birthYear: String?
+    let gender: Gender?
+    let homeworld: String?
+    let films, species, vehicles, starships: [String]?
+    let created, edited: String?
+    let url: String?
 
     enum CodingKeys: String, CodingKey {
         case name, height, mass
