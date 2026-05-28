@@ -13,16 +13,9 @@ class SWAPIPeopleRepository {
     static let shared = SWAPIPeopleRepository()
     private var cacheReloadInterval: TimeInterval = SwapiCategoryEndpoints.people.cacheTime
     var service = SWAPIService()
-    let cache = SwapiCache<URLRequest, [Person]>()
+    let cache = SwapiCache<SwapiCategoryEndpoints, [Person]>()
     
     func fetch(bypassCache: Bool = false, individual: Bool = false) async throws -> [Person] {
-        
-        guard let url = URL(string: SwapiCategoryEndpoints.people.path) else {
-            throw AppError.DataFetch(type: .invalidURL, errorString: "Unable to form URL for \(SwapiCategoryEndpoints.people.path)")
-        }
-        
-        let request = URLRequest(url: url)
-        
         if bypassCache {
             if individual {
                 let people: [Person] = await withTaskGroup(of: Person.self, returning: [Person].self) { group in
@@ -41,46 +34,47 @@ class SWAPIPeopleRepository {
                     return decodedPeople
                 }
                 
+                cache.insert(people, forKey: .people)
                 return people
             }
             
-            return await networkFetch(request)
+            return await networkFetch()
         } else {
-            if individual {
-                let people: [Person] = await withTaskGroup(of: Person.self, returning: [Person].self) { group in
-                    for entry in 1 ... SwapiCategoryEndpoints.people.totalNumberOfEntries {
-                        group.addTask {
-                            await self.networkFetchPerson(entryNumber: entry)
+            guard let results = cache.value(forKey: .people), results.isEmpty == false else {
+                if individual {
+                    let people: [Person] = await withTaskGroup(of: Person.self, returning: [Person].self) { group in
+                        for entry in 1 ... SwapiCategoryEndpoints.people.totalNumberOfEntries {
+                            group.addTask {
+                                await self.networkFetchPerson(entryNumber: entry)
+                            }
                         }
+
+                        var decodedPeople = [Person]()
+
+                        for await person in group {
+                            decodedPeople.append(person)
+                        }
+
+                        return decodedPeople
                     }
-
-                    var decodedPeople = [Person]()
-
-                    for await person in group {
-                        decodedPeople.append(person)
-                    }
-
-                    return decodedPeople
+                    cache.insert(people, forKey: .people)
+                    return people
                 }
                 
-                return people
-            }
-            
-            guard let results = cache.value(forKey: request), results.isEmpty == false else {
-                return await networkFetch(request)
+                return await networkFetch()
             }
             
             return results
         }
     }
     
-    private func networkFetch(_ request: URLRequest) async -> [Person] {
+    private func networkFetch() async -> [Person] {
         
         let items = await service.fetch_People_FromAGalaxyFarFarAway()
         
         switch items {
         case .success(let success):
-            cache.insert(success.results ?? [], forKey: request)
+            cache.insert(success.results ?? [], forKey: .people)
             return success.results ?? []
         case .failure(let failure):
             debugPrint(failure.localizedDescription)
