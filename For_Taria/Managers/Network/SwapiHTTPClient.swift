@@ -11,7 +11,7 @@ import SwiftUI
 //MARK: SWAPI Client protocol and extension
 
 protocol SWAPI_HTTPClient {
-    func sendRequest<T: Decodable>(endpoint: SWAPI_Endpoint, responseModel: T.Type, searchTerm: String?) async -> Result<T, RequestError>
+    func sendRequest<T: Decodable>(endpoint: SWAPI_Endpoint, responseModel: T.Type, searchTerm: Int?) async -> Result<T, RequestError>
 }
 
 extension SWAPI_HTTPClient {
@@ -19,12 +19,12 @@ extension SWAPI_HTTPClient {
     // Switches between search URL and full-category URL based on whether a search term is present.
     func sendRequest<T: Decodable>(endpoint: SWAPI_Endpoint,
                                    responseModel: T.Type,
-                                   searchTerm: String? = nil) async -> Result<T, RequestError> {
+                                   searchTerm: Int? = nil) async -> Result<T, RequestError> {
         
         var urlString = ""
         
         if let term = searchTerm {
-            urlString = endpoint.createSearchURLString(with: term)
+            urlString = endpoint.createIndividualEntryURLString(for: term)
         } else {
             urlString = endpoint.categoryfullURL
         }

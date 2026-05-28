@@ -19,24 +19,33 @@ struct PeopleView: View {
         }
     
     var body: some View {
-        VStack {
-            List(results ?? []) { result in
+        ZStack {
+            Color.black.ignoresSafeArea()
+
+            if let results {
+                List(results) { result in
                     PeopleViewCell(person: result)
-                    .listRowBackground(Color.black)
-            }
-            .listStyle(.plain)
-            .task {
-                do {
-                    results = try await peopleRepo.fetch()
-                } catch {
-                    print("Failed to fetch people: \(error)")
+                        .listRowBackground(Color.black)
                 }
+                .listStyle(.plain)
+                .background(Color.black)
+                .foregroundColor(.yellow)
+            } else {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .tint(.yellow)
+                    .scaleEffect(3)
             }
-            .background(Color.black)
+        }
+        .task {
+            do {
+                results = try await peopleRepo.fetch(individual: true)
+            } catch {
+                print("Failed to fetch people: \(error)")
+            }
         }
         .navigationBarTitle(ResourceCategory.people.rawValue.localizedCapitalized, displayMode: .inline)
         .foregroundColor(.yellow)
-        .background(Color.black)
     }
 }
 

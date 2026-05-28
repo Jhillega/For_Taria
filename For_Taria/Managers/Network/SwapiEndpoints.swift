@@ -22,7 +22,7 @@ protocol SWAPI_Endpoint {
     var path: String { get }
     var categoryfullURL: String { get }
     
-    func createSearchURLString(with searchTerm: String) -> String
+    func createIndividualEntryURLString(for id: Int) -> String
 }
 
 //MARK: SwapiEndpoint default implementation
@@ -93,5 +93,9 @@ extension SwapiCategoryEndpoints: SWAPI_Endpoint {
     
     func createSearchURLString(with searchTerm: String) -> String {
         return self.categoryfullURL + "?search=" + searchTerm
+    }
+    
+    func createIndividualEntryURLString(for id: Int) -> String {
+        return self.categoryfullURL + "\(id)/"
     }
 }
