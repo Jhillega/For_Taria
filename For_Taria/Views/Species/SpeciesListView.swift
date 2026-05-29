@@ -18,9 +18,11 @@ struct SpeciesListView: View {
                     .listRowBackground(Color.black)
             }
             .listStyle(.plain)
-            .onAppear {
-                Task {
+            .task {
+                do {
                     species = try await speciesRepo.fetch()
+                } catch {
+                    debugPrint("Fucking Whoops")
                 }
             }
         }

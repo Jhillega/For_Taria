@@ -40,21 +40,31 @@ extension SWAPI_HTTPClient {
             guard let response = response as? HTTPURLResponse else {
                 return .failure(.noResponse)
             }
+            
+            if response.statusCode > 299 {
+                debugPrint("Status Code: \(response.statusCode) and search term: \(searchTerm ?? 1000)")
+            }
                         
             switch response.statusCode {
             case 200...299:
                 guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else {
+                    debugPrint("\(searchTerm ?? 99) failed to decode")
+                    debugPrint("\(data)")
                     return .failure(.decode)
                 }
                 
                 return .success(decodedResponse)
             case 401:
+                debugPrint("\(searchTerm ?? 99) failed to authenticate")
                 return .failure(.unauthorized)
             default:
+                
+                debugPrint("Searched failed for: \(String(describing: searchTerm)) with status code: \(response.statusCode)")
                 return .failure(.unexpectedStatusCode)
             }
         }
         catch {
+            debugPrint("\(searchTerm ?? 99) failed with error: \(error.localizedDescription)")
             return .failure(.unknown)
         }
         

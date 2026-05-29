@@ -17,58 +17,46 @@ class SWAPIPeopleRepository {
     
     func fetch(bypassCache: Bool = false, individual: Bool = false) async throws -> [Person] {
         if bypassCache {
-            if individual {
-                let people: [Person] = await withTaskGroup(of: Person.self, returning: [Person].self) { group in
-                    for entry in 1 ... SwapiCategoryEndpoints.people.totalNumberOfEntries {
-                        group.addTask {
-                            await self.networkFetchPerson(entryNumber: entry)
-                        }
-                    }
-
-                    var decodedPeople = [Person]()
-
-                    for await person in group {
-                        decodedPeople.append(person)
-                    }
-
-                    return decodedPeople
-                }
-                
-                cache.insert(people, forKey: .people)
-                return people
-            }
-            
-            return await networkFetch()
+            return await getCharacters(individual: individual)
         } else {
             guard let results = cache.value(forKey: .people), results.isEmpty == false else {
-                if individual {
-                    let people: [Person] = await withTaskGroup(of: Person.self, returning: [Person].self) { group in
-                        for entry in 1 ... SwapiCategoryEndpoints.people.totalNumberOfEntries {
-                            group.addTask {
-                                await self.networkFetchPerson(entryNumber: entry)
-                            }
-                        }
-
-                        var decodedPeople = [Person]()
-
-                        for await person in group {
-                            decodedPeople.append(person)
-                        }
-
-                        return decodedPeople
-                    }
-                    cache.insert(people, forKey: .people)
-                    return people
-                }
-                
-                return await networkFetch()
+                return await getCharacters(individual: individual)
             }
             
             return results
         }
     }
     
-    private func networkFetch() async -> [Person] {
+    private func getCharacters(individual: Bool = true) async -> [Person] {
+        if individual {
+            let people: [Person] = await withTaskGroup(of: Person.self, returning: [Person].self) { group in
+                for entry in 1 ... SwapiCategoryEndpoints.people.totalNumberOfEntries {
+                    if entry != 17 {
+                        group.addTask {
+                            await self.networkFetchPerson(entryNumber: entry)
+                        }
+                    }
+                }
+
+                var decodedPeople = [Person]()
+
+                for await person in group {
+                    if person.name != "Unknown" {
+                        decodedPeople.append(person)
+                    }
+                }
+
+                return decodedPeople
+            }
+            
+            cache.insert(people, forKey: .people)
+            return people
+        }
+        
+        return await networkFetchSample()
+    }
+    
+    private func networkFetchSample() async -> [Person] {
         
         let items = await service.fetch_People_FromAGalaxyFarFarAway()
         
