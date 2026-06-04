@@ -16,15 +16,15 @@ struct SwapiFilmResults: Codable {
 }
 
 // MARK: - Film
-struct Film: Codable, Identifiable, Sendable {
+struct Film: SWAPIRetrievable {
     let id = UUID()
-    let name: String
-    let episodeID: Int
-    let openingCrawl, director, producer, releaseDate: String
-    let characters, planets, starships, vehicles: [String]
-    let species: [String]
-    let created, edited: String
-    let url: String
+    let name: String?
+    let episodeID: Int?
+    let openingCrawl, director, producer, releaseDate: String?
+    let characters, planets, starships, vehicles: [String]?
+    let species: [String]?
+    let created, edited: String?
+    let url: String?
 
     enum CodingKeys: String, CodingKey {
         // SWAPI returns "title" but the app uses "name" to match SWAPISearchResultPresentable.

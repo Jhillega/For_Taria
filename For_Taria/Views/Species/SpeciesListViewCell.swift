@@ -16,6 +16,8 @@ struct SpeciesListViewCell: View {
             return Color.green
         case .sentient:
             return Color.yellow
+        case .none:
+            return Color.gray
         }
     }
     
@@ -28,12 +30,12 @@ struct SpeciesListViewCell: View {
                 .padding()
             
             VStack(alignment: .leading) {
-                Text(species.name)
+                Text(species.name ?? "UNKNOWN")
                     .font(.title)
                     .bold()
                     .padding(.vertical)
-                Text(species.language)
-                Text(species.classification)
+                Text(species.language ?? "UNKNOWN")
+                Text(species.classification ?? "UNKNOWN")
             }
             Spacer()
         }

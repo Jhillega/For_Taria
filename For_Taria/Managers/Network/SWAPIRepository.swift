@@ -1,33 +1,54 @@
 //
-//  SWAPIPeopleRepository.swift
+//  SWAPIRepository.swift
 //  For_Taria
 //
-//  Created by Jason Hillegass on 12/3/24.
+//  Created by Jason Hillegass on 6/1/26.
 //
 
 import Foundation
 
-// Cache-then-network repository: returns cached results if present and non-empty,
-// otherwise fetches from SWAPI and populates the cache for subsequent calls.
-class SWAPIPeopleRepository {
-    static let shared = SWAPIPeopleRepository()
-    private var cacheReloadInterval: TimeInterval = SwapiCategoryEndpoints.people.cacheTime
+class SWAPIRepository {
+    static let shared = SWAPIRepository()
+    private var cacheReloadInterval: TimeInterval = 60 * 60
     var service = SWAPIService()
-    let cache = SwapiCache<SwapiCategoryEndpoints, [Person]>()
+    let cache = SwapiCache<SwapiCategoryEndpoints, [any SWAPIRetrievable]>()
     
-    func fetch(bypassCache: Bool = false, individual: Bool = false) async throws -> [Person] {
+    func fetch(bypassCache: Bool = false, getAll: Bool = true, for category: SwapiCategoryEndpoints) async throws -> [any SWAPIRetrievable] {
         if bypassCache {
-            return await getCharacters(individual: individual)
+            return try await makeCallForCategory(category, getAll: getAll)
         } else {
-            guard let results = cache.value(forKey: .people), results.isEmpty == false else {
-                return await getCharacters(individual: individual)
+            guard let results = cache.value(forKey: category) else {
+                return try await makeCallForCategory(category, getAll: getAll)
             }
             
             return results
         }
     }
     
-    private func getCharacters(individual: Bool = true) async -> [Person] {
+    func makeCallForCategory(_ category: SwapiCategoryEndpoints, getAll: Bool) async throws -> [any SWAPIRetrievable] {
+        
+        switch category {
+        case .people:
+            return await getCharacters(individual: getAll)
+        case .planets:
+            return await SwapiPlanetRepository.shared.getPlanets()
+        case .vehicles:
+            return try await SwapiVehicleRepository.shared.fetch(bypassCache: getAll)
+        case .starships:
+            return try await SwapiStarshipRepository.shared.fetch(bypassCache: getAll)
+        case .films:
+            return try await SwapiFilmRepository.shared.fetch(bypassCache: getAll)
+        case .species:
+            return try await SwapiSpeciesRepository.shared.fetch(bypassCache: getAll)
+        }
+    }
+}
+
+// MARK: People/Characters
+extension SWAPIRepository {
+    
+    
+    func getCharacters(individual: Bool = true) async -> [Person] {
         if individual {
             let people: [Person] = await withTaskGroup(of: Person.self, returning: [Person].self) { group in
                 for entry in 1 ... SwapiCategoryEndpoints.people.totalNumberOfEntries {
@@ -82,5 +103,12 @@ class SWAPIPeopleRepository {
         }
         
         
+    }
+}
+
+// MARK: - Planets
+extension SWAPIRepository {
+    func getPlanets() async throws -> [Planet] {
+        await SwapiPlanetRepository.shared.getPlanets()
     }
 }

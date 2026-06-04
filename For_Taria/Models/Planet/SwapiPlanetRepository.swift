@@ -13,35 +13,52 @@ class SwapiPlanetRepository {
     static let shared = SwapiPlanetRepository()
     private var cacheReloadInterval: TimeInterval = SwapiCategoryEndpoints.planets.cacheTime
     var service = SWAPIService()
-    var cache = SwapiCache<URLRequest, [Planet]>()
+    var cache = SwapiCache<SwapiCategoryEndpoints, [Planet]>()
     
-    func fetch(bypassCache: Bool = false) async throws -> [Planet] {
-        
-        guard let url = URL(string: SwapiCategoryEndpoints.planets.path) else {
-            throw AppError.DataFetch(type: .invalidURL, errorString: "Unable to form URL for \(SwapiCategoryEndpoints.planets.path)")
-        }
-        
-        let request = URLRequest(url: url)
-        
-        if bypassCache {
-            return await networkFetch(request)
-        } else {
-            
-            guard let results = cache.value(forKey: request), results.isEmpty == false else {
-                return await networkFetch(request)
+    func getPlanets(all: Bool = true) async -> [Planet] {
+        if all {
+            let planets: [Planet] = await withTaskGroup(of: Planet.self, returning: [Planet].self) { group in
+                for entry in 1 ... SwapiCategoryEndpoints.planets.totalNumberOfEntries {
+                    group.addTask {
+                        await self.networkFetchPlanet(entryNumber: entry) ?? Planet(name: "Unknown", rotationPeriod: "Unknown", orbitalPeriod: "Unknown", diameter: "Unknown", climate: "Unknown", gravity: "Unknown", terrain: "Unknown", surfaceWater: "Unknown", population: "Unknown", residents: [], films: [], created: "Date()", edited: "Date()", url: "Unknown")
+                    }
+                }
+                
+                var decodedPlanets = [Planet]()
+                
+                for await planet in group {
+                    decodedPlanets.append(planet)
+                }
+                
+                return decodedPlanets
             }
             
-            return results
+            cache.insert(planets, forKey: .planets)
+            return planets
+        }
+        
+        return await networkFetchSample()
+    }
+    
+    private func networkFetchPlanet(entryNumber: Int) async -> Planet? {
+        let planet = await service.fetchPlanet(id: entryNumber)
+        
+        switch planet {
+        case .success(let success):
+            return success
+        case .failure(let failure):
+            debugPrint(failure.localizedDescription)
+            return nil
         }
     }
     
-    private func networkFetch(_ request: URLRequest) async -> [Planet] {
+    private func networkFetchSample() async -> [Planet] {
         
         let items = await service.fetch_Planets_FromAGalaxyFarFarAway()
         
         switch items {
         case .success(let success):
-            cache.insert(success.results ?? [], forKey: request)
+            cache.insert(success.results ?? [], forKey: .planets)
             return success.results ?? []
         case .failure(let failure):
             debugPrint(failure.localizedDescription)

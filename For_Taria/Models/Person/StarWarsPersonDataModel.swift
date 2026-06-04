@@ -16,8 +16,8 @@ struct SwapiPeopleResults: Codable, Sendable {
 }
 
 // MARK: - Result
-struct Person: Codable, Identifiable, Hashable, Sendable {
-    let id = UUID()
+struct Person: SWAPIRetrievable, Hashable {    
+    var id = UUID()
     let name, height, mass, hairColor: String?
     let skinColor, eyeColor, birthYear: String?
     let gender: Gender?

@@ -16,14 +16,14 @@ struct SwapiVehicleResults: Codable {
 }
 
 // MARK: - Vehicle
-struct Vehicle: Codable, Identifiable, Sendable {
+struct Vehicle: SWAPIRetrievable {
     let id = UUID()
-    let name, model, manufacturer, costInCredits: String
-    let length, maxAtmospheringSpeed, crew, passengers: String
-    let cargoCapacity, consumables, vehicleClass: String
-    let pilots, films: [String]
-    let created, edited: String
-    let url: String
+    let name, model, manufacturer, costInCredits: String?
+    let length, maxAtmospheringSpeed, crew, passengers: String?
+    let cargoCapacity, consumables, vehicleClass: String?
+    let pilots, films: [String]?
+    let created, edited: String?
+    let url: String?
 
     enum CodingKeys: String, CodingKey {
         case name, model, manufacturer

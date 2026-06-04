@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PeopleView: View {
     @State var results: [Person]?
-    let peopleRepo = SWAPIPeopleRepository()
+    let repo = SWAPIRepository()
     
     init() {
             // Tint the nav bar title yellow to match the Star Wars theme.
@@ -39,7 +39,7 @@ struct PeopleView: View {
         }
         .task {
             do {
-                results = try await peopleRepo.fetch(individual: true)
+                results = try await repo.fetch(for: .people) as? [Person]
             } catch {
                 print("Failed to fetch people: \(error)")
             }

@@ -18,12 +18,12 @@ struct VehicleListViewCell: View {
                 .resizable()
                 .scaledToFit()
             VStack(alignment: .leading) {
-                Text(vehicle.name)
+                Text(vehicle.name ?? "MISSING DATA")
                     .font(.title2)
                     .bold()
                     .padding(.vertical)
-                Text(vehicle.model)
-                Text(vehicle.manufacturer)
+                Text(vehicle.model ?? "MISSING DATA")
+                Text(vehicle.manufacturer ?? "MISSING DATA")
             }
             .multilineTextAlignment(.leading)
         }
