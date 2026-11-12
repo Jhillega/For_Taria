@@ -12,17 +12,17 @@ struct FilmListViewCell: View {
     
     var body: some View {
         HStack {
-            let imageString = selectCorrectFilmImageString(for: film.episodeID)
+            let imageString = selectCorrectFilmImageString(for: film.episodeID ?? 99)
             Image(imageString)
                 .resizable()
                 .scaledToFit()
             VStack(alignment: .leading) {
-                Text(film.name)
+                Text(film.name ?? "UNKNOWN")
                     .font(.title3)
                 Group {
-                    Text("Episode: \(film.episodeID)")
-                    Text("directed by: \(film.director)")
-                    Text("released: \(film.releaseDate)")
+                    Text("Episode: \(film.episodeID ?? 99)")
+                    Text("directed by: \(film.director ?? "UNKNOWN")")
+                    Text("released: \(film.releaseDate ?? "UNKNOWN")")
                 }
                 .font(.subheadline)
             }

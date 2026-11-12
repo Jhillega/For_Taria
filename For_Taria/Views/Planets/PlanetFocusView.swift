@@ -19,7 +19,7 @@ public struct PlanetFocusView: View {
                 .frame(width: 300, height: 300, alignment: .center)
                 .scaledToFit()
                 .pixellationShader()
-            Text("PlanetFocusView for \(planet.name)")
+            Text("PlanetFocusView for \(planet.name ?? "Missing Data")")
             ScrollView {
                 ForEach(Planet.displayablePropertyNames) { propertyName in
                     // TODO: - Add viewBuilder for scrolling info

@@ -15,23 +15,25 @@ struct PlanetListView: View {
     
     var body: some View {
         ZStack {
-            List {
-                ForEach(planets ?? [Planet](), id: \.id) { planet in
-                    PlanetListViewCell(planet: planet)
-                        .listRowBackground(Color.black)
-                        .onTapGesture {
-                            self.selectedPlanet = planet
-                            withAnimation {
-                                planetInFocus.toggle()
+            if (planets != nil) {
+                List {
+                    ForEach(planets ?? [Planet](), id: \.id) { planet in
+                        PlanetListViewCell(planet: planet)
+                            .listRowBackground(Color.black)
+                            .onTapGesture {
+                                self.selectedPlanet = planet
+                                withAnimation {
+                                    planetInFocus.toggle()
+                                }
                             }
-                        }
+                    }
                 }
-            }
-            .listStyle(.plain)
-            .onAppear {
-                Task {
-                    planets = try await planetRepo.fetch()
-                }
+                .listStyle(.plain)
+            } else {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .tint(.yellow)
+                    .scaleEffect(3)
             }
 
             
@@ -56,6 +58,9 @@ struct PlanetListView: View {
         .navigationBarTitle(ResourceCategory.planets.rawValue.localizedCapitalized, displayMode: .inline)
         .foregroundColor(.yellow)
         .background(Color.black)
+        .task {
+            planets = await planetRepo.getPlanets()
+        }
     }
 }
 

@@ -44,6 +44,8 @@ final class SwapiCache<Key: Hashable, Value> {
     
     func removeValue(forKey key: Key) {
         wrapped.removeObject(forKey: WrappedKey(key: key))
+        // removeObject doesn't trigger willEvictObject, so untrack the key here
+        keyTracker.keys.remove(key)
     }
 }
 

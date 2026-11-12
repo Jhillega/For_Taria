@@ -17,11 +17,11 @@ struct StarshipView: View {
                 .frame(height: 100)
                 .frame(width: 100)
             VStack(alignment: .leading) {
-                Text(starship.name)
+                Text(starship.name ?? "MISSING DATA")
                     .bold()
                     .padding(.vertical)
-                Text(starship.model)
-                Text(starship.starshipClass)
+                Text(starship.model ?? "MISSING DATA")
+                Text(starship.starshipClass ?? "MISSING DATA")
             }
         }
         .foregroundColor(.yellow)

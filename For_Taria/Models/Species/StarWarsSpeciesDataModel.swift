@@ -16,17 +16,17 @@ struct SwapiSpeciesResults: Codable {
 }
 
 // MARK: - Species
-struct Species: Codable, Identifiable, Sendable {
+struct Species: SWAPIRetrievable {
     let id = UUID()
-    let name, classification: String
-    let designation: Designation
-    let averageHeight, skinColors, hairColors, eyeColors: String
-    let averageLifespan: String
+    let name, classification: String?
+    let designation: Designation?
+    let averageHeight, skinColors, hairColors, eyeColors: String?
+    let averageLifespan: String?
     let homeworld: String?
-    let language: String
-    let people, films: [String]
-    let created, edited: String
-    let url: String
+    let language: String?
+    let people, films: [String]?
+    let created, edited: String?
+    let url: String?
 
     enum CodingKeys: String, CodingKey {
         case name, classification, designation

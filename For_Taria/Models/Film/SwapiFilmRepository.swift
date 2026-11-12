@@ -11,9 +11,8 @@ import Foundation
 // otherwise fetches from SWAPI and populates the cache for subsequent calls.
 class SwapiFilmRepository {
     static let shared = SwapiFilmRepository()
-    private var cacheReloadInterval: TimeInterval = SwapiCategoryEndpoints.films.cacheTime
     var service = SWAPIService()
-    var cache = SwapiCache<URLRequest, [Film]>()
+    var cache = SwapiCache<URLRequest, [Film]>(entryLifetime: SwapiCategoryEndpoints.films.cacheTime)
     
     func fetch(bypassCache: Bool = false) async throws -> [Film] {
         

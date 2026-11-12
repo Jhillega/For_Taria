@@ -11,9 +11,8 @@ import Foundation
 // otherwise fetches from SWAPI and populates the cache for subsequent calls.
 class SwapiStarshipRepository {
     static let shared = SwapiStarshipRepository()
-    private var cacheReloadInterval: TimeInterval = SwapiCategoryEndpoints.starships.cacheTime
     var service = SWAPIService()
-    var cache = SwapiCache<URLRequest, [Starship]>()
+    var cache = SwapiCache<URLRequest, [Starship]>(entryLifetime: SwapiCategoryEndpoints.starships.cacheTime)
     
     func fetch(bypassCache: Bool = false) async throws -> [Starship] {
         

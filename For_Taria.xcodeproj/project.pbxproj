@@ -13,6 +13,8 @@
 		540B611A2A312ADF00DB1FBB /* SWAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B61192A312ADF00DB1FBB /* SWAPIService.swift */; };
 		541749DE2D00C1FD008E3B51 /* SwapiSpeciesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541749DD2D00C1EE008E3B51 /* SwapiSpeciesRepository.swift */; };
 		541749E02D00CC91008E3B51 /* SwapiVehicleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541749DF2D00CC85008E3B51 /* SwapiVehicleRepository.swift */; };
+		5419C07E2FCDEAD2003DE1F5 /* SWAPIRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5419C07D2FCDEAC7003DE1F5 /* SWAPIRetrievable.swift */; };
+		5419C0802FCDEBF9003DE1F5 /* SWAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5419C07F2FCDEBEB003DE1F5 /* SWAPIRepository.swift */; };
 		54384F172D91EF660025F636 /* ShinyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54384F162D91EF660025F636 /* ShinyButtonView.swift */; };
 		54384F1A2D91F94A0025F636 /* Comparable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54384F192D91F9400025F636 /* Comparable+Extensions.swift */; };
 		54384F1D2D91F9EF0025F636 /* ProgressiveGlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54384F1C2D91F9E90025F636 /* ProgressiveGlow.swift */; };
@@ -41,7 +43,6 @@
 		54659F342E0A0F190013782C /* PixellationEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54659F332E0A0F100013782C /* PixellationEffect.swift */; };
 		54659F372E0B30000013782C /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54659F362E0B2FF50013782C /* MockService.swift */; };
 		54659F392E0B34CF0013782C /* MockServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54659F382E0B34CA0013782C /* MockServiceManager.swift */; };
-		54670A422CFFA1FC002FBC85 /* SWAPIPeopleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54670A412CFFA1EB002FBC85 /* SWAPIPeopleRepository.swift */; };
 		547D9CB92CC0AA9900F5CD13 /* For_TariaMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547D9CB82CC0AA9900F5CD13 /* For_TariaMainView.swift */; };
 		54842FFB2E0CC1AE00C7F38D /* SagaTextScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54842FFA2E0CC1AE00C7F38D /* SagaTextScrollView.swift */; };
 		54ACB66B2D9C9F8600B7D262 /* DissolveRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ACB66A2D9C9F7E00B7D262 /* DissolveRenderer.swift */; };
@@ -85,6 +86,8 @@
 		540B61192A312ADF00DB1FBB /* SWAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAPIService.swift; sourceTree = "<group>"; };
 		541749DD2D00C1EE008E3B51 /* SwapiSpeciesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiSpeciesRepository.swift; sourceTree = "<group>"; };
 		541749DF2D00CC85008E3B51 /* SwapiVehicleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiVehicleRepository.swift; sourceTree = "<group>"; };
+		5419C07D2FCDEAC7003DE1F5 /* SWAPIRetrievable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAPIRetrievable.swift; sourceTree = "<group>"; };
+		5419C07F2FCDEBEB003DE1F5 /* SWAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAPIRepository.swift; sourceTree = "<group>"; };
 		54384F162D91EF660025F636 /* ShinyButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShinyButtonView.swift; sourceTree = "<group>"; };
 		54384F192D91F9400025F636 /* Comparable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comparable+Extensions.swift"; sourceTree = "<group>"; };
 		54384F1C2D91F9E90025F636 /* ProgressiveGlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressiveGlow.swift; sourceTree = "<group>"; };
@@ -115,7 +118,6 @@
 		54659F332E0A0F100013782C /* PixellationEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixellationEffect.swift; sourceTree = "<group>"; };
 		54659F362E0B2FF50013782C /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
 		54659F382E0B34CA0013782C /* MockServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceManager.swift; sourceTree = "<group>"; };
-		54670A412CFFA1EB002FBC85 /* SWAPIPeopleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAPIPeopleRepository.swift; sourceTree = "<group>"; };
 		547D9CB82CC0AA9900F5CD13 /* For_TariaMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = For_TariaMainView.swift; sourceTree = "<group>"; };
 		54842FFA2E0CC1AE00C7F38D /* SagaTextScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SagaTextScrollView.swift; sourceTree = "<group>"; };
 		54ACB66A2D9C9F7E00B7D262 /* DissolveRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DissolveRenderer.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 		5441B3932A29207300405481 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5419C07D2FCDEAC7003DE1F5 /* SWAPIRetrievable.swift */,
 				54670A402CFFA1BB002FBC85 /* Species */,
 				54670A3F2CFFA1AD002FBC85 /* Film */,
 				54670A3E2CFFA19F002FBC85 /* Starship */,
@@ -287,6 +290,7 @@
 		5441B3972A29215D00405481 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				5419C07F2FCDEBEB003DE1F5 /* SWAPIRepository.swift */,
 				54EEDBC62A3100E800B4C331 /* SwapiHTTPClient.swift */,
 				540B61172A3125DE00DB1FBB /* SwapiEndpoints.swift */,
 				540B61192A312ADF00DB1FBB /* SWAPIService.swift */,
@@ -325,7 +329,6 @@
 		54670A3C2CFFA182002FBC85 /* Person */ = {
 			isa = PBXGroup;
 			children = (
-				54670A412CFFA1EB002FBC85 /* SWAPIPeopleRepository.swift */,
 				5441B39A2A2957D700405481 /* StarWarsPersonDataModel.swift */,
 			);
 			path = Person;
@@ -525,7 +528,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2650;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 2650;
 				TargetAttributes = {
 					5441B37C2A29203500405481 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -581,6 +584,7 @@
 			files = (
 				54E976FB2A2A8DA100D2A1E2 /* SpeciesListView.swift in Sources */,
 				54E976F22A2A7FF700D2A1E2 /* FilmListViewCell.swift in Sources */,
+				5419C07E2FCDEAD2003DE1F5 /* SWAPIRetrievable.swift in Sources */,
 				54384F222D9204730025F636 /* View+Extensions.swift in Sources */,
 				54ACB66B2D9C9F8600B7D262 /* DissolveRenderer.swift in Sources */,
 				54E976E82A2A44A600D2A1E2 /* StarshipsView.swift in Sources */,
@@ -617,6 +621,7 @@
 				5441B3812A29203500405481 /* For_TariaApp.swift in Sources */,
 				54E976F92A2A8C5800D2A1E2 /* SpeciesListViewCell.swift in Sources */,
 				54384F202D91FB930025F636 /* ButtonShader.metal in Sources */,
+				5419C0802FCDEBF9003DE1F5 /* SWAPIRepository.swift in Sources */,
 				54085AB52A38B55E00BCC682 /* CategoryView.swift in Sources */,
 				54ADE75B2D9349CB0018273D /* WalkingManView.swift in Sources */,
 				54E976FF2A2AC03A00D2A1E2 /* VehicleListViewCell.swift in Sources */,
@@ -633,7 +638,6 @@
 				54E976EF2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift in Sources */,
 				54ADE7632D94921A0018273D /* AnyTransition+Extension.swift in Sources */,
 				54E977012A2AC13700D2A1E2 /* VehicleListView.swift in Sources */,
-				54670A422CFFA1FC002FBC85 /* SWAPIPeopleRepository.swift in Sources */,
 				54384F282D92200B0025F636 /* ParticleCloud.swift in Sources */,
 				54F0C2ED2CFFEDD2004E2890 /* AppError.swift in Sources */,
 			);
@@ -692,6 +696,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = HHBGC2J5CX;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -713,6 +718,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
@@ -754,6 +760,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = HHBGC2J5CX;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -768,6 +775,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 6.0;
@@ -783,7 +791,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"For_Taria/Preview Content\"";
-				DEVELOPMENT_TEAM = HHBGC2J5CX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "For-Taria-Info.plist";
@@ -814,7 +821,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"For_Taria/Preview Content\"";
-				DEVELOPMENT_TEAM = HHBGC2J5CX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "For-Taria-Info.plist";
@@ -845,7 +851,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HHBGC2J5CX;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -873,7 +878,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HHBGC2J5CX;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;

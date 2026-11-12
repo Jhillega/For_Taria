@@ -16,14 +16,14 @@ struct SwapiPlanetResults: Codable {
 }
 
 // MARK: - Planet
-struct Planet: Codable, Identifiable, Sendable {
+struct Planet: SWAPIRetrievable {
     let id = UUID()
-    let name, rotationPeriod, orbitalPeriod, diameter: String
-    let climate, gravity, terrain, surfaceWater: String
-    let population: String
-    let residents, films: [String]
-    let created, edited: String
-    let url: String
+    let name, rotationPeriod, orbitalPeriod, diameter: String?
+    let climate, gravity, terrain, surfaceWater: String?
+    let population: String?
+    let residents, films: [String]?
+    let created, edited: String?
+    let url: String?
 
     enum CodingKeys: String, CodingKey, CaseIterable, Identifiable {
         var id: String { rawValue }
@@ -79,33 +79,33 @@ struct Planet: Codable, Identifiable, Sendable {
     public func dataForProperty(_ property: CodingKeys) -> String {
         switch property {
         case .name:
-            self.name
+            self.name ?? "unknown"
         case .rotationPeriod:
-            self.rotationPeriod
+            self.rotationPeriod ?? "unknown"
         case .orbitalPeriod:
-            self.orbitalPeriod
+            self.orbitalPeriod ?? "unknown"
         case .diameter:
-            self.diameter
+            self.diameter ?? "unknown"
         case .climate:
-            self.climate
+            self.climate ?? "unknown"
         case .gravity:
-            self.gravity
+            self.gravity ?? "unknown"
         case .terrain:
-            self.terrain
+            self.terrain ?? "unknown"
         case .surfaceWater:
-            self.surfaceWater
+            self.surfaceWater ?? "unknown"
         case .population:
-            self.population
+            self.population ?? "unknown"
         case .residents:
-            self.residents.joined(separator: ", ")
+            self.residents?.joined(separator: ", ") ?? "unknown"
         case .films:
-            self.films.joined(separator: ", ")
+            self.films?.joined(separator: ", ") ?? "unknown"
         case .created:
-            self.created
+            self.created ?? "unknown"
         case .edited:
-            self.edited
+            self.edited ?? "unknown"
         case .url:
-            self.url
+            self.url ?? "unknown"
         }
     }
 }
