@@ -11,9 +11,8 @@ import Foundation
 // otherwise fetches from SWAPI and populates the cache for subsequent calls.
 class SwapiPlanetRepository {
     static let shared = SwapiPlanetRepository()
-    private var cacheReloadInterval: TimeInterval = SwapiCategoryEndpoints.planets.cacheTime
     var service = SWAPIService()
-    var cache = SwapiCache<SwapiCategoryEndpoints, [Planet]>()
+    var cache = SwapiCache<SwapiCategoryEndpoints, [Planet]>(entryLifetime: SwapiCategoryEndpoints.planets.cacheTime)
     
     func getPlanets(all: Bool = true) async -> [Planet] {
         if all {

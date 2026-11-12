@@ -9,23 +9,25 @@ import Foundation
 
 class SWAPIRepository {
     static let shared = SWAPIRepository()
-    private var cacheReloadInterval: TimeInterval = 60 * 60
     var service = SWAPIService()
     let cache = SwapiCache<SwapiCategoryEndpoints, [any SWAPIRetrievable]>()
     
     func fetch(bypassCache: Bool = false, getAll: Bool = true, for category: SwapiCategoryEndpoints) async throws -> [any SWAPIRetrievable] {
-        if bypassCache {
-            return try await makeCallForCategory(category, getAll: getAll)
-        } else {
-            guard let results = cache.value(forKey: category) else {
-                return try await makeCallForCategory(category, getAll: getAll)
-            }
-            
+        if !bypassCache, let results = cache.value(forKey: category), !results.isEmpty {
             return results
         }
+        
+        let results = try await makeCallForCategory(category, getAll: getAll, bypassCache: bypassCache)
+        
+        // Don't cache empty results (the repositories return [] on network failure)
+        if !results.isEmpty {
+            cache.insert(results, forKey: category)
+        }
+        
+        return results
     }
     
-    func makeCallForCategory(_ category: SwapiCategoryEndpoints, getAll: Bool) async throws -> [any SWAPIRetrievable] {
+    func makeCallForCategory(_ category: SwapiCategoryEndpoints, getAll: Bool, bypassCache: Bool) async throws -> [any SWAPIRetrievable] {
         
         switch category {
         case .people:
@@ -33,13 +35,13 @@ class SWAPIRepository {
         case .planets:
             return await SwapiPlanetRepository.shared.getPlanets()
         case .vehicles:
-            return try await SwapiVehicleRepository.shared.fetch(bypassCache: getAll)
+            return try await SwapiVehicleRepository.shared.fetch(bypassCache: bypassCache)
         case .starships:
-            return try await SwapiStarshipRepository.shared.fetch(bypassCache: getAll)
+            return try await SwapiStarshipRepository.shared.fetch(bypassCache: bypassCache)
         case .films:
-            return try await SwapiFilmRepository.shared.fetch(bypassCache: getAll)
+            return try await SwapiFilmRepository.shared.fetch(bypassCache: bypassCache)
         case .species:
-            return try await SwapiSpeciesRepository.shared.fetch(bypassCache: getAll)
+            return try await SwapiSpeciesRepository.shared.fetch(bypassCache: bypassCache)
         }
     }
 }

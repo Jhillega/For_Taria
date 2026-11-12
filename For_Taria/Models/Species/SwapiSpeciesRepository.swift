@@ -11,9 +11,8 @@ import Foundation
 // otherwise fetches from SWAPI and populates the cache for subsequent calls.
 class SwapiSpeciesRepository {
     static let shared = SwapiSpeciesRepository()
-    private var cacheReloadInterval: TimeInterval = SwapiCategoryEndpoints.species.cacheTime
     var service = SWAPIService()
-    var cache = SwapiCache<URLRequest, [Species]>()
+    var cache = SwapiCache<URLRequest, [Species]>(entryLifetime: SwapiCategoryEndpoints.species.cacheTime)
     
     func fetch(bypassCache: Bool = false) async throws -> [Species] {
         
