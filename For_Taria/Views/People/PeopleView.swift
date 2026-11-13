@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PeopleView: View {
     @State var results: [Person]?
+    @State private var personInFocus = false
+    @State private var selectedPerson: Person?
     let peopleRepo = SWAPIPeopleRepository()
     
     init() {
@@ -26,10 +28,28 @@ struct PeopleView: View {
                 List(results) { result in
                     PeopleViewCell(person: result)
                         .listRowBackground(Color.black)
+                        .onTapGesture {
+                            selectedPerson = result
+                            withAnimation {
+                                personInFocus = true
+                            }
+                        }
                 }
                 .listStyle(.plain)
                 .background(Color.black)
                 .foregroundColor(.yellow)
+
+                // Overlay the detail view in place, mirroring PlanetListView.
+                if personInFocus, let selectedPerson {
+                    ScrollView {
+                        PersonView(isPresented: $personInFocus, person: selectedPerson)
+                            .frame(width: 400, height: 800, alignment: .center)
+                            .foregroundStyle(.yellow)
+                            .background(.black)
+                    }
+                    .background(Color.black)
+                    .transition(.blurReplace)
+                }
             } else {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())

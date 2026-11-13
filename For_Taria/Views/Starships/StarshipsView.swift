@@ -9,19 +9,41 @@ import SwiftUI
 
 struct StarshipsView: View {
     @State private var starships = [Starship]()
+    @State private var starshipInFocus = false
+    @State private var selectedStarship: Starship?
     let starshipRepo = SwapiStarshipRepository()
     
     var body: some View {
-        VStack {
+        ZStack {
             List(starships) { starship in
-                StarshipView(starship: starship)
+                StarshipViewCell(starship: starship)
                     .listRowBackground(Color.black)
+                    .onTapGesture {
+                        selectedStarship = starship
+                        withAnimation {
+                            starshipInFocus = true
+                        }
+                    }
             }
             .listStyle(.plain)
+
+            // Overlay the detail view in place, mirroring PlanetListView.
+            if starshipInFocus, let selectedStarship {
+                ScrollView {
+                    StarshipView(isPresented: $starshipInFocus, starship: selectedStarship)
+                        .frame(width: 400, height: 800, alignment: .center)
+                        .foregroundStyle(.yellow)
+                        .background(.black)
+                }
+                .background(Color.black)
+                .transition(.blurReplace)
+            }
         }
-        .onAppear {
-            Task {
+        .task {
+            do {
                 starships = try await starshipRepo.fetch()
+            } catch {
+                print("Failed to fetch starships: \(error)")
             }
         }
         .navigationBarTitle(ResourceCategory.starships.rawValue.localizedCapitalized, displayMode: .inline)

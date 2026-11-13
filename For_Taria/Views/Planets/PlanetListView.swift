@@ -28,9 +28,11 @@ struct PlanetListView: View {
                 }
             }
             .listStyle(.plain)
-            .onAppear {
-                Task {
+            .task {
+                do {
                     planets = try await planetRepo.fetch()
+                } catch {
+                    print("Failed to fetch planets: \(error)")
                 }
             }
 

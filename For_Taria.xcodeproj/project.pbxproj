@@ -44,13 +44,18 @@
 		54670A422CFFA1FC002FBC85 /* SWAPIPeopleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54670A412CFFA1EB002FBC85 /* SWAPIPeopleRepository.swift */; };
 		547D9CB92CC0AA9900F5CD13 /* For_TariaMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547D9CB82CC0AA9900F5CD13 /* For_TariaMainView.swift */; };
 		54842FFB2E0CC1AE00C7F38D /* SagaTextScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54842FFA2E0CC1AE00C7F38D /* SagaTextScrollView.swift */; };
+		54993D1430A68B9F0076F6FE /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54993D1330A68B9F0076F6FE /* PersonView.swift */; };
+		54993D1630A68CE10076F6FE /* StarshipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54993D1530A68CE10076F6FE /* StarshipView.swift */; };
+		54993D1830A68CE40076F6FE /* VehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54993D1730A68CE40076F6FE /* VehicleView.swift */; };
+		54993D1A30A68CE70076F6FE /* SpeciesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54993D1930A68CE70076F6FE /* SpeciesView.swift */; };
+		54993D1C30A68CEA0076F6FE /* FilmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54993D1B30A68CEA0076F6FE /* FilmView.swift */; };
 		54ACB66B2D9C9F8600B7D262 /* DissolveRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ACB66A2D9C9F7E00B7D262 /* DissolveRenderer.swift */; };
 		54ADE75B2D9349CB0018273D /* WalkingManView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ADE75A2D9349CB0018273D /* WalkingManView.swift */; };
 		54ADE75D2D934A700018273D /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 54ADE75C2D934A700018273D /* Shaders.metal */; };
 		54ADE7612D9491A60018273D /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ADE7602D9491970018273D /* Transitions.swift */; };
 		54ADE7632D94921A0018273D /* AnyTransition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ADE7622D94920C0018273D /* AnyTransition+Extension.swift */; };
 		54AFEDB42D9745140099C35A /* PlanetFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AFEDB32D9744F70099C35A /* PlanetFocusView.swift */; };
-		54E976E62A2A430500D2A1E2 /* StarshipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E976E52A2A430500D2A1E2 /* StarshipView.swift */; };
+		54E976E62A2A430500D2A1E2 /* StarshipViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E976E52A2A430500D2A1E2 /* StarshipViewCell.swift */; };
 		54E976E82A2A44A600D2A1E2 /* StarshipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E976E72A2A44A600D2A1E2 /* StarshipsView.swift */; };
 		54E976EF2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E976EE2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift */; };
 		54E976F22A2A7FF700D2A1E2 /* FilmListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E976F12A2A7FF700D2A1E2 /* FilmListViewCell.swift */; };
@@ -118,6 +123,11 @@
 		54670A412CFFA1EB002FBC85 /* SWAPIPeopleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAPIPeopleRepository.swift; sourceTree = "<group>"; };
 		547D9CB82CC0AA9900F5CD13 /* For_TariaMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = For_TariaMainView.swift; sourceTree = "<group>"; };
 		54842FFA2E0CC1AE00C7F38D /* SagaTextScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SagaTextScrollView.swift; sourceTree = "<group>"; };
+		54993D1330A68B9F0076F6FE /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		54993D1530A68CE10076F6FE /* StarshipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipView.swift; sourceTree = "<group>"; };
+		54993D1730A68CE40076F6FE /* VehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleView.swift; sourceTree = "<group>"; };
+		54993D1930A68CE70076F6FE /* SpeciesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesView.swift; sourceTree = "<group>"; };
+		54993D1B30A68CEA0076F6FE /* FilmView.swift */ = {isa = PBXFileReference; path = FilmView.swift; sourceTree = "<group>"; };
 		54ACB66A2D9C9F7E00B7D262 /* DissolveRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DissolveRenderer.swift; sourceTree = "<group>"; };
 		54ADE75A2D9349CB0018273D /* WalkingManView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingManView.swift; sourceTree = "<group>"; };
 		54ADE75C2D934A700018273D /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
@@ -125,7 +135,7 @@
 		54ADE7622D94920C0018273D /* AnyTransition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyTransition+Extension.swift"; sourceTree = "<group>"; };
 		54ADE7642D95FF700018273D /* For-Taria-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "For-Taria-Info.plist"; sourceTree = SOURCE_ROOT; };
 		54AFEDB32D9744F70099C35A /* PlanetFocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetFocusView.swift; sourceTree = "<group>"; };
-		54E976E52A2A430500D2A1E2 /* StarshipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipView.swift; sourceTree = "<group>"; };
+		54E976E52A2A430500D2A1E2 /* StarshipViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipViewCell.swift; sourceTree = "<group>"; };
 		54E976E72A2A44A600D2A1E2 /* StarshipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipsView.swift; sourceTree = "<group>"; };
 		54E976EE2A2A5AC500D2A1E2 /* StarWarsFilmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsFilmDataModel.swift; sourceTree = "<group>"; };
 		54E976F12A2A7FF700D2A1E2 /* FilmListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmListViewCell.swift; sourceTree = "<group>"; };
@@ -413,6 +423,7 @@
 			children = (
 				5441B39C2A296EEB00405481 /* PeopleView.swift */,
 				5441B3A02A2975E500405481 /* PeopleViewCell.swift */,
+				54993D1330A68B9F0076F6FE /* PersonView.swift */,
 			);
 			path = People;
 			sourceTree = "<group>";
@@ -430,8 +441,9 @@
 		54E976EB2A2A58B300D2A1E2 /* Starships */ = {
 			isa = PBXGroup;
 			children = (
-				54E976E52A2A430500D2A1E2 /* StarshipView.swift */,
+				54E976E52A2A430500D2A1E2 /* StarshipViewCell.swift */,
 				54E976E72A2A44A600D2A1E2 /* StarshipsView.swift */,
+				54993D1530A68CE10076F6FE /* StarshipView.swift */,
 			);
 			path = Starships;
 			sourceTree = "<group>";
@@ -452,6 +464,7 @@
 			children = (
 				54E976FE2A2AC03A00D2A1E2 /* VehicleListViewCell.swift */,
 				54E977002A2AC13700D2A1E2 /* VehicleListView.swift */,
+				54993D1730A68CE40076F6FE /* VehicleView.swift */,
 			);
 			path = Vehicles;
 			sourceTree = "<group>";
@@ -461,6 +474,7 @@
 			children = (
 				54E976F12A2A7FF700D2A1E2 /* FilmListViewCell.swift */,
 				54E976F32A2A827000D2A1E2 /* FilmsListView.swift */,
+				54993D1B30A68CEA0076F6FE /* FilmView.swift */,
 			);
 			path = Films;
 			sourceTree = "<group>";
@@ -470,6 +484,7 @@
 			children = (
 				54E976F82A2A8C5800D2A1E2 /* SpeciesListViewCell.swift */,
 				54E976FA2A2A8DA100D2A1E2 /* SpeciesListView.swift */,
+				54993D1930A68CE70076F6FE /* SpeciesView.swift */,
 			);
 			path = Species;
 			sourceTree = "<group>";
@@ -525,7 +540,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2650;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 2720;
 				TargetAttributes = {
 					5441B37C2A29203500405481 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -584,6 +599,7 @@
 				54384F222D9204730025F636 /* View+Extensions.swift in Sources */,
 				54ACB66B2D9C9F8600B7D262 /* DissolveRenderer.swift in Sources */,
 				54E976E82A2A44A600D2A1E2 /* StarshipsView.swift in Sources */,
+				54993D1630A68CE10076F6FE /* StarshipView.swift in Sources */,
 				54384F242D92096D0025F636 /* RippleEffect.metal in Sources */,
 				5441B39D2A296EEB00405481 /* PeopleView.swift in Sources */,
 				54AFEDB42D9745140099C35A /* PlanetFocusView.swift in Sources */,
@@ -594,6 +610,7 @@
 				540B61182A3125DE00DB1FBB /* SwapiEndpoints.swift in Sources */,
 				541749DE2D00C1FD008E3B51 /* SwapiSpeciesRepository.swift in Sources */,
 				5441B3A52A29806B00405481 /* PlanetListViewCell.swift in Sources */,
+				54993D1C30A68CEA0076F6FE /* FilmView.swift in Sources */,
 				541749E02D00CC91008E3B51 /* SwapiVehicleRepository.swift in Sources */,
 				54E976FD2A2A94F400D2A1E2 /* StarWarsVehicleDataModel.swift in Sources */,
 				54384F2A2D92234A0025F636 /* Renderer.swift in Sources */,
@@ -607,10 +624,11 @@
 				5441B38D2A29203A00405481 /* For_Taria.xcdatamodeld in Sources */,
 				54ADE75D2D934A700018273D /* Shaders.metal in Sources */,
 				54384F1D2D91F9EF0025F636 /* ProgressiveGlow.swift in Sources */,
+				54993D1A30A68CE70076F6FE /* SpeciesView.swift in Sources */,
 				54659F372E0B30000013782C /* MockService.swift in Sources */,
 				5441B3A32A29805600405481 /* PlanetListView.swift in Sources */,
 				54ADE7612D9491A60018273D /* Transitions.swift in Sources */,
-				54E976E62A2A430500D2A1E2 /* StarshipView.swift in Sources */,
+				54E976E62A2A430500D2A1E2 /* StarshipViewCell.swift in Sources */,
 				5441B3A12A2975E500405481 /* PeopleViewCell.swift in Sources */,
 				5441B3832A29203500405481 /* ContentView.swift in Sources */,
 				54842FFB2E0CC1AE00C7F38D /* SagaTextScrollView.swift in Sources */,
@@ -620,6 +638,8 @@
 				54085AB52A38B55E00BCC682 /* CategoryView.swift in Sources */,
 				54ADE75B2D9349CB0018273D /* WalkingManView.swift in Sources */,
 				54E976FF2A2AC03A00D2A1E2 /* VehicleListViewCell.swift in Sources */,
+				54993D1430A68B9F0076F6FE /* PersonView.swift in Sources */,
+				54993D1830A68CE40076F6FE /* VehicleView.swift in Sources */,
 				54659F342E0A0F190013782C /* PixellationEffect.swift in Sources */,
 				54384F1A2D91F94A0025F636 /* Comparable+Extensions.swift in Sources */,
 				54659F392E0B34CF0013782C /* MockServiceManager.swift in Sources */,
@@ -692,6 +712,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = HHBGC2J5CX;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -713,6 +734,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
@@ -754,6 +776,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = HHBGC2J5CX;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -768,6 +791,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 6.0;
@@ -783,7 +807,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"For_Taria/Preview Content\"";
-				DEVELOPMENT_TEAM = HHBGC2J5CX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "For-Taria-Info.plist";
@@ -814,7 +837,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"For_Taria/Preview Content\"";
-				DEVELOPMENT_TEAM = HHBGC2J5CX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "For-Taria-Info.plist";
@@ -845,7 +867,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HHBGC2J5CX;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -873,7 +894,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HHBGC2J5CX;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;

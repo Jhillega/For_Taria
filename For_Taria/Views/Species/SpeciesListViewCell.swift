@@ -9,22 +9,13 @@ import SwiftUI
 
 struct SpeciesListViewCell: View {
     let species: Species
-    // Row accent color derived from species designation for quick visual differentiation.
-    var characterColor: Color {
-        switch species.designation {
-        case .reptilian:
-            return Color.green
-        case .sentient:
-            return Color.yellow
-        }
-    }
     
     var body: some View {
         HStack {
             Image(systemName: "person")
                 .resizable()
                 .scaledToFit()
-                .foregroundColor(characterColor)
+                .foregroundColor(species.accentColor)
                 .padding()
             
             VStack(alignment: .leading) {
@@ -38,6 +29,19 @@ struct SpeciesListViewCell: View {
             Spacer()
         }
         .frame(height: 150.00)
+    }
+}
+
+extension Species {
+    // Accent color derived from species designation for quick visual differentiation.
+    // Shared by SpeciesListViewCell and SpeciesView.
+    var accentColor: Color {
+        switch designation {
+        case .reptilian:
+            return Color.green
+        case .sentient:
+            return Color.yellow
+        }
     }
 }
 
