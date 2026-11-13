@@ -19,9 +19,11 @@ struct StarshipsView: View {
             }
             .listStyle(.plain)
         }
-        .onAppear {
-            Task {
+        .task {
+            do {
                 starships = try await starshipRepo.fetch()
+            } catch {
+                print("Failed to fetch starships: \(error)")
             }
         }
         .navigationBarTitle(ResourceCategory.starships.rawValue.localizedCapitalized, displayMode: .inline)

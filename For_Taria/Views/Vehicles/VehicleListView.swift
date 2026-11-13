@@ -21,9 +21,11 @@ struct VehicleListView: View {
                 })
             }
             .listStyle(.plain)
-            .onAppear {
-                Task {
+            .task {
+                do {
                     vehicles = try await vehicleRepo.fetch()
+                } catch {
+                    print("Failed to fetch vehicles: \(error)")
                 }
             }
         }

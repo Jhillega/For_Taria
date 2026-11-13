@@ -20,9 +20,11 @@ struct FilmsListView: View {
                     })
                 }
                 .listStyle(.plain)
-                .onAppear {
-                    Task {
+                .task {
+                    do {
                         films = try await filmRepo.fetch()
+                    } catch {
+                        print("Failed to fetch films: \(error)")
                     }
                 }
             }
