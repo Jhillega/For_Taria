@@ -9,14 +9,22 @@ import SwiftUI
 
 struct FilmsListView: View {
     @State private var films = [Film]()
+    @State private var filmInFocus = false
+    @State private var selectedFilm: Film?
     let filmRepo = SwapiFilmRepository()
     
     var body: some View {
-            VStack {
+            ZStack {
                 List {
                     ForEach(films, content: { film in
                         FilmListViewCell(film: film)
                             .listRowBackground(Color.black)
+                            .onTapGesture {
+                                selectedFilm = film
+                                withAnimation {
+                                    filmInFocus = true
+                                }
+                            }
                     })
                 }
                 .listStyle(.plain)
@@ -26,6 +34,18 @@ struct FilmsListView: View {
                     } catch {
                         print("Failed to fetch films: \(error)")
                     }
+                }
+
+                // Overlay the detail view in place, mirroring PlanetListView.
+                if filmInFocus, let selectedFilm {
+                    ScrollView {
+                        FilmView(isPresented: $filmInFocus, film: selectedFilm)
+                            .frame(width: 400, height: 800, alignment: .center)
+                            .foregroundStyle(.yellow)
+                            .background(.black)
+                    }
+                    .background(Color.black)
+                    .transition(.blurReplace)
                 }
             }
             .navigationBarTitle(ResourceCategory.films.rawValue.localizedCapitalized, displayMode: .inline)

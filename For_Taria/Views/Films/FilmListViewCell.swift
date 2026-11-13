@@ -12,8 +12,7 @@ struct FilmListViewCell: View {
     
     var body: some View {
         HStack {
-            let imageString = selectCorrectFilmImageString(for: film.episodeID)
-            Image(imageString)
+            Image(film.imageName)
                 .resizable()
                 .scaledToFit()
             VStack(alignment: .leading) {
@@ -32,42 +31,22 @@ struct FilmListViewCell: View {
         .foregroundColor(.yellow)
         .background(Color.black)
     }
-    
-    
+}
+
+extension Film {
     // Maps SWAPI episode number to the corresponding asset catalog image name.
-    func selectCorrectFilmImageString(for film: Int) -> String {
-        var imageString = ""
-        
-        switch film {
-        case 1:
-            imageString = films.episode_one.rawValue
-        case 2:
-            imageString = films.episode_two.rawValue
-        case 3:
-            imageString = films.episode_three.rawValue
-        case 4:
-            imageString = films.episode_four.rawValue
-        case 5:
-            imageString = films.episode_five.rawValue
-        case 6:
-            imageString = films.episode_six.rawValue
-        case 7:
-            imageString = films.episode_seven.rawValue
-        default:
-            imageString = ""
+    // Shared by FilmListViewCell and FilmView so both show the same poster.
+    var imageName: String {
+        switch episodeID {
+        case 1: return "episode_one"
+        case 2: return "episode_two"
+        case 3: return "episode_three"
+        case 4: return "episode_four"
+        case 5: return "episode_five"
+        case 6: return "episode_six"
+        case 7: return "episode_seven"
+        default: return ""
         }
-        
-        return imageString
-    }
-    
-    private enum films: String {
-        case episode_one = "episode_one"
-        case episode_two = "episode_two"
-        case episode_three = "episode_three"
-        case episode_four = "episode_four"
-        case episode_five = "episode_five"
-        case episode_six = "episode_six"
-        case episode_seven = "episode_seven"
     }
 }
 
