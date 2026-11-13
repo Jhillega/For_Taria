@@ -127,7 +127,7 @@
 		54993D1530A68CE10076F6FE /* StarshipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipView.swift; sourceTree = "<group>"; };
 		54993D1730A68CE40076F6FE /* VehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleView.swift; sourceTree = "<group>"; };
 		54993D1930A68CE70076F6FE /* SpeciesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesView.swift; sourceTree = "<group>"; };
-		54993D1B30A68CEA0076F6FE /* FilmView.swift */ = {isa = PBXFileReference; path = FilmView.swift; sourceTree = "<group>"; };
+		54993D1B30A68CEA0076F6FE /* FilmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmView.swift; sourceTree = "<group>"; };
 		54ACB66A2D9C9F7E00B7D262 /* DissolveRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DissolveRenderer.swift; sourceTree = "<group>"; };
 		54ADE75A2D9349CB0018273D /* WalkingManView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingManView.swift; sourceTree = "<group>"; };
 		54ADE75C2D934A700018273D /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };

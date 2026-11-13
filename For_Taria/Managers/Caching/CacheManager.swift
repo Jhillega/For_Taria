@@ -12,6 +12,8 @@ final class SwapiCache<Key: Hashable, Value> {
     private let dateProvider: () -> Date
     private let entryLifetime: TimeInterval
     private let keyTracker = KeyTracker()
+    // Set by `init(persistedAs:)`; writes the cache to disk after every mutation.
+    private var persist: (() -> Void)?
     
     init(dateProvider: @escaping () -> Date = Date.init, entryLifetime: TimeInterval = 12 * 60 * 60, maximumEntryCount: Int = 50) {
         self.dateProvider = dateProvider
@@ -25,6 +27,7 @@ final class SwapiCache<Key: Hashable, Value> {
         let entry = Entry(key: key, value: value, expirationDate: date)
         wrapped.setObject(entry, forKey: WrappedKey(key: key))
         keyTracker.keys.insert(key)
+        persist?()
     }
     
     func value(forKey key: Key) -> Value? {
@@ -44,6 +47,7 @@ final class SwapiCache<Key: Hashable, Value> {
     
     func removeValue(forKey key: Key) {
         wrapped.removeObject(forKey: WrappedKey(key: key))
+        persist?()
     }
 }
 
@@ -114,7 +118,26 @@ extension SwapiCache {
     }
 }
 
-extension SwapiCache.Entry: Codable where Key: Codable, Value: Codable {}
+extension SwapiCache.Entry: Codable where Key: Codable, Value: Codable {
+    private enum CodingKeys: String, CodingKey {
+        case key, value, expirationDate
+    }
+    
+    // Explicit because Decodable can't be synthesized for a class in an extension.
+    convenience init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.init(key: try container.decode(Key.self, forKey: .key),
+                  value: try container.decode(Value.self, forKey: .value),
+                  expirationDate: try container.decode(Date.self, forKey: .expirationDate))
+    }
+    
+    func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(key, forKey: .key)
+        try container.encode(value, forKey: .value)
+        try container.encode(expirationDate, forKey: .expirationDate)
+    }
+}
 
 private extension SwapiCache {
     func entry(forKey key: Key) -> Entry? {
@@ -150,14 +173,34 @@ extension SwapiCache: Codable where Key: Codable, Value: Codable {
         try container.encode(keyTracker.keys.compactMap(entry))
     }
     
+    // Creates a cache backed by a file in the caches directory. Unexpired entries
+    // from a previous launch are restored, and every change is written back to disk.
+    convenience init(persistedAs name: String,
+                     entryLifetime: TimeInterval = 12 * 60 * 60,
+                     maximumEntryCount: Int = 50,
+                     fileManager: FileManager = .default) {
+        self.init(entryLifetime: entryLifetime, maximumEntryCount: maximumEntryCount)
+        
+        if let url = Self.fileURL(withName: name, using: fileManager),
+           let data = try? Data(contentsOf: url),
+           let entries = try? JSONDecoder().decode([Entry].self, from: data) {
+            entries.filter { dateProvider() < $0.expirationDate }.forEach(insert)
+        }
+        
+        persist = { [weak self] in
+            try? self?.saveToDisk(withName: name, using: fileManager)
+        }
+    }
+    
+    private static func fileURL(withName name: String, using fileManager: FileManager) -> URL? {
+        fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first?
+            .appendingPathComponent(name + ".cache")
+    }
+    
     func saveToDisk(withName name: String,
                     using fileManager: FileManager = .default) throws {
-        let folderURLs = fileManager.urls(for: .cachesDirectory,
-                                          in: .userDomainMask)
-        
-        let fileURL = folderURLs[0].appendingPathComponent(name + ".cache")
-        let data = try JSONEncoder().encode(self)
-        try data.write(to: fileURL)
+        guard let fileURL = Self.fileURL(withName: name, using: fileManager) else { return }
+        let data = try JSONEncoder().encode(keyTracker.keys.compactMap(entry))
+        try data.write(to: fileURL, options: .atomic)
     }
 }
-

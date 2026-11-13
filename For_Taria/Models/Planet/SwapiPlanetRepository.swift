@@ -13,7 +13,7 @@ class SwapiPlanetRepository {
     static let shared = SwapiPlanetRepository()
     private var cacheReloadInterval: TimeInterval = SwapiCategoryEndpoints.planets.cacheTime
     var service = SWAPIService()
-    var cache = SwapiCache<URLRequest, [Planet]>()
+    var cache = SwapiCache<SwapiCategoryEndpoints, [Planet]>(persistedAs: "Planet")
     
     func fetch(bypassCache: Bool = false) async throws -> [Planet] {
         
@@ -27,7 +27,7 @@ class SwapiPlanetRepository {
             return await networkFetch(request)
         } else {
             
-            guard let results = cache.value(forKey: request), results.isEmpty == false else {
+            guard let results = cache.value(forKey: .planets), results.isEmpty == false else {
                 return await networkFetch(request)
             }
             
@@ -41,7 +41,7 @@ class SwapiPlanetRepository {
         
         switch items {
         case .success(let success):
-            cache.insert(success.results ?? [], forKey: request)
+            cache.insert(success.results ?? [], forKey: .planets)
             return success.results ?? []
         case .failure(let failure):
             debugPrint(failure.localizedDescription)

@@ -13,7 +13,7 @@ class SWAPIPeopleRepository {
     static let shared = SWAPIPeopleRepository()
     private var cacheReloadInterval: TimeInterval = SwapiCategoryEndpoints.people.cacheTime
     var service = SWAPIService()
-    let cache = SwapiCache<SwapiCategoryEndpoints, [Person]>()
+    let cache = SwapiCache<SwapiCategoryEndpoints, [Person]>(persistedAs: "People")
     
     func fetch(bypassCache: Bool = false, individual: Bool = false) async throws -> [Person] {
         if bypassCache {

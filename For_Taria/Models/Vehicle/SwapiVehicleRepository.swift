@@ -13,7 +13,7 @@ class SwapiVehicleRepository {
     static let shared = SwapiVehicleRepository()
     private var cacheReloadInterval: TimeInterval = SwapiCategoryEndpoints.vehicles.cacheTime
     var service = SWAPIService()
-    var cache = SwapiCache<URLRequest, [Vehicle]>()
+    var cache = SwapiCache<SwapiCategoryEndpoints, [Vehicle]>(persistedAs: "Vehicle")
     
     func fetch(bypassCache: Bool = false) async throws -> [Vehicle] {
         
@@ -27,7 +27,7 @@ class SwapiVehicleRepository {
             return await networkFetch(request)
         } else {
             
-            guard let results = cache.value(forKey: request), results.isEmpty == false else {
+            guard let results = cache.value(forKey: .vehicles), results.isEmpty == false else {
                 return await networkFetch(request)
             }
             
@@ -41,7 +41,7 @@ class SwapiVehicleRepository {
         
         switch items {
         case .success(let success):
-            cache.insert(success.results ?? [], forKey: request)
+            cache.insert(success.results ?? [], forKey: .vehicles)
             return success.results ?? []
         case .failure(let failure):
             debugPrint(failure.localizedDescription)

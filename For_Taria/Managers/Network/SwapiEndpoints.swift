@@ -7,7 +7,7 @@
 
 import Foundation
 //MARK: Swapi endpoint enums
-enum SwapiCategoryEndpoints: Int, CaseIterable {
+enum SwapiCategoryEndpoints: Int, CaseIterable, Codable {
     case people = 0
     case planets
     case vehicles

@@ -13,7 +13,7 @@ class SwapiFilmRepository {
     static let shared = SwapiFilmRepository()
     private var cacheReloadInterval: TimeInterval = SwapiCategoryEndpoints.films.cacheTime
     var service = SWAPIService()
-    var cache = SwapiCache<URLRequest, [Film]>()
+    var cache = SwapiCache<SwapiCategoryEndpoints, [Film]>(persistedAs: "Film")
     
     func fetch(bypassCache: Bool = false) async throws -> [Film] {
         
@@ -27,7 +27,7 @@ class SwapiFilmRepository {
             return await networkFetch(request)
         } else {
             
-            guard let results = cache.value(forKey: request), results.isEmpty == false else {
+            guard let results = cache.value(forKey: .films), results.isEmpty == false else {
                 return await networkFetch(request)
             }
             
@@ -41,7 +41,7 @@ class SwapiFilmRepository {
         
         switch items {
         case .success(let success):
-            cache.insert(success.results ?? [], forKey: request)
+            cache.insert(success.results ?? [], forKey: .films)
             return success.results ?? []
         case .failure(let failure):
             debugPrint(failure.localizedDescription)

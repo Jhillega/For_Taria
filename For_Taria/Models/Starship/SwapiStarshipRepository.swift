@@ -13,7 +13,7 @@ class SwapiStarshipRepository {
     static let shared = SwapiStarshipRepository()
     private var cacheReloadInterval: TimeInterval = SwapiCategoryEndpoints.starships.cacheTime
     var service = SWAPIService()
-    var cache = SwapiCache<URLRequest, [Starship]>()
+    var cache = SwapiCache<SwapiCategoryEndpoints, [Starship]>(persistedAs: "Starship")
     
     func fetch(bypassCache: Bool = false) async throws -> [Starship] {
         
@@ -27,7 +27,7 @@ class SwapiStarshipRepository {
             return await networkFetch(request)
         } else {
             
-            guard let results = cache.value(forKey: request), results.isEmpty == false else {
+            guard let results = cache.value(forKey: .starships), results.isEmpty == false else {
                 return await networkFetch(request)
             }
             
@@ -41,7 +41,7 @@ class SwapiStarshipRepository {
         
         switch items {
         case .success(let success):
-            cache.insert(success.results ?? [], forKey: request)
+            cache.insert(success.results ?? [], forKey: .starships)
             return success.results ?? []
         case .failure(let failure):
             debugPrint(failure.localizedDescription)
